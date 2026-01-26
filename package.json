@@ -1,0 +1,11 @@
+{
+  "name": "generalisol-website",
+  "version": "1.0.0",
+  "description": "General Isolierungen GmbH Website",
+  "scripts": {
+    "build": "echo 'Static website - no build needed'",
+    "start": "echo 'Static website'"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
