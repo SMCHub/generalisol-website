@@ -5,269 +5,420 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>General Isolierungen GmbH | Professionelle Isolierungen in Wollerau</title>
 
-<!-- Enhanced CSS mit modernen UI-Verbesserungen -->
+<!-- FIXED: Inline CSS statt CDN für bessere Kompatibilität -->
 <style>
-/* Import TailwindCSS Basis */
-@import url('https://cdn.tailwindcss.com');
+/* Reset & Base Styles */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    line-height: 1.6; 
+    color: #1a1a1a; 
+    background: #ffffff;
+}
 
-/* 🎨 MODERNE BUTTON IMPROVEMENTS */
+/* Container */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+
+/* 🎨 MODERNE BUTTON STYLES */
 .btn-primary {
-    @apply inline-flex justify-center items-center px-8 py-4 text-base font-semibold rounded-2xl;
-    @apply text-white bg-gradient-to-r from-gray-900 to-black;
-    @apply transform transition-all duration-300 ease-in-out;
-    @apply hover:scale-105 hover:shadow-2xl hover:shadow-black/25;
-    @apply active:scale-95 focus:outline-none focus:ring-4 focus:ring-gray-500/50;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 1rem;
+    color: white;
+    background: linear-gradient(to right, #1a1a1a, #000000);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px 0 rgba(0,0,0,0.1);
     position: relative;
     overflow: hidden;
 }
 
-.btn-primary::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-    transform: translateX(-100%);
-    transition: transform 0.6s;
+.btn-primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
 }
 
-.btn-primary:hover::before {
-    transform: translateX(100%);
+.btn-primary:active {
+    transform: translateY(0) scale(0.98);
 }
 
 .btn-secondary {
-    @apply inline-flex justify-center items-center px-8 py-4 text-base font-semibold rounded-2xl;
-    @apply text-gray-700 bg-white border-2 border-gray-200;
-    @apply transform transition-all duration-300 ease-in-out;
-    @apply hover:border-gray-900 hover:text-gray-900 hover:scale-105 hover:shadow-xl;
-    @apply active:scale-95 focus:outline-none focus:ring-4 focus:ring-gray-300/50;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 1rem;
+    color: #374151;
+    background: white;
+    text-decoration: none;
+    border: 2px solid #e5e7eb;
+    cursor: pointer;
+    transform: translateY(0);
+    transition: all 0.3s ease;
 }
 
-/* 🌟 CARD HOVER EFFECTS */
-.service-card {
-    @apply bg-white p-8 rounded-3xl border border-gray-100;
-    @apply transform transition-all duration-500 ease-in-out;
-    @apply hover:scale-105 hover:shadow-2xl hover:shadow-gray-900/10;
-    @apply hover:border-gray-200 hover:-translate-y-2;
+.btn-secondary:hover {
+    border-color: #1a1a1a;
+    color: #1a1a1a;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
-.service-icon {
-    @apply w-16 h-16 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl;
-    @apply flex items-center justify-center mb-6;
-    @apply transform transition-all duration-300;
+/* Header */
+.header {
+    background: white;
+    width: 100%;
+    border-bottom: 1px solid #f3f4f6;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.95);
 }
 
-.service-card:hover .service-icon {
-    @apply scale-110 bg-gradient-to-br from-gray-900 to-black text-white;
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
 }
 
-/* 🚀 HERO SECTION IMPROVEMENTS */
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-link {
+    color: #6b7280;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #1a1a1a;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #1a1a1a;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+    padding: 5rem 0;
+    text-align: center;
+}
+
 .hero-title {
-    @apply text-4xl md:text-6xl font-bold text-gray-900 mb-8;
-    background: linear-gradient(135deg, #1f2937 0%, #000000 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-size: 3.5rem;
+    font-weight: 800;
     line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
 }
 
 .hero-subtitle {
-    @apply text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed;
+    font-size: 1.25rem;
+    color: #6b7280;
+    max-width: 700px;
+    margin: 0 auto 3rem;
 }
 
-/* ✨ FLOATING ANIMATION */
-@keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+/* Services Section */
+.services {
+    padding: 5rem 0;
+    background: white;
 }
 
-.floating {
-    animation: float 3s ease-in-out infinite;
+.services-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #1a1a1a;
 }
 
-/* 🎯 CTA SECTION GLOW */
-.cta-section {
-    @apply py-24 bg-gradient-to-br from-gray-900 via-black to-gray-800;
-    position: relative;
-    overflow: hidden;
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
 }
 
-.cta-section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 0%, transparent 50%);
+.service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    border: 1px solid #f3f4f6;
+    transform: translateY(0);
+    transition: all 0.5s ease;
+    cursor: default;
 }
 
-/* 📱 MOBILE OPTIMIZATIONS */
-@media (max-width: 640px) {
-    .btn-primary, .btn-secondary {
-        @apply px-6 py-3 text-sm;
+.service-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    border-color: #e5e7eb;
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.service-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+}
+
+.service-description {
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+/* Contact Section */
+.contact {
+    background: #f9fafb;
+    padding: 5rem 0;
+}
+
+.contact-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #1a1a1a;
+}
+
+.contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-info {
+    background: white;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+}
+
+.contact-info h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+}
+
+.contact-info p {
+    margin-bottom: 0.5rem;
+    color: #6b7280;
+}
+
+.contact-link {
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .nav-menu { display: none; }
+    .hero-title { font-size: 2.5rem; }
+    .hero { padding: 3rem 0; }
+    .services { padding: 3rem 0; }
+    .contact { padding: 3rem 0; }
+    .service-grid { grid-template-columns: 1fr; }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
     }
-    
-    .hero-title {
-        @apply text-3xl;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
-    
-    .service-card {
-        @apply p-6;
-    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
 }
 </style>
 </head>
 
-<body class="bg-white">
+<body>
 
-<!-- 🏢 NAVIGATION (unverändert für Konsistenz) -->
-<nav class="bg-white w-full border-b border-gray-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-28">
-            <div class="flex items-center">
-                <a class="flex-shrink-0" href="index.html">
-                    <div class="relative h-24 w-80 -ml-4">
-                        <img alt="General Isolierungen Logo" src="https://via.placeholder.com/320x96/1f2937/ffffff?text=GeneralISOL" class="w-full h-full object-contain"/>
-                    </div>
-                </a>
-            </div>
-            <div class="hidden md:flex items-center space-x-8">
-                <a class="text-gray-700 hover:text-black font-medium transition-colors" href="index.html">Startseite</a>
-                <a class="text-gray-700 hover:text-black font-medium transition-colors" href="leistungen.html">Leistungen</a>
-                <a class="text-gray-700 hover:text-black font-medium transition-colors" href="ueber-uns.html">Über uns</a>
-                <a class="text-gray-700 hover:text-black font-medium transition-colors" href="kontakt.html">Kontakt</a>
-            </div>
-        </div>
+<!-- 🏢 NAVIGATION -->
+<header class="header">
+    <div class="nav-container">
+        <a href="#" class="logo">GeneralISOL</a>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Startseite</a></li>
+                <li><a href="#services" class="nav-link">Leistungen</a></li>
+                <li><a href="#about" class="nav-link">Über uns</a></li>
+                <li><a href="#contact" class="nav-link">Kontakt</a></li>
+            </ul>
+        </nav>
     </div>
-</nav>
+</header>
 
-<!-- 🚀 IMPROVED HERO SECTION -->
-<section class="bg-gradient-to-br from-gray-50 via-white to-gray-50 py-20 md:py-32">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center floating">
-            <h1 class="hero-title">
-                Professionelle Isolierungen<br/>
-                für höchste Ansprüche
-            </h1>
-            <p class="hero-subtitle max-w-4xl mx-auto">
-                Wir von General Isolierungen GmbH sind Experten für die Isolierung von 
-                Sanitäranlagen, Lüftungssystemen und Heizungsanlagen und finden für 
-                jede Aufgabe die optimale Lösung.
-            </p>
-            
-            <!-- ✨ IMPROVED BUTTONS -->
-            <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                <a href="leistungen.html" class="btn-primary">
-                    Unsere Leistungen
-                    <svg class="w-5 h-5 ml-2 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                    </svg>
-                </a>
-                <a href="kontakt.html" class="btn-secondary">
-                    Kontakt aufnehmen
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 🏢 IMPROVED SERVICES SECTION -->
-<section class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-20">
-            <h2 class="text-4xl font-bold text-gray-900 mb-6">Unsere Leistungen</h2>
-            <p class="max-w-3xl mx-auto text-xl text-gray-600">
-                Wir bieten ein umfassendes Angebot an Isolierungslösungen für verschiedene Anwendungsbereiche.
-            </p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <!-- Service Card 1 -->
-            <div class="service-card group">
-                <div class="service-icon">
-                    <svg class="w-8 h-8 text-gray-900 transition-colors group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M7.05 8.46a5.94 5.94 0 0 0-2.23 2.42 5.94 5.94 0 0 0 2.23 2.42M16.94 8.46a5.94 5.94 0 0 1 2.23 2.42 5.94 5.94 0 0 1-2.23 2.42M12 6.5a5.94 5.94 0 0 1-4.47 1.96A5.94 5.94 0 0 1 12 10.42a5.94 5.94 0 0 1 4.47-1.96A5.94 5.94 0 0 1 12 6.5m0 11a5.94 5.94 0 0 0 4.47-1.96 5.94 5.94 0 0 0-4.47-1.96 5.94 5.94 0 0 0-4.47 1.96A5.94 5.94 0 0 0 12 17.5"/>
-                    </svg>
-                </div>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">Sanitäranlagen-Dämmung</h3>
-                <p class="text-gray-600 mb-6 leading-relaxed">
-                    Isolieren von Rohrleitungen für Sanitäranlagen unter Einhaltung der geltenden 
-                    Energieverordnung mit wirtschaftlichen und umweltschonenden Dämmstoffen.
-                </p>
-                <a href="leistungen.html" class="text-gray-900 font-semibold hover:text-black inline-flex items-center group">
-                    Mehr erfahren
-                    <svg class="w-4 h-4 ml-2 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                    </svg>
-                </a>
-            </div>
-            
-            <!-- Service Card 2 -->
-            <div class="service-card group">
-                <div class="service-icon">
-                    <svg class="w-8 h-8 text-gray-900 transition-colors group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 14v-4M12 14v-4M16 14v-4M3 7h18M5 21h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2Z"/>
-                    </svg>
-                </div>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">Lüftungsdämmung</h3>
-                <p class="text-gray-600 mb-6 leading-relaxed">
-                    Dämmen von Lüftungskanälen als Schutz vor Energieverlust, gegen Brandausbreitung 
-                    sowie als Schutz vor Zirkulationsgeräuschen und Tauwasserbildung.
-                </p>
-                <a href="leistungen.html" class="text-gray-900 font-semibold hover:text-black inline-flex items-center group">
-                    Mehr erfahren
-                    <svg class="w-4 h-4 ml-2 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                    </svg>
-                </a>
-            </div>
-            
-            <!-- Service Card 3 -->
-            <div class="service-card group">
-                <div class="service-icon">
-                    <svg class="w-8 h-8 text-gray-900 transition-colors group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M4.5 10H2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-7h-2.5 M12 2v8M8 5l4-3 4 3"/>
-                    </svg>
-                </div>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">Schallschutz</h3>
-                <p class="text-gray-600 mb-6 leading-relaxed">
-                    Schallschutz von Ablaufleitungen zur Verhinderung von Emissionen infolge 
-                    Funktions- und Benutzergeräuschen mittels geeigneter Schallschutzsysteme.
-                </p>
-                <a href="leistungen.html" class="text-gray-900 font-semibold hover:text-black inline-flex items-center group">
-                    Mehr erfahren
-                    <svg class="w-4 h-4 ml-2 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 🚀 IMPROVED CTA SECTION -->
-<section class="cta-section relative">
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">
-            Bereit für Ihr nächstes Projekt?
-        </h2>
-        <p class="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Kontaktieren Sie uns für eine unverbindliche Beratung. Wir beraten Sie 
-            gerne zu allen Fragen rund um Isolierungen und Dämmungen.
+<!-- 🚀 HERO SECTION -->
+<section class="hero fade-in-up" id="home">
+    <div class="container">
+        <h1 class="hero-title">
+            Professionelle Isolierungen<br/>
+            für höchste Ansprüche
+        </h1>
+        <p class="hero-subtitle">
+            Mit über 15 Jahren Erfahrung bieten wir in Wollerau und der ganzen Schweiz 
+            erstklassige Isolierungslösungen für Ihre Gebäude und Anlagen.
         </p>
-        <a href="kontakt.html" class="inline-flex items-center px-10 py-5 text-lg font-semibold rounded-2xl text-black bg-white hover:bg-gray-100 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-white/50">
-            Jetzt Kontakt aufnehmen
-            <svg class="w-6 h-6 ml-3 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-            </svg>
-        </a>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="#contact" class="btn-primary">Jetzt Kontakt aufnehmen</a>
+            <a href="#services" class="btn-secondary">Unsere Leistungen</a>
+        </div>
     </div>
 </section>
 
-<!-- 📧 FOOTER (vereinfacht für Demo) -->
-<footer class="bg-gray-100 py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h3 class="text-lg font-semibold text-gray-900 mb-4">General Isolierungen GmbH</h3>
-        <p class="text-gray-600">Samstagernstrasse 45, 8832 Wollerau</p>
-        <p class="text-gray-600">info@generalisol.ch</p>
-        <p class="text-sm text-gray-500 mt-8">© 2026 General Isolierungen GmbH</p>
+<!-- 📋 SERVICES SECTION -->
+<section class="services" id="services">
+    <div class="container">
+        <h2 class="services-title">Unsere Leistungen</h2>
+        
+        <div class="service-grid">
+            <div class="service-card fade-in-up">
+                <span class="service-icon">🏠</span>
+                <h3 class="service-title">Gebäudeisolierung</h3>
+                <p class="service-description">
+                    Fassadenisolierung, Dachdämmung und Kellerabdichtung für 
+                    optimalen Wärmeschutz und Energieeffizienz Ihres Gebäudes.
+                </p>
+            </div>
+            
+            <div class="service-card fade-in-up">
+                <span class="service-icon">🔧</span>
+                <h3 class="service-title">Technische Isolierung</h3>
+                <p class="service-description">
+                    Rohrleitungen, Kanäle und Behälter-Isolierungen für 
+                    Industrie und Gewerbe nach höchsten Qualitätsstandards.
+                </p>
+            </div>
+            
+            <div class="service-card fade-in-up">
+                <span class="service-icon">🔥</span>
+                <h3 class="service-title">Brandschutz</h3>
+                <p class="service-description">
+                    Brandschutz-Verkleidungen und feuerhemmende Isolierungen 
+                    nach aktuellen Schweizer Sicherheitsstandards und Normen.
+                </p>
+            </div>
+            
+            <div class="service-card fade-in-up">
+                <span class="service-icon">🎯</span>
+                <h3 class="service-title">Schallschutz</h3>
+                <p class="service-description">
+                    Akustische Dämmungen für Ruhe und Komfort in Wohn- und 
+                    Geschäftsräumen mit modernsten Materialien.
+                </p>
+            </div>
+            
+            <div class="service-card fade-in-up">
+                <span class="service-icon">❄️</span>
+                <h3 class="service-title">Kälteisolierung</h3>
+                <p class="service-description">
+                    Spezialisolierungen für Kühlräume, Klimaanlagen und 
+                    kältetechnische Anlagen mit höchster Effizienz.
+                </p>
+            </div>
+            
+            <div class="service-card fade-in-up">
+                <span class="service-icon">🏗️</span>
+                <h3 class="service-title">Industrieisolierung</h3>
+                <p class="service-description">
+                    Umfassende Isolierungslösungen für Industrieanlagen, 
+                    Kraftwerke und komplexe technische Installationen.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 📞 CONTACT SECTION -->
+<section class="contact" id="contact">
+    <div class="container">
+        <h2 class="contact-title">Kontakt aufnehmen</h2>
+        
+        <div class="contact-content">
+            <div class="contact-info fade-in-up">
+                <h3>General Isolierungen GmbH</h3>
+                <p>Samstagernstrasse 45</p>
+                <p>8832 Wollerau, Schweiz</p>
+                <p>📞 <a href="tel:+41449251234" class="contact-link">+41 44 925 12 34</a></p>
+                <p>✉️ <a href="mailto:info@generalisol.ch" class="contact-link">info@generalisol.ch</a></p>
+                <p>🌐 <a href="https://generalisol.ch" class="contact-link">www.generalisol.ch</a></p>
+            </div>
+            
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="tel:+41449251234" class="btn-primary">📞 Jetzt anrufen</a>
+                <a href="mailto:info@generalisol.ch" class="btn-secondary">✉️ E-Mail senden</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer style="background: #1a1a1a; color: white; padding: 2rem 0; text-align: center;">
+    <div class="container">
+        <p>&copy; 2026 General Isolierungen GmbH - Alle Rechte vorbehalten</p>
+        <p style="margin-top: 0.5rem; font-size: 0.875rem; opacity: 0.8;">
+            Professionelle Isolierungen in Wollerau und der ganzen Schweiz
+        </p>
     </div>
 </footer>
 
