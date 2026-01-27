@@ -88,24 +88,23 @@
         .logo-container {
             display: flex;
             align-items: center;
-            text-decoration: none;
+            height: 4rem;
+            width: 16rem;
+            margin-left: -0.5rem;
             transition: all 0.3s ease;
         }
         
         .logo-container:hover {
             transform: scale(1.02);
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
         }
         
-        .logo-text {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            letter-spacing: -0.02em;
+        .logo {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            filter: brightness(1.1) contrast(1.1);
             transition: all 0.3s ease;
-        }
-        
-        .logo-text:hover {
-            color: #374151;
         }
         
         .nav-menu {
@@ -492,8 +491,10 @@
                 cursor: pointer;
             }
             
-            .logo-text {
-                font-size: 1.4rem !important;
+            .logo-container {
+                width: 12rem !important;
+                height: 3.5rem !important;
+                margin-left: 0 !important;
             }
             
             .nav-container {
@@ -588,7 +589,9 @@
     <div class="nav-container">
         <div class="flex items-center">
             <a href="index.html" class="logo-container">
-                <div class="logo-text">Generalisol</div>
+                <img alt="General Isolierungen GmbH Logo" class="logo" 
+                     src="logo.svg"
+                     onerror="this.innerHTML='<div style=\'font-size:1.2rem;font-weight:bold;color:#1a1a1a;\'>General Isolierungen GmbH</div>'" />
             </a>
             <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
         </div>
