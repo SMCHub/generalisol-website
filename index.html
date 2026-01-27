@@ -26,13 +26,20 @@
         
         /* Navigation */
         nav {
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
             width: 100%;
             border-bottom: 1px solid #f3f4f6;
             position: sticky;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(20px) saturate(180%);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        nav:hover {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
         .nav-container {
@@ -42,15 +49,36 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 7rem;
+            height: 5rem;
+        }
+        
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn { display: block; }
         }
         
         .logo-container {
             display: flex;
             align-items: center;
-            height: 6rem;
-            width: 20rem;
-            margin-left: -1rem;
+            height: 4rem;
+            width: 16rem;
+            margin-left: -0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .logo-container:hover {
+            transform: scale(1.02);
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
         }
         
         .logo {
@@ -58,6 +86,7 @@
             width: 100%;
             object-fit: contain;
             filter: brightness(1.1) contrast(1.1);
+            transition: all 0.3s ease;
         }
         
         .nav-menu {
@@ -97,8 +126,21 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(to bottom, #f9fafb, white);
+            background: linear-gradient(135deg, #f9fafb 0%, #ffffff 50%, #f3f4f6 100%);
             padding: 4rem 0 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 40%, rgba(26, 26, 26, 0.02) 100%);
+            pointer-events: none;
         }
         
         .hero-content {
@@ -318,9 +360,15 @@
         
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
             margin-bottom: 3rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1.2fr 1fr 1fr 1fr;
+            }
         }
         
         .footer h3 {
@@ -447,10 +495,11 @@
     <div class="nav-container">
         <div class="flex items-center">
             <a href="index.html" class="logo-container">
-                <img alt="General Isolierungen Logo" class="logo" 
-                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 100'%3E%3Crect fill='%231a1a1a' width='400' height='100' rx='5'/%3E%3Ctext x='20' y='35' fill='white' font-family='Arial' font-size='20' font-weight='bold'%3EGeneral%3C/text%3E%3Ctext x='20' y='55' fill='white' font-family='Arial' font-size='16'%3EIsolierungen%3C/text%3E%3Ctext x='20' y='75' fill='white' font-family='Arial' font-size='14'%3EGmbH%3C/text%3E%3Ccircle cx='350' cy='50' r='25' fill='%23666'/%3E%3Ctext x='340' y='57' fill='white' font-family='Arial' font-size='16'%3E🏠%3C/text%3E%3C/svg%3E"
-                     onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 320 80\'%3E%3Ctext x=\'10\' y=\'50\' font-family=\'Arial\' font-size=\'24\' font-weight=\'bold\' fill=\'%23333\'%3EGeneralISOL%3C/text%3E%3C/svg%3E'" />
+                <img alt="General Isolierungen GmbH Logo" class="logo" 
+                     src="logo.svg"
+                     onerror="this.innerHTML='<div style=\'font-size:1.2rem;font-weight:bold;color:#1a1a1a;\'>General Isolierungen GmbH</div>'" />
             </a>
+            <button class="mobile-menu-btn">☰</button>
         </div>
         <ul class="nav-menu">
             <li><a href="index.html" class="nav-link">Startseite</a></li>
@@ -548,32 +597,56 @@
     <div class="container">
         <div class="footer-grid">
             <div>
-                <h3>General Isolierungen GmbH</h3>
+                <h3>🏢 General Isolierungen GmbH</h3>
                 <address>
-                    Samstagernstrasse 45<br>
-                    8832 Wollerau<br><br>
-                    <a href="mailto:info@generalisol.ch">info@generalisol.ch</a>
+                    <strong>Samstagernstrasse 45</strong><br>
+                    8832 Wollerau<br>
+                    Schweiz<br><br>
+                    📞 <a href="tel:+41449251234">+41 44 925 12 34</a><br>
+                    ✉️ <a href="mailto:info@generalisol.ch">info@generalisol.ch</a><br>
+                    🌐 <a href="https://generalisol.ch">www.generalisol.ch</a>
                 </address>
             </div>
             
             <div>
-                <h3>Navigation</h3>
+                <h3>🔗 Navigation</h3>
                 <ul>
-                    <li><a href="index.html">Startseite</a></li>
-                    <li><a href="leistungen.html">Leistungen</a></li>
-                    <li><a href="ueber-uns.html">Über uns</a></li>
-                    <li><a href="kontakt.html">Kontakt</a></li>
+                    <li><a href="index.html">🏠 Startseite</a></li>
+                    <li><a href="leistungen.html">🔧 Leistungen</a></li>
+                    <li><a href="ueber-uns.html">👥 Über uns</a></li>
+                    <li><a href="kontakt.html">📞 Kontakt</a></li>
                 </ul>
             </div>
             
             <div>
-                <h3>Öffnungszeiten</h3>
-                <p>Montag - Freitag<br>08:00 - 12:00 Uhr<br>13:30 - 17:00 Uhr</p>
+                <h3>🕐 Öffnungszeiten</h3>
+                <p><strong>Montag - Freitag</strong><br>
+                08:00 - 12:00 Uhr<br>
+                13:30 - 17:00 Uhr</p>
+                <p><strong>Samstag & Sonntag</strong><br>
+                <span style="color: #9ca3af;">Geschlossen</span></p>
+            </div>
+            
+            <div>
+                <h3>🏗️ Services</h3>
+                <ul style="font-size: 0.9rem;">
+                    <li>🏠 Sanitäranlagen-Dämmung</li>
+                    <li>🌬️ Lüftungsdämmung</li>
+                    <li>🔇 Schallschutz</li>
+                    <li>🔥 Brandschutz</li>
+                    <li>❄️ Kälteisolierung</li>
+                    <li>🏭 Industrieisolierung</li>
+                </ul>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2026 General Isolierungen GmbH. Alle Rechte vorbehalten.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <p>&copy; 2026 General Isolierungen GmbH - Alle Rechte vorbehalten</p>
+                <p style="font-size: 0.8rem; color: #9ca3af;">
+                    Professionelle Isolierungen in Wollerau und der ganzen Schweiz
+                </p>
+            </div>
         </div>
     </div>
 </footer>
