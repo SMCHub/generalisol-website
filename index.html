@@ -53,6 +53,24 @@
             width: 100%;
         }
         
+        @media (min-width: 769px) {
+            .nav-container {
+                justify-content: flex-start;
+                gap: 2rem;
+            }
+            .logo-container {
+                flex-shrink: 0;
+            }
+            .nav-menu {
+                display: flex;
+                flex: 1;
+                justify-content: center;
+            }
+            .mobile-menu-btn {
+                display: none !important;
+            }
+        }
+        
         /* Mobile Menu Button */
         .mobile-menu-btn {
             display: none;
@@ -479,12 +497,16 @@
         
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            .nav-container {
+                justify-content: space-between !important;
+            }
+            
             .nav-menu { 
                 display: none !important; 
             }
             
             .mobile-menu-btn { 
-                display: block !important;
+                display: flex !important;
                 font-size: 1.8rem;
                 padding: 1rem;
                 color: #1a1a1a;
@@ -599,17 +621,16 @@
 <!-- Navigation -->
 <nav>
     <div class="nav-container">
-            <a href="index.html" class="logo-container">
-                <div class="logo-text">Generalisol</div>
-            </a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-        </div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Startseite</a></li>
-                <li><a href="leistungen.html" class="nav-link">Leistungen</a></li>
-                <li><a href="ueber-uns.html" class="nav-link">Über uns</a></li>
-                <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
-            </ul>
+        <a href="index.html" class="logo-container">
+            <div class="logo-text">Generalisol</div>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Startseite</a></li>
+            <li><a href="leistungen.html" class="nav-link">Leistungen</a></li>
+            <li><a href="ueber-uns.html" class="nav-link">Über uns</a></li>
+            <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
+        </ul>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
     </div>
     
     <!-- Mobile Menu -->
