@@ -5,101 +5,763 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Leistungen | General Isolierungen GmbH Wollerau</title>
     <meta name="description" content="Umfassende Isolierungsdienstleistungen: Sanitäranlagen, Lüftungsdämmung, Schallschutz, Brandschutz und mehr von General Isolierungen GmbH in Wollerau."/>
+    <meta name="author" content="General Isolierungen GmbH"/>
+    <meta name="keywords" content="Isolierung, Dämmung, Sanitäranlagen, Lüftungssysteme, Heizung, Schallschutz, Brandschutz, Wollerau, Schweiz"/>
+    <meta property="og:title" content="Leistungen | General Isolierungen GmbH Wollerau"/>
+    <meta property="og:description" content="Umfassende Isolierungsdienstleistungen: Sanitäranlagen, Lüftungsdämmung, Schallschutz, Brandschutz und mehr."/>
+    <meta property="og:url" content="https://www.generalisol.ch/leistungen.html"/>
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1a1a1a; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
-        header { background: white; border-bottom: 1px solid #f3f4f6; padding: 1rem 0; }
-        nav { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            width: 100%;
-            height: 4rem;
-            padding: 0 1rem;
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: white;
         }
-        .container { width: 100%; }
-        .logo { font-size: 1.5rem; font-weight: 700; color: #1a1a1a; text-decoration: none; }
-        .nav-links { display: flex; gap: 2rem; list-style: none; }
-        .nav-links a { text-decoration: none; color: #666; transition: color 0.3s; }
-        .nav-links a:hover { color: #1a1a1a; }
-        main { padding: 4rem 0; }
-        h1 { font-size: 2.5rem; margin-bottom: 1.5rem; }
-        .service-detail { background: #f9fafb; padding: 2rem; margin: 2rem 0; border-radius: 8px; }
-        .service-detail h2 { color: #1a1a1a; margin-bottom: 1rem; }
-        footer { background: #1a1a1a; color: white; padding: 2rem 0; margin-top: 4rem; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        
+        /* Navigation - Same as index.html */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            width: 100%;
+            border-bottom: 1px solid #f3f4f6;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px) saturate(180%);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        nav:hover {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 5rem;
+            width: 100%;
+        }
+        
+        @media (min-width: 769px) {
+            .nav-container {
+                justify-content: space-between;
+                gap: 2rem;
+            }
+            .logo-container {
+                flex-shrink: 0;
+            }
+            .nav-menu {
+                display: flex !important;
+                flex: 1;
+                justify-content: center;
+                gap: 2rem;
+            }
+            .mobile-menu-btn {
+                display: none !important;
+            }
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: #1a1a1a;
+            cursor: pointer;
+            padding: 1rem;
+            transition: all 0.2s ease;
+            border-radius: 4px;
+            min-width: 48px;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mobile-menu-btn:hover {
+            background: #f9fafb;
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn { 
+                display: flex !important; 
+            }
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .logo-container:hover {
+            transform: scale(1.02);
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1e40af 0%, #1a1a1a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-link {
+            color: #6b7280;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-link:hover {
+            color: #1a1a1a;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1a1a1a;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: #1e40af;
+            font-weight: 600;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 30%, #f1f5f9 100%);
+            padding: 3rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(ellipse at center right, rgba(30, 64, 175, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            letter-spacing: -0.04em;
+            background: linear-gradient(135deg, #1a1a1a 0%, #374151 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .page-header p {
+            font-size: 1.25rem;
+            color: #64748b;
+            max-width: 800px;
+            line-height: 1.7;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+        
+        /* Services Section */
+        .services-section {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .service-detail {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-detail::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-detail:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-detail:hover {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(30, 64, 175, 0.2);
+        }
+        
+        .service-detail h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .service-detail p {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+        
+        .service-detail ul {
+            list-style: none;
+            color: #374151;
+        }
+        
+        .service-detail ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-weight: 500;
+        }
+        
+        .service-detail ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #1e40af;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .cta-section p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+        
+        .btn-primary {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 12px;
+            background: white;
+            color: #1e40af;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: -0.02em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: #f8fafc;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background: #f3f4f6;
+            padding: 3rem 0 2rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1.2fr 1fr 1fr 1fr;
+            }
+        }
+        
+        .footer h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+        
+        .footer address {
+            font-style: normal;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+        
+        .footer ul {
+            list-style: none;
+            color: #6b7280;
+        }
+        
+        .footer ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer a {
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .footer a:hover {
+            color: #1a1a1a;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #e5e7eb;
+            padding-top: 2rem;
+            text-align: center;
+        }
+        
+        .footer-bottom p {
+            font-size: 0.875rem;
+            color: #9ca3af;
+        }
+        
+        /* Mobile Navigation */
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #f3f4f6;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-menu ul {
+            list-style: none;
+            padding: 1rem 0;
+            margin: 0;
+        }
+        
+        .mobile-menu li {
+            margin: 0;
+        }
+        
+        .mobile-menu a {
+            display: block;
+            padding: 1rem 2rem;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #f9fafb;
+            transition: all 0.2s ease;
+        }
+        
+        .mobile-menu a:hover {
+            background: #f9fafb;
+            color: #1a1a1a;
+            padding-left: 2.5rem;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                justify-content: space-between !important;
+                height: 4rem !important;
+            }
+            
+            .nav-menu { 
+                display: none !important; 
+            }
+            
+            .mobile-menu-btn { 
+                display: flex !important;
+            }
+            
+            .logo-text {
+                font-size: 1.4rem !important;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .page-header {
+                padding: 2rem 0 3rem;
+            }
+            
+            .services-section {
+                padding: 2rem 0;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-detail {
+                padding: 1.5rem;
+            }
+            
+            .cta-section {
+                padding: 3rem 0;
+            }
+            
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                text-align: center;
+            }
+            
+            .container {
+                padding: 0 0.5rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">Generalisol</a>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-                <ul class="nav-links">
-                    <li><a href="index.html">Startseite</a></li>
-                    <li><a href="leistungen.html">Leistungen</a></li>
-                    <li><a href="ueber-uns.html">Über uns</a></li>
-                    <li><a href="kontakt.html">Kontakt</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+
+<!-- Navigation -->
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="logo-container">
+            <div class="logo-text">Generalisol</div>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Startseite</a></li>
+            <li><a href="leistungen.html" class="nav-link active">Leistungen</a></li>
+            <li><a href="ueber-uns.html" class="nav-link">Über uns</a></li>
+            <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
+        </ul>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
     
-    <main>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html">🏠 Startseite</a></li>
+            <li><a href="leistungen.html">🔧 Leistungen</a></li>
+            <li><a href="ueber-uns.html">👥 Über uns</a></li>
+            <li><a href="kontakt.html">📞 Kontakt</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main>
+    <!-- Page Header -->
+    <section class="page-header">
         <div class="container">
             <h1>Unsere Leistungen</h1>
-            
-            <div class="service-detail">
-                <h2>🏠 Sanitäranlagen-Dämmung</h2>
-                <p>Professionelle Isolierung von Rohrleitungen für Sanitäranlagen unter Einhaltung der geltenden Energieverordnung. Wir verwenden ausschließlich wirtschaftliche und umweltschonende Dämmstoffe für optimale Energieeffizienz.</p>
-                <ul>
-                    <li>Warmwasser-Rohrleitungen</li>
-                    <li>Kaltwasser-Versorgung</li>
-                    <li>Zirkulationsleitungen</li>
-                    <li>Armaturen und Formstücke</li>
-                </ul>
-            </div>
-            
-            <div class="service-detail">
-                <h2>🌬️ Lüftungsdämmung</h2>
-                <p>Dämmen von Lüftungskanälen als wirkungsvoller Schutz vor Energieverlust, gegen Brandausbreitung sowie als Schutz vor Zirkulationsgeräuschen und Tauwasserbildung in klimatechnischen Anlagen.</p>
-                <ul>
-                    <li>Lüftungskanäle und -rohre</li>
-                    <li>Klimaanlagen-Komponenten</li>
-                    <li>Schalldämpfer</li>
-                    <li>Brandschutzklappen</li>
-                </ul>
-            </div>
-            
-            <div class="service-detail">
-                <h2>🔇 Schallschutz</h2>
-                <p>Schallschutz von Ablaufleitungen zur Verhinderung von Emissionen infolge Funktions- und Benutzergeräuschen mittels modernster und geeigneter Schallschutzsysteme.</p>
-                <ul>
-                    <li>Abwasserleitungen</li>
-                    <li>Fallrohre</li>
-                    <li>Installationsschächte</li>
-                    <li>Trittschalldämmung</li>
-                </ul>
-            </div>
-            
-            <div class="service-detail">
-                <h2>🔥 Brandschutz</h2>
-                <p>Professionelle Brandschutz-Verkleidungen und feuerhemmende Isolierungen nach aktuellen Schweizer Sicherheitsstandards für optimalen Gebäudeschutz.</p>
-                <ul>
-                    <li>Brandschutzbeschichtungen</li>
-                    <li>Feuerschutzabschlüsse</li>
-                    <li>Rauchschürzen</li>
-                    <li>Feuerhemmende Dämmungen</li>
-                </ul>
-            </div>
+            <p>Wir bieten ein umfassendes Spektrum an professionellen Isolierungslösungen für verschiedene Anwendungsbereiche. Von Sanitäranlagen über Lüftungssysteme bis hin zu Brandschutz - bei uns erhalten Sie alles aus einer Hand.</p>
         </div>
-    </main>
-    
-    <footer>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
         <div class="container">
-            <p>&copy; 2026 General Isolierungen GmbH - Alle Rechte vorbehalten</p>
+            <div class="services-grid">
+                <div class="service-detail">
+                    <h2>🏠 Sanitäranlagen-Dämmung</h2>
+                    <p>Professionelle Isolierung von Rohrleitungen für Sanitäranlagen unter Einhaltung der geltenden Energieverordnung. Wir verwenden ausschließlich wirtschaftliche und umweltschonende Dämmstoffe für optimale Energieeffizienz und langanhaltende Wärmedämmung.</p>
+                    <ul>
+                        <li>Warmwasser-Rohrleitungen und Zirkulationssysteme</li>
+                        <li>Kaltwasser-Versorgungsleitungen</li>
+                        <li>Zirkulationsleitungen für konstante Warmwasserversorgung</li>
+                        <li>Armaturen und Formstücke fachgerecht gedämmt</li>
+                        <li>Brandschutzmanschetten und Rohrdurchführungen</li>
+                        <li>Dämmschalen und Dämmmatten nach EnEV-Standards</li>
+                    </ul>
+                </div>
+                
+                <div class="service-detail">
+                    <h2>🌬️ Lüftungsdämmung</h2>
+                    <p>Dämmen von Lüftungskanälen als wirkungsvoller Schutz vor Energieverlust, gegen Brandausbreitung sowie als Schutz vor Zirkulationsgeräuschen und Tauwasserbildung in klimatechnischen Anlagen. Moderne Systeme für maximale Effizienz.</p>
+                    <ul>
+                        <li>Lüftungskanäle und Luftführungsrohre</li>
+                        <li>Klimaanlagen-Komponenten und Aggregate</li>
+                        <li>Schalldämpfer für geräuscharmen Betrieb</li>
+                        <li>Brandschutzklappen und Feuerschutzabschlüsse</li>
+                        <li>Wärmerückgewinnungsanlagen</li>
+                        <li>Außenluft- und Fortluftsysteme</li>
+                    </ul>
+                </div>
+                
+                <div class="service-detail">
+                    <h2>🔇 Schallschutz</h2>
+                    <p>Schallschutz von Ablaufleitungen zur Verhinderung von Emissionen infolge Funktions- und Benutzergeräuschen mittels modernster und geeigneter Schallschutzsysteme. Für ruhiges Wohnen und Arbeiten.</p>
+                    <ul>
+                        <li>Abwasserleitungen mit Schallschutzhüllen</li>
+                        <li>Fallrohre und Sammelleitungen</li>
+                        <li>Installationsschächte schallentkoppelt</li>
+                        <li>Trittschalldämmung unter Rohrleitungen</li>
+                        <li>Körperschalldämmung an Befestigungspunkten</li>
+                        <li>Akustische Entkopplung von Rohrsystemen</li>
+                    </ul>
+                </div>
+                
+                <div class="service-detail">
+                    <h2>🔥 Brandschutz</h2>
+                    <p>Professionelle Brandschutz-Verkleidungen und feuerhemmende Isolierungen nach aktuellen Schweizer Sicherheitsstandards für optimalen Gebäudeschutz. Sicherheit steht bei uns an erster Stelle.</p>
+                    <ul>
+                        <li>Brandschutzbeschichtungen für Stahlträger</li>
+                        <li>Feuerschutzabschlüsse und Brandschutzklappen</li>
+                        <li>Rauchschürzen und Entrauchungssysteme</li>
+                        <li>Feuerhemmende Dämmungen F30 bis F120</li>
+                        <li>Brandschutzmanschetten für Rohrdurchführungen</li>
+                        <li>Feuerschutzplatten und Brandschutzgewebe</li>
+                    </ul>
+                </div>
+                
+                <div class="service-detail">
+                    <h2>❄️ Kälteisolierung</h2>
+                    <p>Spezialisierte Dämmung für Kälteanlagen, Kühlräume und klimatechnische Systeme. Schutz vor Energieverlust und Kondensatbildung durch professionelle Kälteisolierung mit hochwertigen Materialien.</p>
+                    <ul>
+                        <li>Kälteleitungen und Kühlrohre</li>
+                        <li>Kühlräume und Tiefkühlanlagen</li>
+                        <li>Klimaanlagen und Wärmepumpen</li>
+                        <li>Dampfbremsen gegen Kondensation</li>
+                        <li>Flexibler Kälteschutz für bewegliche Teile</li>
+                        <li>Armaturenisolierung für Kältesysteme</li>
+                    </ul>
+                </div>
+                
+                <div class="service-detail">
+                    <h2>🏭 Industrieisolierung</h2>
+                    <p>Professionelle Isolierungslösungen für industrielle Anlagen und Prozesse. Von Dampfleitungen bis zu Hochtemperatur-Anwendungen - wir sorgen für optimale Effizienz und Sicherheit in Ihrem Betrieb.</p>
+                    <ul>
+                        <li>Dampfleitungen und Heißwassersysteme</li>
+                        <li>Industriearmaturen und Flansche</li>
+                        <li>Hochtemperatur-Isolierungen bis 1000°C</li>
+                        <li>Behälter und Tanks isoliert</li>
+                        <li>Produktionsleitungen für verschiedene Medien</li>
+                        <li>Wartungsfreundliche Abnehmbare Isolierungen</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </footer>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Bereit für Ihr Projekt?</h2>
+                <p>Kontaktieren Sie uns für eine unverbindliche Beratung zu Ihrem Isolierungsprojekt. Unsere Experten beraten Sie gerne und erstellen ein individuelles Angebot.</p>
+                <a href="kontakt.html" class="btn-primary">Jetzt Beratung anfordern</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <h3>🏢 General Isolierungen GmbH</h3>
+                <address>
+                    <strong>Samstagernstrasse 45</strong><br>
+                    8832 Wollerau<br>
+                    Schweiz<br><br>
+                    📞 <a href="tel:+41449251234">+41 44 925 12 34</a><br>
+                    ✉️ <a href="mailto:info@generalisol.ch">info@generalisol.ch</a><br>
+                    🌐 <a href="https://generalisol.ch">www.generalisol.ch</a>
+                </address>
+            </div>
+            
+            <div>
+                <h3>🔗 Navigation</h3>
+                <ul>
+                    <li><a href="index.html">🏠 Startseite</a></li>
+                    <li><a href="leistungen.html">🔧 Leistungen</a></li>
+                    <li><a href="ueber-uns.html">👥 Über uns</a></li>
+                    <li><a href="kontakt.html">📞 Kontakt</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3>🕐 Öffnungszeiten</h3>
+                <p><strong>Montag - Freitag</strong><br>
+                08:00 - 12:00 Uhr<br>
+                13:30 - 17:00 Uhr</p>
+                <p><strong>Samstag & Sonntag</strong><br>
+                <span style="color: #9ca3af;">Geschlossen</span></p>
+            </div>
+            
+            <div>
+                <h3>🏗️ Services</h3>
+                <ul style="font-size: 0.9rem;">
+                    <li>🏠 Sanitäranlagen-Dämmung</li>
+                    <li>🌬️ Lüftungsdämmung</li>
+                    <li>🔇 Schallschutz</li>
+                    <li>🔥 Brandschutz</li>
+                    <li>❄️ Kälteisolierung</li>
+                    <li>🏭 Industrieisolierung</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <p>&copy; 2026 General Isolierungen GmbH - Alle Rechte vorbehalten</p>
+                <p style="font-size: 0.8rem; color: #9ca3af;">
+                    Professionelle Isolierungen in Wollerau und der ganzen Schweiz
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Mobile Menu JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let isOpen = false;
+    
+    mobileMenuBtn.addEventListener('click', function() {
+        isOpen = !isOpen;
+        
+        if (isOpen) {
+            mobileMenu.classList.add('active');
+            mobileMenuBtn.innerHTML = '✕';
+            mobileMenuBtn.style.fontSize = '1.5rem';
+        } else {
+            mobileMenu.classList.remove('active');
+            mobileMenuBtn.innerHTML = '☰';
+            mobileMenuBtn.style.fontSize = '1.8rem';
+        }
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+            if (isOpen) {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '☰';
+                mobileMenuBtn.style.fontSize = '1.8rem';
+                isOpen = false;
+            }
+        }
+    });
+    
+    // Close menu when clicking menu item
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+            mobileMenuBtn.innerHTML = '☰';
+            mobileMenuBtn.style.fontSize = '1.8rem';
+            isOpen = false;
+        });
+    });
+});
+</script>
+
 </body>
 </html>

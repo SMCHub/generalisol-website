@@ -5,102 +5,877 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Kontakt | General Isolierungen GmbH Wollerau</title>
     <meta name="description" content="Kontaktieren Sie General Isolierungen GmbH in Wollerau für professionelle Beratung zu Isolierungen und Dämmungen. Telefon, E-Mail und Öffnungszeiten."/>
+    <meta name="author" content="General Isolierungen GmbH"/>
+    <meta name="keywords" content="Kontakt, General Isolierungen GmbH, Wollerau, Schweiz, Telefon, E-Mail, Beratung"/>
+    <meta property="og:title" content="Kontakt | General Isolierungen GmbH Wollerau"/>
+    <meta property="og:description" content="Kontaktieren Sie uns für professionelle Beratung zu Isolierungen und Dämmungen in Wollerau und der ganzen Schweiz."/>
+    <meta property="og:url" content="https://www.generalisol.ch/kontakt.html"/>
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1a1a1a; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
-        header { background: white; border-bottom: 1px solid #f3f4f6; padding: 1rem 0; }
-        nav { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            width: 100%;
-            height: 4rem;
-            padding: 0 1rem;
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: white;
         }
-        .container { width: 100%; }
-        .logo { font-size: 1.5rem; font-weight: 700; color: #1a1a1a; text-decoration: none; }
-        .nav-links { display: flex; gap: 2rem; list-style: none; }
-        .nav-links a { text-decoration: none; color: #666; transition: color 0.3s; }
-        .nav-links a:hover { color: #1a1a1a; }
-        main { padding: 4rem 0; }
-        h1 { font-size: 2.5rem; margin-bottom: 2rem; }
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0; }
-        .contact-card { background: #f9fafb; padding: 2rem; border-radius: 8px; }
-        .contact-card h2 { color: #1a1a1a; margin-bottom: 1rem; }
-        .contact-card a { color: #1a1a1a; font-weight: 500; text-decoration: none; }
-        .contact-card a:hover { text-decoration: underline; }
-        .map { height: 400px; background: #e5e7eb; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin: 2rem 0; }
-        footer { background: #1a1a1a; color: white; padding: 2rem 0; margin-top: 4rem; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        
+        /* Navigation - Same as index.html */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            width: 100%;
+            border-bottom: 1px solid #f3f4f6;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px) saturate(180%);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        nav:hover {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 5rem;
+            width: 100%;
+        }
+        
+        @media (min-width: 769px) {
+            .nav-container {
+                justify-content: space-between;
+                gap: 2rem;
+            }
+            .logo-container {
+                flex-shrink: 0;
+            }
+            .nav-menu {
+                display: flex !important;
+                flex: 1;
+                justify-content: center;
+                gap: 2rem;
+            }
+            .mobile-menu-btn {
+                display: none !important;
+            }
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: #1a1a1a;
+            cursor: pointer;
+            padding: 1rem;
+            transition: all 0.2s ease;
+            border-radius: 4px;
+            min-width: 48px;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mobile-menu-btn:hover {
+            background: #f9fafb;
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn { 
+                display: flex !important; 
+            }
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .logo-container:hover {
+            transform: scale(1.02);
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1e40af 0%, #1a1a1a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-link {
+            color: #6b7280;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-link:hover {
+            color: #1a1a1a;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1a1a1a;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: #1e40af;
+            font-weight: 600;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 30%, #f1f5f9 100%);
+            padding: 3rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(ellipse at center right, rgba(30, 64, 175, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            letter-spacing: -0.04em;
+            background: linear-gradient(135deg, #1a1a1a 0%, #374151 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .page-header p {
+            font-size: 1.25rem;
+            color: #64748b;
+            max-width: 800px;
+            line-height: 1.7;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .contact-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .contact-card:hover {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(30, 64, 175, 0.2);
+        }
+        
+        .contact-card h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .contact-card p {
+            color: #6b7280;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+        
+        .contact-card strong {
+            color: #1a1a1a;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-card a {
+            color: #1e40af;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-block;
+            padding: 0.25rem 0;
+        }
+        
+        .contact-card a:hover {
+            color: #1d4ed8;
+            transform: translateX(3px);
+        }
+        
+        /* Map Section */
+        .map-section {
+            padding: 2rem 0;
+            background: #f9fafb;
+        }
+        
+        .map-container {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .map {
+            height: 400px;
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: #64748b;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .map::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(30, 64, 175, 0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .map-info {
+            text-align: center;
+        }
+        
+        .map-info h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+        
+        .map-info p {
+            color: #6b7280;
+            font-size: 1.1rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .cta-section p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 12px;
+            background: white;
+            color: #1e40af;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: -0.02em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: #f8fafc;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
+        }
+        
+        .btn-secondary {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 2.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: -0.02em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background: #f3f4f6;
+            padding: 3rem 0 2rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1.2fr 1fr 1fr 1fr;
+            }
+        }
+        
+        .footer h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+        
+        .footer address {
+            font-style: normal;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+        
+        .footer ul {
+            list-style: none;
+            color: #6b7280;
+        }
+        
+        .footer ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer a {
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .footer a:hover {
+            color: #1a1a1a;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #e5e7eb;
+            padding-top: 2rem;
+            text-align: center;
+        }
+        
+        .footer-bottom p {
+            font-size: 0.875rem;
+            color: #9ca3af;
+        }
+        
+        /* Mobile Navigation */
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #f3f4f6;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-menu ul {
+            list-style: none;
+            padding: 1rem 0;
+            margin: 0;
+        }
+        
+        .mobile-menu li {
+            margin: 0;
+        }
+        
+        .mobile-menu a {
+            display: block;
+            padding: 1rem 2rem;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #f9fafb;
+            transition: all 0.2s ease;
+        }
+        
+        .mobile-menu a:hover {
+            background: #f9fafb;
+            color: #1a1a1a;
+            padding-left: 2.5rem;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                justify-content: space-between !important;
+                height: 4rem !important;
+            }
+            
+            .nav-menu { 
+                display: none !important; 
+            }
+            
+            .mobile-menu-btn { 
+                display: flex !important;
+            }
+            
+            .logo-text {
+                font-size: 1.4rem !important;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .page-header {
+                padding: 2rem 0 3rem;
+            }
+            
+            .contact-section {
+                padding: 2rem 0;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-card {
+                padding: 1.5rem;
+            }
+            
+            .cta-section {
+                padding: 3rem 0;
+            }
+            
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-buttons a {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                text-align: center;
+            }
+            
+            .container {
+                padding: 0 0.5rem;
+            }
+            
+            .map {
+                height: 300px;
+            }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">Generalisol</a><button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-                <ul class="nav-links">
-                    <li><a href="index.html">Startseite</a></li>
-                    <li><a href="leistungen.html">Leistungen</a></li>
-                    <li><a href="ueber-uns.html">Über uns</a></li>
-                    <li><a href="kontakt.html">Kontakt</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+
+<!-- Navigation -->
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="logo-container">
+            <div class="logo-text">Generalisol</div>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Startseite</a></li>
+            <li><a href="leistungen.html" class="nav-link">Leistungen</a></li>
+            <li><a href="ueber-uns.html" class="nav-link">Über uns</a></li>
+            <li><a href="kontakt.html" class="nav-link active">Kontakt</a></li>
+        </ul>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
     
-    <main>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html">🏠 Startseite</a></li>
+            <li><a href="leistungen.html">🔧 Leistungen</a></li>
+            <li><a href="ueber-uns.html">👥 Über uns</a></li>
+            <li><a href="kontakt.html">📞 Kontakt</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main>
+    <!-- Page Header -->
+    <section class="page-header">
         <div class="container">
             <h1>Kontakt</h1>
-            <p>Kontaktieren Sie uns für eine unverbindliche Beratung. Wir freuen uns auf Ihre Anfrage!</p>
-            
+            <p>Kontaktieren Sie uns für eine unverbindliche Beratung zu Ihrem Isolierungsprojekt. Wir freuen uns auf Ihre Anfrage und beraten Sie gerne zu allen Fragen rund um Isolierungen und Dämmungen.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
             <div class="contact-grid">
                 <div class="contact-card">
-                    <h2>📍 Adresse</h2>
-                    <p><strong>General Isolierungen GmbH</strong><br>
-                    Samstagernstrasse 45<br>
+                    <h2>📍 Unser Standort</h2>
+                    <strong>General Isolierungen GmbH</strong>
+                    <p>Samstagernstrasse 45<br>
                     8832 Wollerau<br>
                     Schweiz</p>
+                    <p style="color: #6b7280; font-size: 1rem; margin-top: 1rem;">
+                        Zentral gelegen zwischen Zürich und Schwyz, mit optimaler Anbindung für Projekte in der ganzen Schweiz.
+                    </p>
                 </div>
                 
                 <div class="contact-card">
                     <h2>📞 Telefon</h2>
                     <p><a href="tel:+41449251234">+41 44 925 12 34</a></p>
-                    <p>Rufen Sie uns an für eine direkte Beratung</p>
+                    <p>Rufen Sie uns an für eine direkte und persönliche Beratung. Unsere Experten stehen Ihnen gerne zur Verfügung.</p>
+                    <p style="color: #1e40af; font-weight: 600; margin-top: 1rem;">
+                        Montag bis Freitag erreichbar
+                    </p>
                 </div>
                 
                 <div class="contact-card">
                     <h2>✉️ E-Mail</h2>
                     <p><a href="mailto:info@generalisol.ch">info@generalisol.ch</a></p>
-                    <p>Schreiben Sie uns Ihre Anfrage</p>
+                    <p>Schreiben Sie uns Ihre Anfrage oder senden Sie uns Ihre Projektunterlagen. Wir melden uns zeitnah bei Ihnen zurück.</p>
+                    <p style="color: #1e40af; font-weight: 600; margin-top: 1rem;">
+                        Antwort innerhalb von 24h
+                    </p>
                 </div>
                 
                 <div class="contact-card">
                     <h2>🕐 Öffnungszeiten</h2>
-                    <p><strong>Montag - Freitag</strong><br>
-                    08:00 - 12:00 Uhr<br>
-                    13:30 - 17:00 Uhr</p>
-                    <p><strong>Samstag & Sonntag</strong><br>
-                    Geschlossen</p>
+                    <div style="margin-bottom: 1rem;">
+                        <strong>Montag - Freitag</strong><br>
+                        <span style="color: #1e40af;">08:00 - 12:00 Uhr</span><br>
+                        <span style="color: #1e40af;">13:30 - 17:00 Uhr</span>
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <strong>Samstag & Sonntag</strong><br>
+                        <span style="color: #9ca3af;">Geschlossen</span>
+                    </div>
+                    <p style="color: #6b7280; font-size: 0.95rem;">
+                        Notfälle nach Vereinbarung auch außerhalb der Öffnungszeiten möglich.
+                    </p>
+                </div>
+                
+                <div class="contact-card">
+                    <h2>🚀 Schnelle Anfrage</h2>
+                    <p>Für dringende Anfragen oder kurzfristige Termine kontaktieren Sie uns direkt telefonisch.</p>
+                    <div style="margin-top: 1rem;">
+                        <a href="tel:+41449251234" style="display: inline-block; background: #1e40af; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600;">
+                            📞 Sofort anrufen
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <h2>💼 Geschäftsbereich</h2>
+                    <p>Wir sind schweizweit tätig mit Fokus auf:</p>
+                    <ul style="list-style: none; margin-top: 1rem;">
+                        <li style="color: #374151; margin-bottom: 0.5rem;">
+                            ✓ Kanton Schwyz & Zürich
+                        </li>
+                        <li style="color: #374151; margin-bottom: 0.5rem;">
+                            ✓ Zentralschweiz & Ostschweiz
+                        </li>
+                        <li style="color: #374151; margin-bottom: 0.5rem;">
+                            ✓ Ganze Schweiz für Grossprojekte
+                        </li>
+                    </ul>
                 </div>
             </div>
-            
-            <div class="map">
-                <p>📍 Karte von Wollerau, Samstagernstrasse 45</p>
-            </div>
-            
-            <div style="text-align: center; margin: 3rem 0;">
-                <h2>Bereit für Ihr Projekt?</h2>
-                <p style="margin: 1rem 0;">Kontaktieren Sie uns noch heute für eine unverbindliche Beratung!</p>
-                <a href="tel:+41449251234" style="display: inline-block; background: #1a1a1a; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 8px; font-weight: 500;">📞 Jetzt anrufen</a>
-            </div>
         </div>
-    </main>
-    
-    <footer>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
         <div class="container">
-            <p>&copy; 2026 General Isolierungen GmbH - Alle Rechte vorbehalten</p>
+            <div class="map-container">
+                <div class="map">
+                    <span>📍 Wollerau - Samstagernstrasse 45</span>
+                </div>
+                <div class="map-info">
+                    <h3>Optimal erreichbar</h3>
+                    <p>Unser Standort in Wollerau bietet optimale Erreichbarkeit aus der ganzen Schweiz. Mit direkter Anbindung an die A3 sind wir schnell bei Ihnen vor Ort.</p>
+                </div>
+            </div>
         </div>
-    </footer>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Bereit für Ihr Projekt?</h2>
+                <p>Kontaktieren Sie uns noch heute für eine unverbindliche Beratung zu Ihrem Isolierungsprojekt. Wir erstellen Ihnen gerne ein individuelles Angebot!</p>
+                <div class="cta-buttons">
+                    <a href="tel:+41449251234" class="btn-primary">📞 Jetzt anrufen</a>
+                    <a href="mailto:info@generalisol.ch" class="btn-secondary">✉️ E-Mail senden</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <h3>🏢 General Isolierungen GmbH</h3>
+                <address>
+                    <strong>Samstagernstrasse 45</strong><br>
+                    8832 Wollerau<br>
+                    Schweiz<br><br>
+                    📞 <a href="tel:+41449251234">+41 44 925 12 34</a><br>
+                    ✉️ <a href="mailto:info@generalisol.ch">info@generalisol.ch</a><br>
+                    🌐 <a href="https://generalisol.ch">www.generalisol.ch</a>
+                </address>
+            </div>
+            
+            <div>
+                <h3>🔗 Navigation</h3>
+                <ul>
+                    <li><a href="index.html">🏠 Startseite</a></li>
+                    <li><a href="leistungen.html">🔧 Leistungen</a></li>
+                    <li><a href="ueber-uns.html">👥 Über uns</a></li>
+                    <li><a href="kontakt.html">📞 Kontakt</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3>🕐 Öffnungszeiten</h3>
+                <p><strong>Montag - Freitag</strong><br>
+                08:00 - 12:00 Uhr<br>
+                13:30 - 17:00 Uhr</p>
+                <p><strong>Samstag & Sonntag</strong><br>
+                <span style="color: #9ca3af;">Geschlossen</span></p>
+            </div>
+            
+            <div>
+                <h3>🏗️ Services</h3>
+                <ul style="font-size: 0.9rem;">
+                    <li>🏠 Sanitäranlagen-Dämmung</li>
+                    <li>🌬️ Lüftungsdämmung</li>
+                    <li>🔇 Schallschutz</li>
+                    <li>🔥 Brandschutz</li>
+                    <li>❄️ Kälteisolierung</li>
+                    <li>🏭 Industrieisolierung</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <p>&copy; 2026 General Isolierungen GmbH - Alle Rechte vorbehalten</p>
+                <p style="font-size: 0.8rem; color: #9ca3af;">
+                    Professionelle Isolierungen in Wollerau und der ganzen Schweiz
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Mobile Menu JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let isOpen = false;
+    
+    mobileMenuBtn.addEventListener('click', function() {
+        isOpen = !isOpen;
+        
+        if (isOpen) {
+            mobileMenu.classList.add('active');
+            mobileMenuBtn.innerHTML = '✕';
+            mobileMenuBtn.style.fontSize = '1.5rem';
+        } else {
+            mobileMenu.classList.remove('active');
+            mobileMenuBtn.innerHTML = '☰';
+            mobileMenuBtn.style.fontSize = '1.8rem';
+        }
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+            if (isOpen) {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '☰';
+                mobileMenuBtn.style.fontSize = '1.8rem';
+                isOpen = false;
+            }
+        }
+    });
+    
+    // Close menu when clicking menu item
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+            mobileMenuBtn.innerHTML = '☰';
+            mobileMenuBtn.style.fontSize = '1.8rem';
+            isOpen = false;
+        });
+    });
+});
+</script>
+
 </body>
 </html>
