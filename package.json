@@ -1,0 +1,11 @@
+{
+  "name": "generalisol-website",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "echo 'Static site - no build needed'",
+    "start": "echo 'Static site'"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
