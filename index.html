@@ -57,14 +57,32 @@
             display: none;
             background: none;
             border: none;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: #1a1a1a;
             cursor: pointer;
-            padding: 0.5rem;
+            padding: 1rem;
+            transition: all 0.2s ease;
+            border-radius: 4px;
+            min-width: 48px;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mobile-menu-btn:hover {
+            background: #f9fafb;
+            transform: scale(1.05);
+        }
+        
+        .mobile-menu-btn:active {
+            transform: scale(0.95);
         }
         
         @media (max-width: 768px) {
-            .mobile-menu-btn { display: block; }
+            .mobile-menu-btn { 
+                display: flex !important; 
+            }
         }
         
         .logo-container {
@@ -414,9 +432,79 @@
             color: #9ca3af;
         }
         
+        /* Mobile Navigation */
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #f3f4f6;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-menu ul {
+            list-style: none;
+            padding: 1rem 0;
+            margin: 0;
+        }
+        
+        .mobile-menu li {
+            margin: 0;
+        }
+        
+        .mobile-menu a {
+            display: block;
+            padding: 1rem 2rem;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #f9fafb;
+            transition: all 0.2s ease;
+        }
+        
+        .mobile-menu a:hover {
+            background: #f9fafb;
+            color: #1a1a1a;
+            padding-left: 2.5rem;
+        }
+        
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            .nav-menu { display: none; }
+            .nav-menu { 
+                display: none !important; 
+            }
+            
+            .mobile-menu-btn { 
+                display: block !important;
+                font-size: 1.8rem;
+                padding: 1rem;
+                color: #1a1a1a;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+            
+            .logo-container {
+                width: 12rem !important;
+                height: 3.5rem !important;
+                margin-left: 0 !important;
+            }
+            
+            .nav-container {
+                height: 4rem !important;
+                padding: 0 0.5rem !important;
+            }
+            
+            nav {
+                position: relative;
+            }
             
             .hero h1 {
                 font-size: 2rem;
@@ -437,15 +525,21 @@
             .hero-buttons {
                 flex-direction: column;
                 align-items: flex-start;
+                gap: 1rem;
             }
             
-            .logo-container {
-                width: 15rem;
-                height: 5rem;
+            .hero-buttons a {
+                width: 100%;
+                text-align: center;
             }
             
-            .nav-container {
-                height: 5rem;
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                text-align: center;
+            }
+            
+            .container {
+                padding: 0 0.5rem;
             }
         }
     </style>
@@ -499,13 +593,23 @@
                      src="logo.svg"
                      onerror="this.innerHTML='<div style=\'font-size:1.2rem;font-weight:bold;color:#1a1a1a;\'>General Isolierungen GmbH</div>'" />
             </a>
-            <button class="mobile-menu-btn">☰</button>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
         </div>
         <ul class="nav-menu">
             <li><a href="index.html" class="nav-link">Startseite</a></li>
             <li><a href="leistungen.html" class="nav-link">Leistungen</a></li>
             <li><a href="ueber-uns.html" class="nav-link">Über uns</a></li>
             <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
+        </ul>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html">🏠 Startseite</a></li>
+            <li><a href="leistungen.html">🔧 Leistungen</a></li>
+            <li><a href="ueber-uns.html">👥 Über uns</a></li>
+            <li><a href="kontakt.html">📞 Kontakt</a></li>
         </ul>
     </div>
 </nav>
@@ -650,6 +754,52 @@
         </div>
     </div>
 </footer>
+
+<!-- Mobile Menu JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let isOpen = false;
+    
+    mobileMenuBtn.addEventListener('click', function() {
+        isOpen = !isOpen;
+        
+        if (isOpen) {
+            mobileMenu.classList.add('active');
+            mobileMenuBtn.innerHTML = '✕';
+            mobileMenuBtn.style.fontSize = '1.5rem';
+        } else {
+            mobileMenu.classList.remove('active');
+            mobileMenuBtn.innerHTML = '☰';
+            mobileMenuBtn.style.fontSize = '1.8rem';
+        }
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+            if (isOpen) {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '☰';
+                mobileMenuBtn.style.fontSize = '1.8rem';
+                isOpen = false;
+            }
+        }
+    });
+    
+    // Close menu when clicking menu item
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+            mobileMenuBtn.innerHTML = '☰';
+            mobileMenuBtn.style.fontSize = '1.8rem';
+            isOpen = false;
+        });
+    });
+});
+</script>
 
 </body>
 </html>
