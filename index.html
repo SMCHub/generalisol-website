@@ -50,6 +50,7 @@
             justify-content: space-between;
             align-items: center;
             height: 5rem;
+            width: 100%;
         }
         
         /* Mobile Menu Button */
@@ -498,7 +499,19 @@
             
             .nav-container {
                 height: 4rem !important;
-                padding: 0 0.5rem !important;
+                padding: 0 1rem !important;
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                width: 100% !important;
+            }
+            
+            .logo-container {
+                flex: 1 !important;
+            }
+            
+            .mobile-menu-btn {
+                flex-shrink: 0 !important;
             }
             
             nav {
