@@ -8,14 +8,42 @@
     <meta name="author" content="General Isolierungen GmbH"/>
     <meta name="keywords" content="Isolierung, Dämmung, Sanitäranlagen, Lüftungssysteme, Heizung, Schallschutz, Wollerau, Schweiz, Energieeffizienz"/>
     <meta name="robots" content="index, follow"/>
+
+    <!-- Security Meta Tags -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="format-detection" content="telephone=no, email=no, address=no"/>
+    <meta name="referrer" content="strict-origin-when-cross-origin"/>
+
+    <!-- Performance: DNS Prefetch & Preconnect -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com"/>
+    <link rel="dns-prefetch" href="//fonts.gstatic.com"/>
+    <link rel="dns-prefetch" href="//www.google-analytics.com"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="de_CH"/>
+    <meta property="og:site_name" content="General Isolierungen GmbH"/>
     <meta property="og:title" content="General Isolierungen GmbH | Professionelle Isolierungen in Wollerau"/>
     <meta property="og:description" content="Ihr Spezialist für Isolierungen von Sanitäranlagen, Lüftungs- und Heizungssystemen in Wollerau. Maßgeschneiderte und energieeffiziente Dämmungslösungen für Ihr Gebäude."/>
     <meta property="og:url" content="https://www.generalisol.ch"/>
     
-    <!-- CSS Variables -->
-    <link rel="stylesheet" href="assets/css/variables.css">
+    <!-- CSS Variables - Preload for faster rendering -->
+    <link rel="preload" href="assets/css/variables.css" as="style"/>
+    <link rel="stylesheet" href="assets/css/variables.css"/>
 
+    <!-- Critical CSS - Inlined for Core Web Vitals -->
     <style>
+        /* CLS Prevention: Reserve space for nav and hero */
+        nav { min-height: 80px; }
+        .hero { min-height: 60vh; }
+
+        /* Font Display Optimization */
+        @font-face {
+            font-family: 'system-ui';
+            font-display: swap;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         /* Mobile-First Base Styles */
@@ -2601,6 +2629,82 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Store original for potential re-animation
         companyName.dataset.originalText = originalText;
+    }
+
+    // ========================================
+    // Performance: Lazy Loading for Images & Sections
+    // ========================================
+    const lazyElements = document.querySelectorAll('[data-lazy]');
+
+    if ('IntersectionObserver' in window) {
+        const lazyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    if (el.dataset.src) {
+                        el.src = el.dataset.src;
+                        el.removeAttribute('data-src');
+                    }
+                    el.classList.add('lazy-loaded');
+                    lazyObserver.unobserve(el);
+                }
+            });
+        }, {
+            rootMargin: '50px 0px',
+            threshold: 0.01
+        });
+
+        lazyElements.forEach(el => lazyObserver.observe(el));
+    }
+
+    // ========================================
+    // Performance: Defer Non-Critical Animations
+    // ========================================
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(() => {
+            document.body.classList.add('animations-ready');
+        });
+    } else {
+        setTimeout(() => {
+            document.body.classList.add('animations-ready');
+        }, 100);
+    }
+
+    // ========================================
+    // Core Web Vitals: Report LCP, FID, CLS
+    // ========================================
+    if ('PerformanceObserver' in window) {
+        // Largest Contentful Paint
+        try {
+            new PerformanceObserver((entryList) => {
+                const entries = entryList.getEntries();
+                const lastEntry = entries[entries.length - 1];
+                console.log('[Performance] LCP:', Math.round(lastEntry.startTime), 'ms');
+            }).observe({ type: 'largest-contentful-paint', buffered: true });
+        } catch (e) {}
+
+        // First Input Delay
+        try {
+            new PerformanceObserver((entryList) => {
+                const entries = entryList.getEntries();
+                entries.forEach(entry => {
+                    console.log('[Performance] FID:', Math.round(entry.processingStart - entry.startTime), 'ms');
+                });
+            }).observe({ type: 'first-input', buffered: true });
+        } catch (e) {}
+
+        // Cumulative Layout Shift
+        try {
+            let clsValue = 0;
+            new PerformanceObserver((entryList) => {
+                for (const entry of entryList.getEntries()) {
+                    if (!entry.hadRecentInput) {
+                        clsValue += entry.value;
+                    }
+                }
+                console.log('[Performance] CLS:', clsValue.toFixed(4));
+            }).observe({ type: 'layout-shift', buffered: true });
+        } catch (e) {}
     }
 });
 </script>
