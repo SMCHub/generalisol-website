@@ -1,0 +1,54 @@
+{
+  "name": "General Isolierungen GmbH",
+  "short_name": "Generalisol",
+  "description": "Ihr Spezialist für professionelle Isolierungen in Wollerau und der ganzen Schweiz",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1f2e",
+  "theme_color": "#f59e0b",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "de-CH",
+  "categories": ["business", "construction"],
+  "icons": [
+    {
+      "src": "/Logo/Logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/Logo/Logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/Logo/Logo.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "General Isolierungen Homepage"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Kontakt aufnehmen",
+      "short_name": "Kontakt",
+      "description": "Kontaktieren Sie uns direkt",
+      "url": "/kontakt.html",
+      "icons": [{ "src": "/Logo/Logo.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Unsere Leistungen",
+      "short_name": "Leistungen",
+      "description": "Alle Isolierungsleistungen im Überblick",
+      "url": "/leistungen.html",
+      "icons": [{ "src": "/Logo/Logo.png", "sizes": "96x96" }]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
