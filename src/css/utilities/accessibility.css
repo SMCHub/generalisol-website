@@ -1,0 +1,33 @@
+/**
+ * Accessibility & Print Styles
+ * GeneralISOL Website
+ */
+
+/* Reduced Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Print Styles */
+@media print {
+    nav, .mobile-menu, .cta, .theme-toggle, .back-to-top {
+        display: none;
+    }
+
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+
+    .hero, .services, .about, footer {
+        padding: 1rem 0;
+    }
+}

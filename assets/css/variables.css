@@ -1,0 +1,42 @@
+/**
+ * CSS Variables - General Isolierungen GmbH
+ * Zentrale Design-Tokens für konsistentes Styling
+ */
+
+:root {
+    /* Footer Background Colors */
+    --footer-bg-primary: #2d1f3d;
+    --footer-bg-secondary: #4a3254;
+    --footer-bg-tertiary: #5d4a6b;
+
+    /* Footer Accent Colors */
+    --footer-accent-warm: #f59e0b;
+    --footer-accent-gold: #fbbf24;
+    --footer-accent-rose: #fb7185;
+    --footer-accent-peach: #fda4af;
+    --footer-accent-blue: #93c5fd;
+
+    /* Footer Text Colors */
+    --footer-text-primary: #ffffff;
+    --footer-text-secondary: rgba(255, 255, 255, 0.9);
+    --footer-text-muted: rgba(255, 255, 255, 0.7);
+
+    /* Footer Glass Effects */
+    --footer-glass-bg: rgba(255, 255, 255, 0.12);
+    --footer-glass-border: rgba(255, 255, 255, 0.2);
+
+    /* Footer Glow Effects */
+    --footer-glow-warm: rgba(251, 113, 133, 0.35);
+    --footer-glow-peach: rgba(253, 164, 175, 0.25);
+
+    /* Transitions */
+    --footer-transition: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Mode Variables */
+[data-theme="dark"] {
+    --footer-bg-primary: #1f1428;
+    --footer-bg-secondary: #2d1f3d;
+    --footer-glass-bg: rgba(255, 255, 255, 0.08);
+    --footer-glass-border: rgba(255, 255, 255, 0.12);
+}

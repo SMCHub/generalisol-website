@@ -1,0 +1,93 @@
+/**
+ * CSS Custom Properties (Variables)
+ * GeneralISOL Website - Design System
+ */
+
+:root {
+    /* Primary Colors */
+    --color-primary: #1e40af;
+    --color-primary-light: #3b82f6;
+    --color-primary-dark: #1d4ed8;
+
+    /* Neutral Colors */
+    --color-text: #1a1a1a;
+    --color-text-secondary: #6b7280;
+    --color-text-muted: #64748b;
+    --color-background: #ffffff;
+    --color-background-alt: #f9fafb;
+    --color-background-hero: #f8fafc;
+
+    /* Border Colors */
+    --color-border: #e5e7eb;
+    --color-border-light: #f3f4f6;
+
+    /* Shadow Colors */
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.1);
+    --shadow-primary: 0 4px 14px rgba(59, 130, 246, 0.3);
+
+    /* Footer Theme Variables */
+    --footer-bg-primary: #2d1f3d;
+    --footer-bg-secondary: #4a3254;
+    --footer-bg-tertiary: #5d4a6b;
+    --footer-accent-warm: #f59e0b;
+    --footer-accent-gold: #fbbf24;
+    --footer-accent-rose: #fb7185;
+    --footer-accent-peach: #fda4af;
+    --footer-accent-blue: #93c5fd;
+    --footer-text-primary: #ffffff;
+    --footer-text-secondary: rgba(255, 255, 255, 0.9);
+    --footer-text-muted: rgba(255, 255, 255, 0.7);
+    --footer-glass-bg: rgba(255, 255, 255, 0.12);
+    --footer-glass-border: rgba(255, 255, 255, 0.2);
+    --footer-glow-warm: rgba(251, 113, 133, 0.35);
+    --footer-glow-peach: rgba(253, 164, 175, 0.25);
+    --footer-transition: cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-2xl: 4rem;
+
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Typography */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+
+    /* Z-index Scale */
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-fixed: 500;
+    --z-modal: 1000;
+    --z-tooltip: 1100;
+}
+
+/* Dark Mode Variables */
+[data-theme="dark"] {
+    --color-text: #f9fafb;
+    --color-text-secondary: #d1d5db;
+    --color-background: #1f2937;
+    --color-background-alt: #111827;
+
+    --footer-bg-primary: #1f1428;
+    --footer-bg-secondary: #2d1f3d;
+    --footer-glass-bg: rgba(255, 255, 255, 0.08);
+    --footer-glass-border: rgba(255, 255, 255, 0.12);
+}

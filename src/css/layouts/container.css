@@ -1,0 +1,51 @@
+/**
+ * Container & Layout Styles
+ * GeneralISOL Website
+ */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Extra Large Screens (1440px+) */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1320px;
+        padding: 0 2rem;
+    }
+}
+
+/* Safe Area Insets for Notched Devices */
+@supports (padding: max(0px)) {
+    .container {
+        padding-left: max(1rem, env(safe-area-inset-left));
+        padding-right: max(1rem, env(safe-area-inset-right));
+    }
+}
+
+/* Responsive Container Adjustments */
+@media (max-width: 479px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+    .container {
+        padding: 0 1rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .container {
+        padding: 0 2rem;
+    }
+}
