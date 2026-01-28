@@ -845,6 +845,17 @@
             box-shadow: 0 8px 25px var(--footer-glow-warm);
         }
 
+        .footer-contact-item:focus {
+            outline: none;
+        }
+
+        .footer-contact-item:focus-visible {
+            outline: 2px solid var(--footer-accent-warm);
+            outline-offset: 2px;
+            background: rgba(245, 158, 11, 0.1);
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+
         .footer-contact-text {
             display: flex;
             flex-direction: column;
