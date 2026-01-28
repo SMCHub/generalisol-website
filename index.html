@@ -543,36 +543,52 @@
         }
         
         /* ============================================
-           PREMIUM FOOTER - Swiss Corporate Excellence
-           Inspired by UBS, Swisscom, Credit Suisse
+           BEAUTIFUL FOOTER - Warm & Inviting Design
+           With Glassmorphism, Animations & Modern CSS
            ============================================ */
 
+        /* CSS Custom Properties for Theming */
+        :root {
+            --footer-bg-primary: #2d1f3d;
+            --footer-bg-secondary: #4a3254;
+            --footer-bg-tertiary: #5d4a6b;
+            --footer-accent-warm: #f59e0b;
+            --footer-accent-gold: #fbbf24;
+            --footer-accent-rose: #fb7185;
+            --footer-accent-peach: #fda4af;
+            --footer-accent-blue: #93c5fd;
+            --footer-text-primary: #ffffff;
+            --footer-text-secondary: rgba(255, 255, 255, 0.9);
+            --footer-text-muted: rgba(255, 255, 255, 0.7);
+            --footer-glass-bg: rgba(255, 255, 255, 0.12);
+            --footer-glass-border: rgba(255, 255, 255, 0.2);
+            --footer-glow-warm: rgba(251, 113, 133, 0.35);
+            --footer-glow-peach: rgba(253, 164, 175, 0.25);
+            --footer-transition: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Dark Mode Variables */
+        [data-theme="dark"] {
+            --footer-bg-primary: #1f1428;
+            --footer-bg-secondary: #2d1f3d;
+            --footer-glass-bg: rgba(255, 255, 255, 0.08);
+            --footer-glass-border: rgba(255, 255, 255, 0.12);
+        }
+
         footer {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.8));
+            --animate-duration: 0.4s;
+            background:
+                linear-gradient(135deg,
+                    var(--footer-bg-primary) 0%,
+                    var(--footer-bg-secondary) 40%,
+                    var(--footer-bg-tertiary) 100%);
             position: relative;
             overflow: hidden;
             padding: 0;
         }
 
-        /* Elegant top accent line */
+        /* Animated Gradient Background - Warmer Glasmorphism */
         footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg,
-                transparent 0%,
-                rgba(59, 130, 246, 0.3) 20%,
-                rgba(59, 130, 246, 0.6) 50%,
-                rgba(59, 130, 246, 0.3) 80%,
-                transparent 100%
-            );
-        }
-
-        /* Subtle gradient overlay */
-        footer::after {
             content: '';
             position: absolute;
             top: 0;
@@ -580,9 +596,78 @@
             right: 0;
             bottom: 0;
             background:
-                radial-gradient(ellipse 80% 50% at 20% 40%, rgba(59, 130, 246, 0.04) 0%, transparent 50%),
-                radial-gradient(ellipse 60% 40% at 80% 60%, rgba(99, 102, 241, 0.03) 0%, transparent 50%);
+                radial-gradient(ellipse 120% 80% at 10% 10%, rgba(251, 113, 133, 0.25) 0%, transparent 50%),
+                radial-gradient(ellipse 100% 70% at 85% 15%, rgba(253, 164, 175, 0.2) 0%, transparent 45%),
+                radial-gradient(ellipse 80% 60% at 50% 80%, rgba(245, 158, 11, 0.18) 0%, transparent 50%),
+                radial-gradient(ellipse 90% 50% at 20% 90%, rgba(147, 197, 253, 0.12) 0%, transparent 40%);
+            animation: footerGlow 8s ease-in-out infinite alternate;
             pointer-events: none;
+            backdrop-filter: blur(100px);
+        }
+
+        @keyframes footerGlow {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; transform: scale(1.02); }
+        }
+
+        /* Elegant Top Accent Line with Animation */
+        footer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                var(--footer-accent-peach) 15%,
+                var(--footer-accent-rose) 35%,
+                var(--footer-accent-gold) 60%,
+                var(--footer-accent-warm) 80%,
+                transparent 100%
+            );
+            background-size: 200% 100%;
+            animation: gradientSlide 5s ease infinite;
+        }
+
+        @keyframes gradientSlide {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating Particles Animation */
+        .footer-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .footer-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--footer-accent-warm);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: particleFloat 15s infinite ease-in-out;
+        }
+
+        .footer-particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .footer-particle:nth-child(2) { left: 30%; animation-delay: 2s; }
+        .footer-particle:nth-child(3) { left: 50%; animation-delay: 4s; }
+        .footer-particle:nth-child(4) { left: 70%; animation-delay: 6s; }
+        .footer-particle:nth-child(5) { left: 90%; animation-delay: 8s; }
+
+        @keyframes particleFloat {
+            0%, 100% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 0.5; transform: translateY(80vh) scale(1); }
+            90% { opacity: 0.3; transform: translateY(10vh) scale(0.8); }
         }
 
         /* Main Footer Content Area */
@@ -590,6 +675,30 @@
             position: relative;
             z-index: 1;
             padding: 5rem 0 3rem;
+        }
+
+        /* Beautiful Glass Card for Footer Sections */
+        .footer-glass-card {
+            background: var(--footer-glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--footer-glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            transition: all 0.4s var(--footer-transition);
+            box-shadow:
+                0 4px 30px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.3),
+                0 0 40px var(--footer-glow-warm),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            border-color: rgba(245, 158, 11, 0.3);
         }
 
         .footer-grid {
@@ -608,50 +717,67 @@
         @media (min-width: 992px) {
             .footer-grid {
                 grid-template-columns: 1.4fr 0.9fr 0.9fr 1.1fr;
-                gap: 4rem;
+                gap: 3rem;
             }
         }
 
-        /* Footer Column Styling */
+        /* Footer Column with Stagger Animation */
         .footer-column {
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s var(--footer-transition) forwards;
+        }
+
+        .footer-column:nth-child(1) { animation-delay: 0.1s; }
+        .footer-column:nth-child(2) { animation-delay: 0.2s; }
+        .footer-column:nth-child(3) { animation-delay: 0.3s; }
+        .footer-column:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Modern Section Headers with Icon */
+        .footer h3 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--footer-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 1.75rem;
+            padding-bottom: 0.875rem;
+            border-bottom: 2px solid transparent;
+            border-image: linear-gradient(90deg, var(--footer-accent-warm), transparent) 1;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
             position: relative;
         }
 
-        /* Section Headers - Clean Typography */
-        .footer h3 {
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: rgba(148, 163, 184, 0.9);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 1.75rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
-            display: flex;
-            align-items: center;
-            gap: 0.625rem;
+        .footer h3::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--footer-accent-warm);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--footer-glow-warm);
+            animation: pulse 2s ease-in-out infinite;
         }
 
-        .footer h3 .header-icon {
-            width: 18px;
-            height: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #3b82f6;
-            opacity: 0.8;
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
         }
 
-        .footer h3 .header-icon svg {
-            width: 16px;
-            height: 16px;
-        }
-
-        /* Company Info Section */
+        /* Company Logo/Name with Gradient */
         .footer-company-name {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--footer-text-primary), var(--footer-accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 1.5rem;
             letter-spacing: -0.02em;
             line-height: 1.3;
@@ -659,111 +785,130 @@
 
         .footer-company-name span {
             display: block;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 500;
-            color: rgba(148, 163, 184, 0.7);
-            margin-top: 0.25rem;
+            background: none;
+            -webkit-text-fill-color: var(--footer-text-muted);
+            margin-top: 0.375rem;
             letter-spacing: 0.02em;
         }
 
         .footer address {
             font-style: normal;
-            color: rgba(226, 232, 240, 0.8);
+            color: var(--footer-text-secondary);
             line-height: 1.9;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
-        /* Contact Items */
+        /* Beautiful Contact Items with Hover Effects */
         .footer-contact-item {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 1rem;
             margin-top: 1rem;
-            padding: 0.625rem 0;
-            border-top: 1px solid rgba(148, 163, 184, 0.08);
+            padding: 0.875rem 1rem;
+            background: var(--footer-glass-bg);
+            border: 1px solid var(--footer-glass-border);
+            border-radius: 16px;
+            transition: all 0.3s var(--footer-transition);
+            cursor: pointer;
         }
 
-        .footer-contact-item:first-of-type {
-            margin-top: 1.25rem;
+        .footer-contact-item:hover {
+            background: rgba(245, 158, 11, 0.1);
+            border-color: rgba(245, 158, 11, 0.3);
+            transform: translateX(8px);
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.15);
         }
 
         .footer-contact-icon {
-            width: 36px;
-            height: 36px;
+            width: 44px;
+            height: 44px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(59, 130, 246, 0.1);
-            border: 1px solid rgba(59, 130, 246, 0.15);
-            border-radius: 10px;
-            color: #3b82f6;
+            background: linear-gradient(135deg, var(--footer-accent-warm), var(--footer-accent-gold));
+            border-radius: 12px;
+            color: var(--footer-bg-primary);
             flex-shrink: 0;
-            transition: all 0.3s ease;
+            transition: all 0.3s var(--footer-transition);
+            box-shadow: 0 4px 15px var(--footer-glow-warm);
         }
 
         .footer-contact-icon svg {
-            width: 16px;
-            height: 16px;
+            width: 20px;
+            height: 20px;
         }
 
         .footer-contact-item:hover .footer-contact-icon {
-            background: rgba(59, 130, 246, 0.2);
-            border-color: rgba(59, 130, 246, 0.3);
-            transform: scale(1.05);
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 25px var(--footer-glow-warm);
         }
 
         .footer-contact-text {
             display: flex;
             flex-direction: column;
-            gap: 0.125rem;
+            gap: 0.25rem;
         }
 
         .footer-contact-label {
             font-size: 0.7rem;
-            color: rgba(148, 163, 184, 0.6);
+            color: var(--footer-text-muted);
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.1em;
         }
 
-        /* Footer Links */
+        .footer-contact-value {
+            color: var(--footer-text-primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Footer Links with Beautiful Hover */
         .footer ul {
             list-style: none;
         }
 
         .footer ul li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.625rem;
         }
 
         .footer a {
-            color: rgba(226, 232, 240, 0.75);
+            color: var(--footer-text-secondary);
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 400;
-            transition: all 0.25s ease;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s var(--footer-transition);
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.375rem 0;
+            gap: 0.625rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
             position: relative;
+            margin-left: -0.75rem;
         }
 
         .footer a::before {
             content: '';
             position: absolute;
             left: 0;
-            bottom: 0;
-            width: 0;
-            height: 1px;
-            background: linear-gradient(90deg, #3b82f6, #60a5fa);
-            transition: width 0.3s ease;
+            top: 50%;
+            transform: translateY(-50%) scaleX(0);
+            width: 3px;
+            height: 60%;
+            background: linear-gradient(180deg, var(--footer-accent-warm), var(--footer-accent-gold));
+            border-radius: 2px;
+            transition: transform 0.3s var(--footer-transition);
         }
 
         .footer a:hover {
-            color: #ffffff;
+            color: var(--footer-text-primary);
+            background: var(--footer-glass-bg);
+            padding-left: 1.25rem;
         }
 
         .footer a:hover::before {
-            width: 100%;
+            transform: translateY(-50%) scaleX(1);
         }
 
         .footer a:focus {
@@ -771,109 +916,167 @@
         }
 
         .footer a:focus-visible {
-            outline: 2px solid rgba(59, 130, 246, 0.6);
-            outline-offset: 4px;
-            border-radius: 2px;
+            outline: 2px solid var(--footer-accent-warm);
+            outline-offset: 2px;
+            border-radius: 8px;
         }
 
-        /* Navigation Links with Arrows */
+        /* Navigation Links with Arrow Animation */
         .footer-nav-link {
             display: flex;
             align-items: center;
-            gap: 0.625rem;
+            gap: 0.75rem;
         }
 
         .footer-nav-link .link-arrow {
-            width: 16px;
-            height: 16px;
+            width: 20px;
+            height: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: rgba(148, 163, 184, 0.4);
-            transition: all 0.25s ease;
+            color: var(--footer-text-muted);
+            transition: all 0.3s var(--footer-transition);
+            opacity: 0;
+            transform: translateX(-10px);
         }
 
         .footer-nav-link .link-arrow svg {
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
         }
 
         .footer-nav-link:hover .link-arrow {
-            color: #3b82f6;
-            transform: translateX(3px);
+            color: var(--footer-accent-warm);
+            opacity: 1;
+            transform: translateX(0);
         }
 
-        /* Opening Hours */
+        /* Opening Hours with Visual Indicator */
         .footer-hours-block {
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--footer-glass-bg);
+            border-radius: 12px;
+            border: 1px solid var(--footer-glass-border);
+            transition: all 0.3s var(--footer-transition);
+        }
+
+        .footer-hours-block:hover {
+            border-color: rgba(16, 185, 129, 0.3);
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.1);
         }
 
         .footer-hours-day {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: rgba(226, 232, 240, 0.9);
-            margin-bottom: 0.375rem;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--footer-text-primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-hours-day::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
         }
 
         .footer-hours-time {
-            font-size: 0.85rem;
-            color: rgba(148, 163, 184, 0.8);
-            line-height: 1.6;
+            font-size: 0.9rem;
+            color: var(--footer-text-secondary);
+            line-height: 1.7;
+            padding-left: 1rem;
         }
 
         .footer-hours-closed {
             display: inline-flex;
             align-items: center;
-            gap: 0.375rem;
-            font-size: 0.8rem;
-            color: rgba(148, 163, 184, 0.5);
-            padding: 0.25rem 0.625rem;
-            background: rgba(148, 163, 184, 0.08);
-            border-radius: 4px;
-            margin-top: 0.25rem;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--footer-text-muted);
+            padding: 0.5rem 1rem;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: 8px;
+            margin-top: 0.5rem;
         }
 
-        /* Services List */
+        .footer-hours-closed::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #ef4444;
+            border-radius: 50%;
+        }
+
+        /* Services List with Animated Dots */
         .footer-services-list li {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            padding: 0.5rem 0;
-            color: rgba(226, 232, 240, 0.75);
-            font-size: 0.875rem;
-            transition: all 0.25s ease;
+            gap: 0.875rem;
+            padding: 0.625rem 0;
+            color: var(--footer-text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s var(--footer-transition);
+            cursor: default;
         }
 
         .footer-services-list li:hover {
-            color: #ffffff;
-            transform: translateX(4px);
+            color: var(--footer-text-primary);
+            transform: translateX(6px);
         }
 
         .footer-service-dot {
-            width: 6px;
-            height: 6px;
-            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            width: 10px;
+            height: 10px;
+            background: linear-gradient(135deg, var(--footer-accent-warm), var(--footer-accent-gold));
             border-radius: 50%;
             flex-shrink: 0;
-            transition: all 0.25s ease;
+            transition: all 0.3s var(--footer-transition);
+            position: relative;
+        }
+
+        .footer-service-dot::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: var(--footer-glow-warm);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .footer-services-list li:hover .footer-service-dot {
-            transform: scale(1.4);
-            box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+            transform: scale(1.3);
         }
 
-        /* Footer Bottom Bar */
+        .footer-services-list li:hover .footer-service-dot::after {
+            opacity: 1;
+            animation: ripple 1s ease-out infinite;
+        }
+
+        @keyframes ripple {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+
+        /* Footer Bottom Bar with Glass Effect */
         .footer-bottom {
             position: relative;
             z-index: 1;
-            background: rgba(0, 0, 0, 0.4);
-            border-top: 1px solid rgba(148, 163, 184, 0.1);
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--footer-glass-border);
             padding: 0;
         }
 
         .footer-bottom-content {
-            padding: 1.75rem 0;
+            padding: 2rem 0;
         }
 
         /* Trust Badges Row */
@@ -885,7 +1088,7 @@
             gap: 1.5rem;
             padding-bottom: 1.5rem;
             margin-bottom: 1.5rem;
-            border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+            border-bottom: 1px solid var(--footer-glass-border);
         }
 
         .footer-trust-badges {
@@ -898,86 +1101,115 @@
         .footer-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 0.875rem;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(148, 163, 184, 0.1);
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: rgba(226, 232, 240, 0.7);
-            transition: all 0.3s ease;
+            gap: 0.625rem;
+            padding: 0.625rem 1rem;
+            background: var(--footer-glass-bg);
+            border: 1px solid var(--footer-glass-border);
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--footer-text-secondary);
+            transition: all 0.3s var(--footer-transition);
+            cursor: default;
         }
 
         .footer-badge:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(148, 163, 184, 0.2);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--footer-accent-warm);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         .footer-badge-icon {
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
 
         .footer-badge.swiss {
-            background: rgba(220, 38, 38, 0.08);
-            border-color: rgba(220, 38, 38, 0.15);
+            background: rgba(220, 38, 38, 0.1);
+            border-color: rgba(220, 38, 38, 0.2);
         }
 
         .footer-badge.swiss:hover {
-            background: rgba(220, 38, 38, 0.12);
-            border-color: rgba(220, 38, 38, 0.25);
+            background: rgba(220, 38, 38, 0.2);
+            border-color: rgba(220, 38, 38, 0.4);
         }
 
-        /* Social Links */
+        /* Social Links with Colorful Hover */
         .footer-social-links {
             display: flex;
             align-items: center;
-            gap: 0.625rem;
+            gap: 0.75rem;
         }
 
         .footer-social-link {
-            width: 38px;
-            height: 38px;
+            width: 44px;
+            height: 44px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(148, 163, 184, 0.12);
-            border-radius: 10px;
-            color: rgba(226, 232, 240, 0.6);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--footer-glass-bg);
+            border: 1px solid var(--footer-glass-border);
+            border-radius: 14px;
+            color: var(--footer-text-secondary);
+            transition: all 0.4s var(--footer-transition);
+            position: relative;
+            overflow: hidden;
         }
 
         .footer-social-link::before {
-            display: none;
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--footer-accent-warm), var(--footer-accent-gold));
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .footer-social-link svg {
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
         }
 
         .footer-social-link:hover {
-            color: #ffffff;
-            transform: translateY(-3px);
+            color: var(--footer-text-primary);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 12px 30px var(--footer-glow-warm);
+            border-color: transparent;
+        }
+
+        .footer-social-link:hover::before {
+            opacity: 1;
+        }
+
+        .footer-social-link:hover svg {
+            transform: scale(1.1);
         }
 
         .footer-social-link.linkedin:hover {
-            background: #0A66C2;
-            border-color: #0A66C2;
-            box-shadow: 0 8px 20px rgba(10, 102, 194, 0.3);
+            box-shadow: 0 12px 30px rgba(10, 102, 194, 0.4);
+        }
+
+        .footer-social-link.linkedin:hover::before {
+            background: linear-gradient(135deg, #0A66C2, #0077b5);
         }
 
         .footer-social-link.email:hover {
-            background: #3b82f6;
-            border-color: #3b82f6;
-            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        .footer-social-link.email:hover::before {
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
         }
 
         .footer-social-link.phone:hover {
-            background: #10b981;
-            border-color: #10b981;
-            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 12px 30px rgba(16, 185, 129, 0.4);
+        }
+
+        .footer-social-link.phone:hover::before {
+            background: linear-gradient(135deg, #10b981, #34d399);
         }
 
         /* Copyright Row */
@@ -990,29 +1222,30 @@
         }
 
         .footer-copyright {
-            font-size: 0.8rem;
-            color: rgba(148, 163, 184, 0.6);
-            line-height: 1.6;
+            font-size: 0.85rem;
+            color: var(--footer-text-muted);
+            line-height: 1.7;
         }
 
         .footer-copyright strong {
-            color: rgba(226, 232, 240, 0.8);
-            font-weight: 500;
+            color: var(--footer-text-secondary);
+            font-weight: 600;
         }
 
         /* Legal Links */
         .footer-legal {
             display: flex;
             align-items: center;
-            gap: 0.25rem;
+            gap: 0.5rem;
         }
 
         .footer-legal a {
-            font-size: 0.75rem;
-            color: rgba(148, 163, 184, 0.5);
-            padding: 0.375rem 0.75rem;
-            border-radius: 4px;
-            transition: all 0.25s ease;
+            font-size: 0.8rem;
+            color: var(--footer-text-muted);
+            padding: 0.5rem 0.875rem;
+            border-radius: 8px;
+            margin-left: 0;
+            transition: all 0.3s var(--footer-transition);
         }
 
         .footer-legal a::before {
@@ -1020,20 +1253,117 @@
         }
 
         .footer-legal a:hover {
-            color: rgba(226, 232, 240, 0.9);
-            background: rgba(255, 255, 255, 0.05);
+            color: var(--footer-text-primary);
+            background: var(--footer-glass-bg);
         }
 
         .footer-legal-sep {
             width: 1px;
-            height: 12px;
-            background: rgba(148, 163, 184, 0.15);
+            height: 16px;
+            background: var(--footer-glass-border);
+        }
+
+        /* Dark Mode Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--footer-accent-warm), var(--footer-accent-gold));
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 30px var(--footer-glow-warm);
+            transition: all 0.4s var(--footer-transition);
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1) rotate(15deg);
+            box-shadow: 0 12px 40px var(--footer-glow-warm);
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.95);
+        }
+
+        .theme-toggle svg {
+            width: 28px;
+            height: 28px;
+            color: var(--footer-bg-primary);
+            transition: transform 0.5s ease;
+        }
+
+        .theme-toggle:hover svg {
+            transform: rotate(360deg);
+        }
+
+        .theme-toggle .sun-icon { display: block; }
+        .theme-toggle .moon-icon { display: none; }
+
+        [data-theme="dark"] .theme-toggle .sun-icon { display: none; }
+        [data-theme="dark"] .theme-toggle .moon-icon { display: block; }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 6rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: var(--footer-glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--footer-glass-border);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.4s var(--footer-transition);
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: linear-gradient(135deg, var(--footer-accent-warm), var(--footer-accent-gold));
+            border-color: transparent;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px var(--footer-glow-warm);
+        }
+
+        .back-to-top svg {
+            width: 24px;
+            height: 24px;
+            color: var(--footer-text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top:hover svg {
+            color: var(--footer-bg-primary);
+            transform: translateY(-2px);
         }
 
         /* Mobile Responsive */
         @media (max-width: 991px) {
             .footer-main {
                 padding: 3.5rem 0 2.5rem;
+            }
+
+            .footer-glass-card {
+                padding: 2rem;
             }
 
             .footer-trust-row {
@@ -1060,6 +1390,19 @@
                 justify-content: center;
                 width: 100%;
             }
+
+            .theme-toggle {
+                width: 50px;
+                height: 50px;
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+
+            .back-to-top {
+                right: 5rem;
+                width: 44px;
+                height: 44px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -1067,13 +1410,19 @@
                 padding: 2.5rem 0 2rem;
             }
 
+            .footer-glass-card {
+                padding: 1.5rem;
+                border-radius: 20px;
+            }
+
             .footer-grid {
-                gap: 2.5rem;
+                gap: 2rem;
             }
 
             .footer h3 {
                 justify-content: center;
                 text-align: center;
+                font-size: 0.8rem;
             }
 
             .footer-column {
@@ -1082,6 +1431,10 @@
 
             .footer-contact-item {
                 justify-content: center;
+            }
+
+            .footer-contact-item:hover {
+                transform: translateX(0) scale(1.02);
             }
 
             .footer-nav-link {
@@ -1093,11 +1446,19 @@
             }
 
             .footer-services-list li:hover {
-                transform: translateX(0);
+                transform: translateX(0) scale(1.02);
+            }
+
+            .footer-hours-block {
+                text-align: center;
+            }
+
+            .footer-hours-day {
+                justify-content: center;
             }
 
             .footer-bottom-content {
-                padding: 1.25rem 0;
+                padding: 1.5rem 0;
             }
 
             .footer-trust-row {
@@ -1106,12 +1467,47 @@
             }
 
             .footer-badge {
-                font-size: 0.7rem;
-                padding: 0.4rem 0.7rem;
+                font-size: 0.75rem;
+                padding: 0.5rem 0.875rem;
             }
 
             .footer-copyright {
-                font-size: 0.75rem;
+                font-size: 0.8rem;
+            }
+
+            .footer a {
+                justify-content: center;
+                margin-left: 0;
+            }
+
+            .footer a:hover {
+                padding-left: 0.75rem;
+            }
+
+            .theme-toggle {
+                width: 48px;
+                height: 48px;
+                bottom: 1rem;
+                right: 1rem;
+            }
+
+            .back-to-top {
+                right: 4rem;
+                bottom: 1rem;
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        /* Scroll-triggered animations */
+        @media (prefers-reduced-motion: no-preference) {
+            .footer-column {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            .footer.in-view .footer-column {
+                animation: fadeInUp 0.6s var(--footer-transition) forwards;
             }
         }
         
@@ -1752,75 +2148,208 @@
 </main>
 
 <!-- Footer -->
-<footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div>
-                <h3>🏢 General Isolierungen GmbH</h3>
-                <address>
-                    <strong>Samstagernstrasse 45</strong><br>
-                    8832 Wollerau<br>
-                    Schweiz<br><br>
-                    📞 <a href="tel:+41764640190">+41 76 464 01 90</a><br>
-                    ✉️ <a href="mailto:info@generalisol.ch">info@generalisol.ch</a><br>
-                    🌐 <a href="https://generalisol.ch">www.generalisol.ch</a>
-                </address>
-            </div>
-            
-            <div>
-                <h3>🔗 Navigation</h3>
-                <ul>
-                    <li><a href="index.html">🏠 Startseite</a></li>
-                    <li><a href="leistungen.html">🔧 Leistungen</a></li>
-                    <li><a href="ueber-uns.html">👥 Über uns</a></li>
-                    <li><a href="kontakt.html">📞 Kontakt</a></li>
-                </ul>
-            </div>
-            
-            <div>
-                <h3>🕐 Öffnungszeiten</h3>
-                <p><strong>Montag - Freitag</strong><br>
-                08:00 - 12:00 Uhr<br>
-                13:30 - 17:00 Uhr</p>
-                <p><strong>Samstag & Sonntag</strong><br>
-                <span style="color: #9ca3af;">Geschlossen</span></p>
-            </div>
-            
-            <div>
-                <h3>🏗️ Services</h3>
-                <ul style="font-size: 0.9rem;">
-                    <li>🏠 Sanitäranlagen-Dämmung</li>
-                    <li>🌬️ Lüftungsdämmung</li>
-                    <li>🔇 Schallschutz</li>
-                    <li>🔥 Brandschutz</li>
-                    <li>❄️ Kälteisolierung</li>
-                    <li>🏭 Industrieisolierung</li>
-                </ul>
+<footer class="footer" id="footer">
+    <!-- Floating Particles -->
+    <div class="footer-particles">
+        <div class="footer-particle"></div>
+        <div class="footer-particle"></div>
+        <div class="footer-particle"></div>
+        <div class="footer-particle"></div>
+        <div class="footer-particle"></div>
+    </div>
+
+    <div class="footer-main">
+        <div class="container">
+            <div class="footer-glass-card">
+                <div class="footer-grid">
+                    <!-- Company Info Column -->
+                    <div class="footer-column">
+                        <div class="footer-company-name">
+                            General Isolierungen GmbH
+                            <span>Ihr Partner für professionelle Isolierungen</span>
+                        </div>
+                        <address>
+                            Samstagernstrasse 45<br>
+                            8832 Wollerau<br>
+                            Schweiz
+                        </address>
+
+                        <a href="tel:+41764640190" class="footer-contact-item">
+                            <div class="footer-contact-icon">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                </svg>
+                            </div>
+                            <div class="footer-contact-text">
+                                <span class="footer-contact-label">Telefon</span>
+                                <span class="footer-contact-value">+41 76 464 01 90</span>
+                            </div>
+                        </a>
+
+                        <a href="mailto:info@generalisol.ch" class="footer-contact-item">
+                            <div class="footer-contact-icon">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <div class="footer-contact-text">
+                                <span class="footer-contact-label">E-Mail</span>
+                                <span class="footer-contact-value">info@generalisol.ch</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Navigation Column -->
+                    <div class="footer-column">
+                        <h3>Navigation</h3>
+                        <ul>
+                            <li><a href="index.html" class="footer-nav-link">
+                                <span>Startseite</span>
+                                <span class="link-arrow">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                </span>
+                            </a></li>
+                            <li><a href="leistungen.html" class="footer-nav-link">
+                                <span>Leistungen</span>
+                                <span class="link-arrow">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                </span>
+                            </a></li>
+                            <li><a href="ueber-uns.html" class="footer-nav-link">
+                                <span>Über uns</span>
+                                <span class="link-arrow">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                </span>
+                            </a></li>
+                            <li><a href="kontakt.html" class="footer-nav-link">
+                                <span>Kontakt</span>
+                                <span class="link-arrow">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                </span>
+                            </a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Opening Hours Column -->
+                    <div class="footer-column">
+                        <h3>Öffnungszeiten</h3>
+                        <div class="footer-hours-block">
+                            <div class="footer-hours-day">Montag - Freitag</div>
+                            <div class="footer-hours-time">
+                                08:00 - 12:00 Uhr<br>
+                                13:30 - 17:00 Uhr
+                            </div>
+                        </div>
+                        <div class="footer-hours-closed">
+                            Samstag & Sonntag geschlossen
+                        </div>
+                    </div>
+
+                    <!-- Services Column -->
+                    <div class="footer-column">
+                        <h3>Unsere Services</h3>
+                        <ul class="footer-services-list">
+                            <li><span class="footer-service-dot"></span>Sanitäranlagen-Dämmung</li>
+                            <li><span class="footer-service-dot"></span>Lüftungsdämmung</li>
+                            <li><span class="footer-service-dot"></span>Schallschutz</li>
+                            <li><span class="footer-service-dot"></span>Brandschutz</li>
+                            <li><span class="footer-service-dot"></span>Kälteisolierung</li>
+                            <li><span class="footer-service-dot"></span>Industrieisolierung</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <div class="footer-bottom">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                <p>&copy; 2020–2026 General Isolierungen GmbH. Seit 2020 Ihr Partner für professionelle Isolierungen. Alle Rechte vorbehalten.</p>
-                <p style="font-size: 0.85rem;">
-                    <a href="datenschutz.html" style="color: rgba(255, 255, 255, 0.7); margin-right: 1rem;">Datenschutz</a>
-                    <span style="color: #9ca3af;">Professionelle Isolierungen in Wollerau und der ganzen Schweiz</span>
-                </p>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="footer-bottom-content">
+                <!-- Trust Badges & Social Links -->
+                <div class="footer-trust-row">
+                    <div class="footer-trust-badges">
+                        <span class="footer-badge swiss">
+                            <span class="footer-badge-icon">🇨🇭</span>
+                            Swiss Quality
+                        </span>
+                        <span class="footer-badge">
+                            <span class="footer-badge-icon">✓</span>
+                            Zertifiziert
+                        </span>
+                        <span class="footer-badge">
+                            <span class="footer-badge-icon">⚡</span>
+                            Seit 2020
+                        </span>
+                    </div>
+                    <div class="footer-social-links">
+                        <a href="tel:+41764640190" class="footer-social-link phone" title="Anrufen">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                        </a>
+                        <a href="mailto:info@generalisol.ch" class="footer-social-link email" title="E-Mail senden">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Copyright Row -->
+                <div class="footer-copyright-row">
+                    <p class="footer-copyright">
+                        © 2020–2026 <strong>General Isolierungen GmbH</strong>. Alle Rechte vorbehalten.<br>
+                        <span style="opacity: 0.7;">Professionelle Isolierungen in Wollerau und der ganzen Schweiz</span>
+                    </p>
+                    <div class="footer-legal">
+                        <a href="datenschutz.html">Datenschutz</a>
+                        <span class="footer-legal-sep"></span>
+                        <a href="impressum.html">Impressum</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </footer>
 
-<!-- Mobile Menu JavaScript -->
+<!-- Theme Toggle Button -->
+<button class="theme-toggle" id="themeToggle" title="Design wechseln">
+    <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+    </svg>
+    <svg class="moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+    </svg>
+</button>
+
+<!-- Back to Top Button -->
+<button class="back-to-top" id="backToTop" title="Nach oben">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+</button>
+
+<!-- JavaScript: Mobile Menu, Dark Mode, Animations -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    // ========================================
+    // Mobile Menu
+    // ========================================
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     let isOpen = false;
-    
+
     mobileMenuBtn.addEventListener('click', function() {
         isOpen = !isOpen;
-        
+
         if (isOpen) {
             mobileMenu.classList.add('active');
             mobileMenuBtn.innerHTML = '✕';
@@ -1831,8 +2360,7 @@ document.addEventListener('DOMContentLoaded', function() {
             mobileMenuBtn.style.fontSize = '1.8rem';
         }
     });
-    
-    // Close menu when clicking outside
+
     document.addEventListener('click', function(e) {
         if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
             if (isOpen) {
@@ -1843,8 +2371,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
-    
-    // Close menu when clicking menu item
+
     const mobileMenuLinks = mobileMenu.querySelectorAll('a');
     mobileMenuLinks.forEach(link => {
         link.addEventListener('click', function() {
@@ -1854,6 +2381,239 @@ document.addEventListener('DOMContentLoaded', function() {
             isOpen = false;
         });
     });
+
+    // ========================================
+    // Dark Mode Toggle
+    // ========================================
+    const themeToggle = document.getElementById('themeToggle');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    // Get saved theme or use system preference
+    function getTheme() {
+        const saved = localStorage.getItem('theme');
+        if (saved) return saved;
+        return prefersDark.matches ? 'dark' : 'light';
+    }
+
+    // Apply theme
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+
+        // Add smooth transition
+        document.documentElement.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+    }
+
+    // Initialize theme
+    setTheme(getTheme());
+
+    // Toggle on click
+    themeToggle.addEventListener('click', function() {
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        setTheme(next);
+
+        // Add a fun rotation animation
+        this.style.transform = 'scale(1.2) rotate(360deg)';
+        setTimeout(() => {
+            this.style.transform = '';
+        }, 500);
+    });
+
+    // Listen for system theme changes
+    prefersDark.addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) {
+            setTheme(e.matches ? 'dark' : 'light');
+        }
+    });
+
+    // ========================================
+    // Back to Top Button
+    // ========================================
+    const backToTop = document.getElementById('backToTop');
+
+    function toggleBackToTop() {
+        if (window.scrollY > 400) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
+        }
+    }
+
+    window.addEventListener('scroll', toggleBackToTop, { passive: true });
+
+    backToTop.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // ========================================
+    // Footer Scroll Animation
+    // ========================================
+    const footer = document.getElementById('footer');
+
+    const footerObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '50px'
+    });
+
+    if (footer) {
+        footerObserver.observe(footer);
+    }
+
+    // ========================================
+    // Magnetic Button Effect (Theme Toggle)
+    // ========================================
+    function addMagneticEffect(element) {
+        element.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            this.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+        });
+
+        element.addEventListener('mouseleave', function() {
+            this.style.transform = '';
+        });
+    }
+
+    addMagneticEffect(themeToggle);
+    addMagneticEffect(backToTop);
+
+    // ========================================
+    // Smooth Reveal for Footer Elements
+    // ========================================
+    const footerColumns = document.querySelectorAll('.footer-column');
+
+    const columnObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, index * 100);
+                columnObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.2
+    });
+
+    footerColumns.forEach(column => {
+        columnObserver.observe(column);
+    });
+
+    // ========================================
+    // Ripple Effect for Contact Items
+    // ========================================
+    document.querySelectorAll('.footer-contact-item').forEach(item => {
+        item.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            ripple.style.cssText = `
+                position: absolute;
+                background: rgba(245, 158, 11, 0.3);
+                border-radius: 50%;
+                transform: scale(0);
+                animation: rippleEffect 0.6s ease-out;
+                pointer-events: none;
+            `;
+
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+            ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+
+            this.style.position = 'relative';
+            this.style.overflow = 'hidden';
+            this.appendChild(ripple);
+
+            setTimeout(() => ripple.remove(), 600);
+        });
+    });
+
+    // Add ripple animation keyframes dynamically
+    if (!document.getElementById('rippleStyles')) {
+        const style = document.createElement('style');
+        style.id = 'rippleStyles';
+        style.textContent = `
+            @keyframes rippleEffect {
+                to { transform: scale(4); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    // ========================================
+    // Service Dot Pulse on Hover
+    // ========================================
+    document.querySelectorAll('.footer-services-list li').forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            const dot = this.querySelector('.footer-service-dot');
+            if (dot) {
+                dot.style.animation = 'none';
+                dot.offsetHeight; // Trigger reflow
+                dot.style.animation = 'dotPulse 0.5s ease';
+            }
+        });
+    });
+
+    // Add dot pulse animation
+    if (!document.getElementById('dotPulseStyles')) {
+        const style = document.createElement('style');
+        style.id = 'dotPulseStyles';
+        style.textContent = `
+            @keyframes dotPulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.5); }
+                100% { transform: scale(1.3); }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    // ========================================
+    // Parallax Effect for Particles
+    // ========================================
+    let ticking = false;
+
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                const particles = document.querySelectorAll('.footer-particle');
+                const scrolled = window.scrollY;
+
+                particles.forEach((particle, index) => {
+                    const speed = 0.05 + (index * 0.02);
+                    particle.style.transform = `translateY(${scrolled * speed}px)`;
+                });
+
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
+
+    // ========================================
+    // Typing Effect for Company Name (optional)
+    // ========================================
+    const companyName = document.querySelector('.footer-company-name');
+    if (companyName && window.innerWidth > 768) {
+        const originalText = companyName.childNodes[0].textContent;
+        const subtitleElement = companyName.querySelector('span');
+
+        // Store original for potential re-animation
+        companyName.dataset.originalText = originalText;
+    }
 });
 </script>
 
