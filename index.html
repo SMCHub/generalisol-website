@@ -805,75 +805,282 @@
             transform: scale(1.1);
         }
 
-        /* Footer Bottom */
+        /* Footer Bottom - Professional Swiss Style */
         .footer-bottom {
-            background: rgba(0, 0, 0, 0.3);
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.45) 100%);
             margin-top: 2.5rem;
-            padding: 1.75rem 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
         }
 
-        .footer-bottom-content {
+        .footer-bottom-inner {
+            padding: 2rem 0;
+        }
+
+        .footer-bottom-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
-        .footer-bottom p {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
+        .footer-bottom-row:first-child {
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Company Trust Info */
+        .footer-trust-info {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.6rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        .footer-trust-badge:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-1px);
+        }
+
+        .footer-trust-badge svg {
+            width: 16px;
+            height: 16px;
+            opacity: 0.8;
+        }
+
+        .footer-trust-badge .badge-icon {
+            font-size: 1rem;
+        }
+
+        /* Social Media Links in Footer Bottom */
+        .footer-bottom-social {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .footer-bottom-social-label {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-right: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-bottom-social a {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: rgba(255, 255, 255, 0.65);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .footer-bottom-social a::after {
+            display: none;
+        }
+
+        .footer-bottom-social a:hover {
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .footer-bottom-social a.linkedin:hover {
+            background: #0A66C2;
+            border-color: #0A66C2;
+        }
+
+        .footer-bottom-social a.facebook:hover {
+            background: #1877F2;
+            border-color: #1877F2;
+        }
+
+        .footer-bottom-social a.instagram:hover {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            border-color: transparent;
+        }
+
+        .footer-bottom-social svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Legal Links */
+        .footer-legal-links {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-legal-links a {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.55);
+            padding: 0.4rem 0.75rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .footer-legal-links a::after {
+            display: none;
+        }
+
+        .footer-legal-links a:hover {
+            color: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(0);
+        }
+
+        .footer-legal-divider {
+            width: 1px;
+            height: 14px;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Copyright Row */
+        .footer-copyright {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .footer-copyright-text {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.55);
             margin: 0;
             line-height: 1.6;
         }
 
-        .footer-bottom-links {
-            display: flex;
-            gap: 2rem;
+        .footer-copyright-text strong {
+            color: rgba(255, 255, 255, 0.75);
+            font-weight: 600;
         }
 
-        .footer-bottom-links a {
-            font-size: 0.9rem;
+        .footer-bottom p {
+            font-size: 0.85rem;
             color: rgba(255, 255, 255, 0.5);
-            transition: all 0.3s ease;
-            padding: 0.25rem 0;
+            margin: 0;
+            line-height: 1.6;
         }
 
-        .footer-bottom-links a::after {
-            display: none;
-        }
-
-        .footer-bottom-links a:hover {
-            color: rgba(255, 255, 255, 0.9);
-            transform: translateX(0);
-        }
-
-        .footer-bottom-links a:focus-visible {
-            outline: 2px solid rgba(99, 102, 241, 0.8);
-            outline-offset: 3px;
-        }
-
-        .swiss-badge {
+        /* Swiss Quality Badge */
+        .swiss-quality-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.65);
+            padding: 0.4rem 0.9rem;
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid rgba(220, 38, 38, 0.2);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
             transition: all 0.3s ease;
         }
 
-        .swiss-badge:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.15);
+        .swiss-quality-badge:hover {
+            background: rgba(220, 38, 38, 0.15);
+            border-color: rgba(220, 38, 38, 0.3);
         }
 
-        .swiss-badge .flag {
-            font-size: 1rem;
+        .swiss-quality-badge .flag {
+            font-size: 0.95rem;
+        }
+
+        /* Mobile Responsive Footer Bottom */
+        @media (max-width: 991px) {
+            .footer-bottom-row {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .footer-trust-info {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .footer-bottom-social {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .footer-legal-links {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .footer-copyright {
+                justify-content: center;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-bottom-inner {
+                padding: 1.5rem 0;
+            }
+
+            .footer-bottom-row:first-child {
+                padding-bottom: 1.25rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .footer-trust-info {
+                gap: 0.75rem;
+            }
+
+            .footer-trust-badge {
+                font-size: 0.8rem;
+                padding: 0.5rem 0.8rem;
+            }
+
+            .footer-bottom-social-label {
+                display: none;
+            }
+
+            .footer-legal-links {
+                gap: 0.25rem;
+            }
+
+            .footer-legal-links a {
+                font-size: 0.8rem;
+                padding: 0.35rem 0.5rem;
+            }
+
+            .footer-legal-divider {
+                height: 12px;
+            }
+
+            .footer-copyright-text {
+                font-size: 0.8rem;
+            }
+
+            .swiss-quality-badge {
+                font-size: 0.75rem;
+                padding: 0.35rem 0.7rem;
+            }
         }
         
         /* Mobile Navigation - Enhanced Touch Support */
@@ -1562,9 +1769,10 @@
         
         <div class="footer-bottom">
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                <p>&copy; 2026 General Isolierungen GmbH - Alle Rechte vorbehalten</p>
-                <p style="font-size: 0.8rem; color: #9ca3af;">
-                    Professionelle Isolierungen in Wollerau und der ganzen Schweiz
+                <p>&copy; 2020–2026 General Isolierungen GmbH. Seit 2020 Ihr Partner für professionelle Isolierungen. Alle Rechte vorbehalten.</p>
+                <p style="font-size: 0.85rem;">
+                    <a href="datenschutz.html" style="color: rgba(255, 255, 255, 0.7); margin-right: 1rem;">Datenschutz</a>
+                    <span style="color: #9ca3af;">Professionelle Isolierungen in Wollerau und der ganzen Schweiz</span>
                 </p>
             </div>
         </div>
