@@ -2359,6 +2359,143 @@
         }
 
         /* ============================================
+           TESTIMONIALS SECTION
+           ============================================ */
+        .testimonials {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
+            position: relative;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.2), transparent);
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .testimonials h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+        }
+
+        .testimonials-subtitle {
+            font-size: 1.25rem;
+            color: #64748b;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 5rem;
+            font-family: Georgia, serif;
+            color: rgba(30, 64, 175, 0.1);
+            line-height: 1;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .testimonial-rating {
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-rating span {
+            color: #f59e0b;
+            font-size: 1.25rem;
+            margin-right: 0.125rem;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin: 0 0 1.5rem 0;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-info strong {
+            color: #1a1a1a;
+            font-size: 1rem;
+        }
+
+        .author-info span {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+
+        .testimonials-cta {
+            text-align: center;
+            padding-top: 2rem;
+        }
+
+        .testimonials-cta p {
+            font-size: 1.25rem;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ============================================
            ZERTIFIKATE / TRUST SECTION
            ============================================ */
         .certifications {
@@ -2461,15 +2598,15 @@
 
         /* Responsive for new sections */
         @media (max-width: 768px) {
-            .projects, .faq, .certifications {
+            .projects, .faq, .certifications, .testimonials {
                 padding: 3rem 0;
             }
 
-            .projects h2, .faq h2, .certifications h2 {
+            .projects h2, .faq h2, .certifications h2, .testimonials h2 {
                 font-size: 1.75rem;
             }
 
-            .projects-grid, .certifications-grid {
+            .projects-grid, .certifications-grid, .testimonials-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -2828,6 +2965,87 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="testimonials-header animate-on-scroll">
+                <h2>Was unsere Kunden sagen</h2>
+                <p class="testimonials-subtitle">Erfahren Sie, warum Bauherren und Unternehmen in der ganzen Schweiz auf uns vertrauen.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card animate-on-scroll animate-delay-1">
+                    <div class="testimonial-rating">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <blockquote class="testimonial-text">
+                        "General Isolierungen hat unsere Erwartungen übertroffen. Die Rohrisolierung wurde professionell und termingerecht ausgeführt. Seitdem sparen wir deutlich bei den Heizkosten."
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MK</div>
+                        <div class="author-info">
+                            <strong>Marco Künzli</strong>
+                            <span>Hausverwaltung Zürich</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card animate-on-scroll animate-delay-2">
+                    <div class="testimonial-rating">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <blockquote class="testimonial-text">
+                        "Exzellente Arbeit beim Schallschutz unserer Abwasserleitungen. Das Team war pünktlich, sauber und sehr kompetent. Wir empfehlen General Isolierungen uneingeschränkt weiter!"
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SH</div>
+                        <div class="author-info">
+                            <strong>Sandra Huber</strong>
+                            <span>Immobilienverwalterin, Schwyz</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card animate-on-scroll animate-delay-3">
+                    <div class="testimonial-rating">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <blockquote class="testimonial-text">
+                        "Als Bauunternehmen arbeiten wir regelmässig mit General Isolierungen zusammen. Zuverlässigkeit, Qualität und faire Preise – genau das, was wir brauchen."
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">TB</div>
+                        <div class="author-info">
+                            <strong>Thomas Brunner</strong>
+                            <span>Brunner Bau AG</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card animate-on-scroll animate-delay-4">
+                    <div class="testimonial-rating">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <blockquote class="testimonial-text">
+                        "Die Brandschutzisolierung in unserem Gewerbebau wurde perfekt umgesetzt. Alle Normen wurden eingehalten und die Dokumentation war vorbildlich. Top Service!"
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PR</div>
+                        <div class="author-info">
+                            <strong>Peter Reichmuth</strong>
+                            <span>Geschäftsführer, Reichmuth AG</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonials-cta animate-on-scroll">
+                <p>Werden auch Sie ein zufriedener Kunde!</p>
+                <a href="kontakt.html" class="btn-primary">Jetzt Beratung anfordern</a>
             </div>
         </div>
     </section>

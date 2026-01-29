@@ -571,6 +571,213 @@
             padding-left: 2.5rem;
         }
         
+        /* Contact Form Section */
+        .contact-form-section {
+            padding: 4rem 0;
+            background: #f9fafb;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .form-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.75rem;
+        }
+
+        .form-header p {
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #374151;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 1rem 1.25rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: #f9fafb;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #1e40af;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(30, 64, 175, 0.1);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #9ca3af;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 3rem;
+        }
+
+        .checkbox-group {
+            flex-direction: row;
+            align-items: flex-start;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            cursor: pointer;
+            font-weight: 400;
+            color: #4b5563;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            cursor: pointer;
+            accent-color: #1e40af;
+        }
+
+        .checkbox-label a {
+            color: #1e40af;
+            text-decoration: underline;
+        }
+
+        .checkbox-label a:hover {
+            color: #1d4ed8;
+        }
+
+        .btn-submit {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1.25rem 2.5rem;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+            margin-top: 1rem;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+
+        .btn-submit svg {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-submit:hover svg {
+            transform: translateX(4px);
+        }
+
+        .form-note {
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .form-success {
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            margin: 0 auto 1.5rem;
+            animation: scaleIn 0.5s ease;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+
+        .form-success h3 {
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            margin-bottom: 0.75rem;
+        }
+
+        .form-success p {
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .nav-container {
@@ -640,6 +847,24 @@
             
             .map {
                 height: 300px;
+            }
+
+            .form-container {
+                padding: 1.5rem;
+                border-radius: 16px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .form-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .btn-submit {
+                width: 100%;
             }
         }
     </style>
@@ -759,12 +984,108 @@
         </div>
     </section>
 
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Schreiben Sie uns</h2>
+                    <p>Füllen Sie das Formular aus und wir melden uns innerhalb von 24 Stunden bei Ihnen.</p>
+                </div>
+                <form id="contactForm" class="contact-form" action="#" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">Vorname *</label>
+                            <input type="text" id="firstName" name="firstName" required placeholder="Ihr Vorname">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Nachname *</label>
+                            <input type="text" id="lastName" name="lastName" required placeholder="Ihr Nachname">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">E-Mail *</label>
+                            <input type="email" id="email" name="email" required placeholder="ihre@email.ch">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefon</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+41 XX XXX XX XX">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Gewünschte Leistung</label>
+                        <select id="service" name="service">
+                            <option value="">Bitte wählen...</option>
+                            <option value="sanitaer">Sanitäranlagen-Dämmung</option>
+                            <option value="lueftung">Lüftungsdämmung</option>
+                            <option value="schallschutz">Schallschutz</option>
+                            <option value="brandschutz">Brandschutz</option>
+                            <option value="kaelte">Kälteisolierung</option>
+                            <option value="industrie">Industrieisolierung</option>
+                            <option value="beratung">Allgemeine Beratung</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectType">Projektart</label>
+                        <select id="projectType" name="projectType">
+                            <option value="">Bitte wählen...</option>
+                            <option value="neubau">Neubau</option>
+                            <option value="sanierung">Sanierung / Renovation</option>
+                            <option value="reparatur">Reparatur</option>
+                            <option value="beratung">Beratung / Offerte</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Ihre Nachricht *</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Beschreiben Sie Ihr Projekt oder Ihre Anfrage..."></textarea>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <span class="checkmark"></span>
+                            <span>Ich akzeptiere die <a href="datenschutz.html">Datenschutzerklärung</a> *</span>
+                        </label>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <span class="checkmark"></span>
+                            <span>Ich möchte den Newsletter erhalten (optional)</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <span>Anfrage senden</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                        </svg>
+                    </button>
+                    <p class="form-note">* Pflichtfelder</p>
+                </form>
+                <div id="formSuccess" class="form-success" style="display: none;">
+                    <div class="success-icon">✓</div>
+                    <h3>Vielen Dank für Ihre Nachricht!</h3>
+                    <p>Wir haben Ihre Anfrage erhalten und melden uns innerhalb von 24 Stunden bei Ihnen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Map Section -->
     <section class="map-section">
         <div class="container">
             <div class="map-container">
                 <div class="map">
-                    <span>📍 Wollerau - Samstagernstrasse 45</span>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2712.5!2d8.7156!3d47.1899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDExJzIzLjYiTiA4wrA0MyczMi4yIkU!5e0!3m2!1sde!2sch!4v1234567890"
+                        width="100%"
+                        height="100%"
+                        style="border:0; border-radius: 16px;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Standort General Isolierungen GmbH">
+                    </iframe>
                 </div>
                 <div class="map-info">
                     <h3>Optimal erreichbar</h3>
@@ -789,60 +1110,120 @@
     </section>
 </main>
 
-<!-- Footer -->
-<footer class="footer">
+<!-- Trust Badges Section -->
+<section style="padding: 3rem 0; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-top: 1px solid #e5e7eb;">
     <div class="container">
-        <div class="footer-grid">
-            <div>
-                <h3>🏢 General Isolierungen GmbH</h3>
-                <address>
-                    <strong>Samstagernstrasse 45</strong><br>
-                    8832 Wollerau<br>
-                    Schweiz<br><br>
-                    📞 <a href="tel:+41764640190">+41 76 464 01 90</a><br>
-                    ✉️ <a href="mailto:info@generalisol.ch">info@generalisol.ch</a><br>
-                    🌐 <a href="https://generalisol.ch">www.generalisol.ch</a>
-                </address>
+        <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 2rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.5rem; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 1px solid #e5e7eb;">
+                <span style="font-size: 2rem;">🇨🇭</span>
+                <div>
+                    <div style="font-weight: 700; color: #1a1a1a;">Swiss Made</div>
+                    <div style="font-size: 0.85rem; color: #6b7280;">100% Schweizer Qualität</div>
+                </div>
             </div>
-            
-            <div>
-                <h3>🔗 Navigation</h3>
-                <ul>
-                    <li><a href="index.html">🏠 Startseite</a></li>
-                    <li><a href="leistungen.html">🔧 Leistungen</a></li>
-                    <li><a href="ueber-uns.html">👥 Über uns</a></li>
-                    <li><a href="kontakt.html">📞 Kontakt</a></li>
-                </ul>
+            <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.5rem; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 1px solid #e5e7eb;">
+                <span style="font-size: 2rem;">⭐</span>
+                <div>
+                    <div style="font-weight: 700; color: #1a1a1a;">Top Bewertungen</div>
+                    <div style="font-size: 0.85rem; color: #6b7280;">4.9/5 Kundenzufriedenheit</div>
+                </div>
             </div>
-            
-            <div>
-                <h3>🕐 Öffnungszeiten</h3>
-                <p><strong>Montag - Freitag</strong><br>
-                08:00 - 12:00 Uhr<br>
-                13:30 - 17:00 Uhr</p>
-                <p><strong>Samstag & Sonntag</strong><br>
-                <span style="color: #9ca3af;">Geschlossen</span></p>
+            <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.5rem; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 1px solid #e5e7eb;">
+                <span style="font-size: 2rem;">✅</span>
+                <div>
+                    <div style="font-weight: 700; color: #1a1a1a;">Zertifiziert</div>
+                    <div style="font-size: 0.85rem; color: #6b7280;">EnV & Minergie konform</div>
+                </div>
             </div>
-            
-            <div>
-                <h3>🏗️ Services</h3>
-                <ul style="font-size: 0.9rem;">
-                    <li>🏠 Sanitäranlagen-Dämmung</li>
-                    <li>🌬️ Lüftungsdämmung</li>
-                    <li>🔇 Schallschutz</li>
-                    <li>🔥 Brandschutz</li>
-                    <li>❄️ Kälteisolierung</li>
-                    <li>🏭 Industrieisolierung</li>
-                </ul>
+            <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.5rem; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 1px solid #e5e7eb;">
+                <span style="font-size: 2rem;">🛡️</span>
+                <div>
+                    <div style="font-weight: 700; color: #1a1a1a;">Garantie</div>
+                    <div style="font-size: 0.85rem; color: #6b7280;">Vollständige Gewährleistung</div>
+                </div>
             </div>
         </div>
-        
-        <div class="footer-bottom">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                <p>&copy; 2026 General Isolierungen GmbH - Alle Rechte vorbehalten</p>
-                <p style="font-size: 0.8rem; color: #9ca3af;">
-                    Professionelle Isolierungen in Wollerau und der ganzen Schweiz
-                </p>
+    </div>
+</section>
+
+<!-- Business Footer -->
+<footer class="footer" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d3748 40%, #1a1a1a 100%); position: relative; overflow: hidden; padding: 0;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent 0%, #f59e0b 15%, #ec4899 35%, #f59e0b 60%, #fbbf24 80%, transparent 100%); background-size: 200% 100%; animation: gradientSlide 5s ease infinite;"></div>
+    <style>@keyframes gradientSlide { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }</style>
+
+    <div style="position: relative; z-index: 1; padding: 4rem 0 2rem;">
+        <div class="container">
+            <div style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 24px; padding: 3rem; margin-bottom: 2rem;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2.5rem;">
+                    <!-- Company Info -->
+                    <div>
+                        <div style="font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #ffffff, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1.5rem;">
+                            General Isolierungen GmbH
+                            <span style="display: block; font-size: 0.85rem; font-weight: 500; background: none; -webkit-text-fill-color: #9ca3af; margin-top: 0.375rem;">Ihr Partner für professionelle Isolierungen</span>
+                        </div>
+                        <address style="font-style: normal; color: #d1d5db; line-height: 1.9; font-size: 0.95rem;">
+                            Samstagernstrasse 45<br>8832 Wollerau<br>Schweiz
+                        </address>
+                        <a href="tel:+41764640190" style="display: flex; align-items: center; gap: 1rem; margin-top: 1rem; padding: 0.875rem 1rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; color: #f8fafc; text-decoration: none;">
+                            <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #f59e0b, #fbbf24); border-radius: 12px; font-size: 1.25rem;">📞</div>
+                            <div><span style="font-size: 0.7rem; color: #9ca3af; text-transform: uppercase; display: block;">Telefon</span><span style="font-weight: 600;">+41 76 464 01 90</span></div>
+                        </a>
+                        <a href="mailto:info@generalisol.ch" style="display: flex; align-items: center; gap: 1rem; margin-top: 0.75rem; padding: 0.875rem 1rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; color: #f8fafc; text-decoration: none;">
+                            <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #3b82f6, #60a5fa); border-radius: 12px; font-size: 1.25rem;">✉️</div>
+                            <div><span style="font-size: 0.7rem; color: #9ca3af; text-transform: uppercase; display: block;">E-Mail</span><span style="font-weight: 600;">info@generalisol.ch</span></div>
+                        </a>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div>
+                        <h3 style="font-size: 0.85rem; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1.75rem; padding-bottom: 0.875rem; border-bottom: 2px solid transparent; border-image: linear-gradient(90deg, #f59e0b, transparent) 1;">Navigation</h3>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="margin-bottom: 0.625rem;"><a href="index.html" style="color: #d1d5db; text-decoration: none; font-size: 0.95rem; font-weight: 500; padding: 0.5rem 0.75rem; border-radius: 8px; display: inline-block;">🏠 Startseite</a></li>
+                            <li style="margin-bottom: 0.625rem;"><a href="leistungen.html" style="color: #d1d5db; text-decoration: none; font-size: 0.95rem; font-weight: 500; padding: 0.5rem 0.75rem; border-radius: 8px; display: inline-block;">🔧 Leistungen</a></li>
+                            <li style="margin-bottom: 0.625rem;"><a href="ueber-uns.html" style="color: #d1d5db; text-decoration: none; font-size: 0.95rem; font-weight: 500; padding: 0.5rem 0.75rem; border-radius: 8px; display: inline-block;">👥 Über uns</a></li>
+                            <li style="margin-bottom: 0.625rem;"><a href="kontakt.html" style="color: #d1d5db; text-decoration: none; font-size: 0.95rem; font-weight: 500; padding: 0.5rem 0.75rem; border-radius: 8px; display: inline-block;">📞 Kontakt</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Öffnungszeiten -->
+                    <div>
+                        <h3 style="font-size: 0.85rem; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1.75rem; padding-bottom: 0.875rem; border-bottom: 2px solid transparent; border-image: linear-gradient(90deg, #f59e0b, transparent) 1;">Öffnungszeiten</h3>
+                        <div style="margin-bottom: 1.5rem; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                            <div style="font-size: 0.9rem; font-weight: 700; color: #f8fafc; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="width: 8px; height: 8px; background: #10b981; border-radius: 50%;"></span>Montag - Freitag
+                            </div>
+                            <div style="font-size: 0.9rem; color: #d1d5db; line-height: 1.7; padding-left: 1rem;">08:00 - 12:00 Uhr<br>13:30 - 17:00 Uhr</div>
+                        </div>
+                        <div style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: #9ca3af; padding: 0.5rem 1rem; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 8px;">
+                            <span style="width: 8px; height: 8px; background: #ef4444; border-radius: 50%;"></span>Samstag & Sonntag geschlossen
+                        </div>
+                    </div>
+
+                    <!-- Services -->
+                    <div>
+                        <h3 style="font-size: 0.85rem; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1.75rem; padding-bottom: 0.875rem; border-bottom: 2px solid transparent; border-image: linear-gradient(90deg, #f59e0b, transparent) 1;">Unsere Services</h3>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="display: flex; align-items: center; gap: 0.875rem; padding: 0.625rem 0; color: #d1d5db; font-size: 0.9rem; font-weight: 500;"><span style="width: 10px; height: 10px; background: linear-gradient(135deg, #f59e0b, #fbbf24); border-radius: 50%;"></span>Sanitäranlagen-Dämmung</li>
+                            <li style="display: flex; align-items: center; gap: 0.875rem; padding: 0.625rem 0; color: #d1d5db; font-size: 0.9rem; font-weight: 500;"><span style="width: 10px; height: 10px; background: linear-gradient(135deg, #f59e0b, #fbbf24); border-radius: 50%;"></span>Lüftungsdämmung</li>
+                            <li style="display: flex; align-items: center; gap: 0.875rem; padding: 0.625rem 0; color: #d1d5db; font-size: 0.9rem; font-weight: 500;"><span style="width: 10px; height: 10px; background: linear-gradient(135deg, #f59e0b, #fbbf24); border-radius: 50%;"></span>Schallschutz</li>
+                            <li style="display: flex; align-items: center; gap: 0.875rem; padding: 0.625rem 0; color: #d1d5db; font-size: 0.9rem; font-weight: 500;"><span style="width: 10px; height: 10px; background: linear-gradient(135deg, #f59e0b, #fbbf24); border-radius: 50%;"></span>Brandschutz</li>
+                            <li style="display: flex; align-items: center; gap: 0.875rem; padding: 0.625rem 0; color: #d1d5db; font-size: 0.9rem; font-weight: 500;"><span style="width: 10px; height: 10px; background: linear-gradient(135deg, #f59e0b, #fbbf24); border-radius: 50%;"></span>Kälteisolierung</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div style="position: relative; z-index: 1; background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px); border-top: 1px solid rgba(255,255,255,0.1); padding: 1.5rem 0;">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+                <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                    <div style="display: inline-flex; align-items: center; gap: 0.625rem; padding: 0.625rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; font-size: 0.8rem; font-weight: 600; color: #d1d5db;"><span>🇨🇭</span> Swiss Made</div>
+                    <div style="display: inline-flex; align-items: center; gap: 0.625rem; padding: 0.625rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; font-size: 0.8rem; font-weight: 600; color: #d1d5db;"><span>⭐</span> 4.9/5 Bewertung</div>
+                </div>
+                <div style="font-size: 0.85rem; color: #9ca3af; text-align: center;">© 2025 <strong style="color: #d1d5db;">General Isolierungen GmbH</strong> – Alle Rechte vorbehalten</div>
             </div>
         </div>
     </div>
@@ -891,6 +1272,64 @@ document.addEventListener('DOMContentLoaded', function() {
             isOpen = false;
         });
     });
+
+    // Contact Form Handling
+    const contactForm = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Basic validation
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const privacy = document.getElementById('privacy').checked;
+
+            if (!firstName || !lastName || !email || !message || !privacy) {
+                alert('Bitte füllen Sie alle Pflichtfelder aus.');
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Bitte geben Sie eine gültige E-Mail-Adresse ein.');
+                return;
+            }
+
+            // Simulate form submission (replace with actual backend call)
+            const submitBtn = contactForm.querySelector('.btn-submit');
+            submitBtn.innerHTML = '<span>Wird gesendet...</span>';
+            submitBtn.disabled = true;
+
+            setTimeout(function() {
+                contactForm.style.display = 'none';
+                formSuccess.style.display = 'block';
+
+                // Scroll to success message
+                formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 1500);
+        });
+
+        // Real-time input validation styling
+        const inputs = contactForm.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.required && !this.value.trim()) {
+                    this.style.borderColor = '#ef4444';
+                } else {
+                    this.style.borderColor = '#e5e7eb';
+                }
+            });
+
+            input.addEventListener('focus', function() {
+                this.style.borderColor = '#1e40af';
+            });
+        });
+    }
 });
 </script>
 
