@@ -2016,6 +2016,475 @@
                 padding: 1rem 0;
             }
         }
+
+        /* ============================================
+           NEW ANIMATIONS - Modern & Smooth
+           ============================================ */
+        
+        /* Fade In Up Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Animate on Scroll Classes */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animate-delay-1 { transition-delay: 0.1s; }
+        .animate-delay-2 { transition-delay: 0.2s; }
+        .animate-delay-3 { transition-delay: 0.3s; }
+        .animate-delay-4 { transition-delay: 0.4s; }
+
+        /* Enhanced Card Hover Effects */
+        .card-hover-lift {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover-lift:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Pulse Animation for CTAs */
+        .pulse-subtle {
+            animation: pulseSubtle 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseSubtle {
+            0%, 100% { transform: scale(1); box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3); }
+            50% { transform: scale(1.02); box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4); }
+        }
+
+        /* ============================================
+           REFERENZEN / PROJECTS SECTION
+           ============================================ */
+        .projects {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .projects::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent);
+        }
+
+        .projects-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .projects h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+        }
+
+        .projects-subtitle {
+            font-size: 1.25rem;
+            color: #64748b;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            background-size: 200% 200%;
+            animation: shimmer 3s linear infinite;
+        }
+
+        .project-icon {
+            font-size: 4rem;
+            filter: grayscale(0);
+        }
+
+        .project-content {
+            padding: 1.75rem;
+        }
+
+        .project-category {
+            display: inline-block;
+            padding: 0.375rem 1rem;
+            background: rgba(59, 130, 246, 0.1);
+            color: #1e40af;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-card p {
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .project-stats {
+            display: flex;
+            gap: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .project-stat {
+            text-align: center;
+        }
+
+        .project-stat-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #1e40af;
+            display: block;
+        }
+
+        .project-stat-label {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ============================================
+           FAQ SECTION
+           ============================================ */
+        .faq {
+            padding: 5rem 0;
+            background: #f8fafc;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .faq h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+        }
+
+        .faq-subtitle {
+            font-size: 1.25rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .faq-grid {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #f8fafc;
+        }
+
+        .faq-question h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin: 0;
+            padding-right: 1rem;
+        }
+
+        .faq-toggle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .faq-toggle svg {
+            width: 16px;
+            height: 16px;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 2rem 1.5rem;
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        /* ============================================
+           ZERTIFIKATE / TRUST SECTION
+           ============================================ */
+        .certifications {
+            padding: 5rem 0;
+            background: white;
+            position: relative;
+        }
+
+        .certifications-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .certifications h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+        }
+
+        .certifications-subtitle {
+            font-size: 1.25rem;
+            color: #64748b;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .cert-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1e40af, #3b82f6, #60a5fa);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .cert-card:hover {
+            border-color: rgba(59, 130, 246, 0.2);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.1);
+        }
+
+        .cert-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .cert-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.25);
+            transition: all 0.4s ease;
+        }
+
+        .cert-card:hover .cert-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .cert-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.75rem;
+        }
+
+        .cert-card p {
+            color: #64748b;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Responsive for new sections */
+        @media (max-width: 768px) {
+            .projects, .faq, .certifications {
+                padding: 3rem 0;
+            }
+
+            .projects h2, .faq h2, .certifications h2 {
+                font-size: 1.75rem;
+            }
+
+            .projects-grid, .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-question {
+                padding: 1.25rem 1.5rem;
+            }
+
+            .faq-question h3 {
+                font-size: 1rem;
+            }
+
+            .faq-answer-content {
+                padding: 0 1.5rem 1.25rem;
+            }
+        }
     </style>
     
     <!-- Enhanced Styles -->
@@ -2128,12 +2597,12 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>Professionelle Isolierungen für höchste Ansprüche</h1>
-                <p>Wir von General Isolierungen GmbH sind Experten für die Isolierung von Sanitäranlagen, Lüftungssystemen und Heizungsanlagen und finden für jede Aufgabe die optimale Lösung.</p>
+            <div class="hero-content animate-on-scroll">
+                <h1>Energie sparen. Komfort steigern. Zukunft sichern.</h1>
+                <p>Als Schweizer Spezialisten für hochwertige Gebäudeisolierung verwandeln wir Ihre Immobilie in ein Energiesparwunder. Von Sanitäranlagen bis Lüftungssystemen – wir liefern massgeschneiderte Dämmungslösungen, die sich auszahlen.</p>
                 <div class="hero-buttons">
-                    <a href="leistungen.html" class="btn-primary">Unsere Leistungen</a>
-                    <a href="kontakt.html" class="btn-secondary">Kontakt aufnehmen</a>
+                    <a href="leistungen.html" class="btn-primary pulse-subtle">🔥 Leistungen entdecken</a>
+                    <a href="kontakt.html" class="btn-secondary">💬 Kostenlose Beratung</a>
                 </div>
             </div>
         </div>
@@ -2142,43 +2611,43 @@
     <!-- Services Section -->
     <section class="services">
         <div class="container">
-            <div class="services-header">
-                <h2>Unsere Leistungen</h2>
-                <p class="services-subtitle">Wir bieten ein umfassendes Angebot an Isolierungslösungen für verschiedene Anwendungsbereiche.</p>
+            <div class="services-header animate-on-scroll">
+                <h2>💡 Was wir für Sie tun</h2>
+                <p class="services-subtitle">Massgeschneiderte Lösungen für jede Herausforderung – von der Planung bis zur perfekten Umsetzung.</p>
             </div>
             
             <div class="services-grid">
-                <div class="service-card animate-on-scroll">
+                <div class="service-card animate-on-scroll card-hover-lift">
                     <div class="service-icon">
                         <svg fill="currentColor" viewBox="0 0 24 24">
                             <path d="M7.05 8.46a5.94 5.94 0 0 0-2.23 2.42 5.94 5.94 0 0 0 2.23 2.42M16.94 8.46a5.94 5.94 0 0 1 2.23 2.42 5.94 5.94 0 0 1-2.23 2.42M12 6.5a5.94 5.94 0 0 1-4.47 1.96A5.94 5.94 0 0 1 12 10.42a5.94 5.94 0 0 1 4.47-1.96A5.94 5.94 0 0 1 12 6.5m0 11a5.94 5.94 0 0 0 4.47-1.96 5.94 5.94 0 0 0-4.47-1.96 5.94 5.94 0 0 0-4.47 1.96A5.94 5.94 0 0 0 12 17.5"></path>
                         </svg>
                     </div>
-                    <h3>Sanitäranlagen-Dämmung</h3>
-                    <p>Isolieren von Rohrleitungen für Sanitäranlagen unter Einhaltung der geltenden Energieverordnung mit wirtschaftlichen und umweltschonenden Dämmstoffen.</p>
-                    <a href="leistungen.html" class="service-link">Mehr erfahren →</a>
+                    <h3>🚿 Sanitäranlagen-Dämmung</h3>
+                    <p>Warmes Wasser bleibt warm – kaltes bleibt kalt. Unsere Rohrisolierungen erfüllen alle Energieverordnungen und sparen bares Geld bei den Nebenkosten.</p>
+                    <a href="leistungen.html" class="service-link">Details ansehen →</a>
                 </div>
                 
-                <div class="service-card animate-on-scroll">
+                <div class="service-card animate-on-scroll card-hover-lift">
                     <div class="service-icon">
                         <svg fill="currentColor" viewBox="0 0 24 24">
                             <path d="M8 14v-4M12 14v-4M16 14v-4M3 7h18M5 21h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2Z"></path>
                         </svg>
                     </div>
-                    <h3>Lüftungsdämmung</h3>
-                    <p>Dämmen von Lüftungskanälen als Schutz vor Energieverlust, gegen Brandausbreitung sowie als Schutz vor Zirkulationsgeräuschen und Tauwasserbildung.</p>
-                    <a href="leistungen.html" class="service-link">Mehr erfahren →</a>
+                    <h3>🌬️ Lüftungsdämmung</h3>
+                    <p>Effiziente Klimatisierung ohne Energieverlust. Wir schützen Ihre Lüftungskanäle vor Wärmeverlust, Brandausbreitung und störenden Geräuschen.</p>
+                    <a href="leistungen.html" class="service-link">Details ansehen →</a>
                 </div>
                 
-                <div class="service-card animate-on-scroll">
+                <div class="service-card animate-on-scroll card-hover-lift">
                     <div class="service-icon">
                         <svg fill="currentColor" viewBox="0 0 24 24">
                             <path d="M4.5 10H2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-7h-2.5 M12 2v8M8 5l4-3 4 3"></path>
                         </svg>
                     </div>
-                    <h3>Schallschutz</h3>
-                    <p>Schallschutz von Ablaufleitungen zur Verhinderung von Emissionen infolge Funktions- und Benutzergeräuschen mittels geeigneter Schallschutzsysteme.</p>
-                    <a href="leistungen.html" class="service-link">Mehr erfahren →</a>
+                    <h3>🔇 Schallschutz</h3>
+                    <p>Ruhe im Haus, auch wenn das Wasser läuft. Moderne Schallschutzsysteme eliminieren störende Geräusche von Ablaufleitungen – für mehr Wohnkomfort.</p>
+                    <a href="leistungen.html" class="service-link">Details ansehen →</a>
                 </div>
             </div>
         </div>
@@ -2187,21 +2656,218 @@
     <!-- About Section -->
     <section class="about">
         <div class="container">
-            <div class="about-content">
-                <h2>Über uns</h2>
-                <p>General Isolierungen GmbH ist Ihr Spezialist für hochwertige Isolierungen und Dämmungen im Bereich der Gebäudetechnik. Mit unserer langjährigen Erfahrung und unserem Fachwissen finden wir für jede Anforderung die optimale Lösung.</p>
-                <p>Unser qualifiziertes Team setzt auf moderne Techniken und hochwertige Materialien, um maximale Effizienz, Energieeinsparung und Langlebigkeit zu gewährleisten.</p>
-                <a href="ueber-uns.html" class="btn-primary">Mehr über uns</a>
+            <div class="about-content animate-on-scroll">
+                <h2>👋 Das sind wir</h2>
+                <p>Wir sind Ihr Schweizer Partner für alles rund um Gebäudeisolierung – mit Leidenschaft für Qualität und einem Auge fürs Detail. Seit Jahren vertrauen uns Privatkunden, Gewerbetreibende und Bauunternehmen ihre Projekte an.</p>
+                <p>Was uns auszeichnet? Ein eingespieltes Team von Profis, die wissen, worauf es ankommt. Wir arbeiten sauber, pünktlich und effizient – damit Sie sich auf das konzentrieren können, was Ihnen wichtig ist.</p>
+                <a href="ueber-uns.html" class="btn-primary">Team kennenlernen →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Referenzen / Projects Section -->
+    <section class="projects" id="referenzen">
+        <div class="container">
+            <div class="projects-header animate-on-scroll">
+                <h2>Unsere Referenzen</h2>
+                <p class="projects-subtitle">Vertrauen Sie auf bewährte Qualität – hier sind einige unserer erfolgreich abgeschlossenen Projekte.</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card animate-on-scroll animate-delay-1">
+                    <div class="project-image">
+                        <span class="project-icon">🏢</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">Gewerbebau</span>
+                        <h3>Bürokomplex Zürich-West</h3>
+                        <p>Komplette Lüftungs- und Sanitärisolierung für einen modernen Bürokomplex mit 12'000 m² Nutzfläche. Energieeinsparung von über 35%.</p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <span class="project-stat-value">12'000</span>
+                                <span class="project-stat-label">m² Fläche</span>
+                            </div>
+                            <div class="project-stat">
+                                <span class="project-stat-value">35%</span>
+                                <span class="project-stat-label">Energieersparnis</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card animate-on-scroll animate-delay-2">
+                    <div class="project-image" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%);">
+                        <span class="project-icon">🏥</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category" style="background: rgba(16, 185, 129, 0.1); color: #059669;">Gesundheitswesen</span>
+                        <h3>Kantonsspital Schwyz</h3>
+                        <p>Hochwertige Schallschutzisolierung für sensible Bereiche. Einhaltung strengster Hygienestandards und optimaler Lärmschutz für Patienten.</p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <span class="project-stat-value" style="color: #059669;">42 dB</span>
+                                <span class="project-stat-label">Schallreduktion</span>
+                            </div>
+                            <div class="project-stat">
+                                <span class="project-stat-value" style="color: #059669;">100%</span>
+                                <span class="project-stat-label">Norm-konform</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card animate-on-scroll animate-delay-3">
+                    <div class="project-image" style="background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);">
+                        <span class="project-icon">🏠</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category" style="background: rgba(245, 158, 11, 0.1); color: #d97706;">Wohnbau</span>
+                        <h3>Mehrfamilienhaus Wollerau</h3>
+                        <p>Sanierung der kompletten Gebäudeisolierung inkl. Heizungs- und Wasserleitungen. Deutlich verbesserte Wohnqualität und reduzierte Nebenkosten.</p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <span class="project-stat-value" style="color: #d97706;">28%</span>
+                                <span class="project-stat-label">Kostenersparnis</span>
+                            </div>
+                            <div class="project-stat">
+                                <span class="project-stat-value" style="color: #d97706;">16</span>
+                                <span class="project-stat-label">Wohnungen</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="faq-header animate-on-scroll">
+                <h2>Häufig gestellte Fragen</h2>
+                <p class="faq-subtitle">Hier finden Sie Antworten auf die wichtigsten Fragen rund um Isolierungen und Dämmungen.</p>
+            </div>
+            
+            <div class="faq-grid">
+                <div class="faq-item animate-on-scroll animate-delay-1">
+                    <div class="faq-question">
+                        <h3>Warum ist eine professionelle Isolierung so wichtig?</h3>
+                        <div class="faq-toggle">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Eine professionelle Isolierung spart bis zu 40% Energiekosten, verhindert Schimmelbildung durch Tauwasser, verbessert den Schallschutz erheblich und steigert den Wert Ihrer Immobilie. Zudem erfüllen Sie damit die gesetzlichen Energieverordnungen der Schweiz.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item animate-on-scroll animate-delay-2">
+                    <div class="faq-question">
+                        <h3>Welche Dämmstoffe verwenden Sie?</h3>
+                        <div class="faq-toggle">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Wir setzen auf hochwertige, zertifizierte Materialien wie Mineralwolle, Steinwolle, Kautschuk und synthetischen Kautschuk (Armaflex). Die Wahl des Materials hängt vom Einsatzbereich ab – wir beraten Sie gerne individuell für optimale Ergebnisse.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item animate-on-scroll animate-delay-3">
+                    <div class="faq-question">
+                        <h3>Wie lange dauert eine typische Isolierungsarbeit?</h3>
+                        <div class="faq-toggle">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Die Dauer variiert je nach Projektgrösse. Eine Einfamilienhaus-Sanierung dauert typischerweise 2-5 Tage, grössere Gewerbebauten 1-3 Wochen. Wir arbeiten effizient und stören Ihren Betrieb minimal – genaue Zeitpläne erstellen wir nach der Vor-Ort-Besichtigung.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item animate-on-scroll animate-delay-4">
+                    <div class="faq-question">
+                        <h3>Bieten Sie auch Notfallreparaturen an?</h3>
+                        <div class="faq-toggle">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Ja! Bei Rohrbrüchen oder beschädigten Isolierungen sind wir schnell zur Stelle. Kontaktieren Sie uns telefonisch für dringende Fälle – wir reagieren in der Regel innerhalb von 24 Stunden in der Region Zürich und Schwyz.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item animate-on-scroll">
+                    <div class="faq-question">
+                        <h3>Wie hoch sind die Kosten für eine Isolierung?</h3>
+                        <div class="faq-toggle">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Die Kosten hängen von Faktoren wie Gebäudegrösse, Rohrlänge, gewähltem Material und Zugänglichkeit ab. Wir erstellen Ihnen gerne ein kostenloses, unverbindliches Angebot nach einer Besichtigung. Bedenken Sie: Die Investition amortisiert sich oft innerhalb weniger Jahre durch Energieeinsparungen.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Zertifikate / Trust Section -->
+    <section class="certifications" id="zertifikate">
+        <div class="container">
+            <div class="certifications-header animate-on-scroll">
+                <h2>Qualität & Zertifizierungen</h2>
+                <p class="certifications-subtitle">Vertrauen Sie auf geprüfte Schweizer Qualität und zertifizierte Handwerkskunst.</p>
+            </div>
+            
+            <div class="certifications-grid">
+                <div class="cert-card animate-on-scroll animate-delay-1">
+                    <div class="cert-icon">🇨🇭</div>
+                    <h3>Swiss Made Qualität</h3>
+                    <p>100% Schweizer Handwerk mit lokaler Expertise. Wir kennen die regionalen Anforderungen und Baustandards.</p>
+                </div>
+
+                <div class="cert-card animate-on-scroll animate-delay-2">
+                    <div class="cert-icon">✅</div>
+                    <h3>Energieverordnung konform</h3>
+                    <p>Alle Arbeiten entsprechen der aktuellen Schweizer Energieverordnung (EnV) und Minergie-Standards.</p>
+                </div>
+
+                <div class="cert-card animate-on-scroll animate-delay-3">
+                    <div class="cert-icon">🛡️</div>
+                    <h3>Garantierte Qualität</h3>
+                    <p>Wir stehen hinter unserer Arbeit – mit umfassender Garantie und persönlichem Service auch nach Projektabschluss.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
     <section class="cta">
-        <div class="container">
-            <h2>Bereit für Ihr nächstes Projekt?</h2>
-            <p>Kontaktieren Sie uns für eine unverbindliche Beratung. Wir beraten Sie gerne zu allen Fragen rund um Isolierungen und Dämmungen.</p>
-            <a href="kontakt.html" class="btn-primary">Jetzt Kontakt aufnehmen</a>
+        <div class="container animate-on-scroll">
+            <h2>🚀 Starten Sie jetzt Ihr Projekt!</h2>
+            <p>Lassen Sie sich kostenlos beraten und erhalten Sie ein unverbindliches Angebot. Unsere Experten freuen sich auf Ihr Projekt.</p>
+            <a href="kontakt.html" class="btn-primary" style="background: white; color: #1a1a1a;">📞 Jetzt kostenlos beraten lassen</a>
         </div>
     </section>
 </main>
@@ -2712,6 +3378,69 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.classList.add('animations-ready');
         }, 100);
     }
+
+    // ========================================
+    // FAQ Accordion Functionality
+    // ========================================
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            // Close all other items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            // Toggle current item
+            item.classList.toggle('active');
+        });
+    });
+
+    // ========================================
+    // Scroll Animation Observer
+    // ========================================
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                scrollObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    animateElements.forEach(el => {
+        scrollObserver.observe(el);
+    });
+
+    // ========================================
+    // Service Cards Animation Enhancement
+    // ========================================
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.1}s`;
+    });
+
+    // ========================================
+    // Project Cards Hover Effect
+    // ========================================
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-12px) scale(1.02)';
+        });
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = '';
+        });
+    });
 
     // ========================================
     // Core Web Vitals: Report LCP, FID, CLS
