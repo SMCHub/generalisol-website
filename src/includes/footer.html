@@ -1,227 +1,113 @@
-<!-- ============================================
-   GENERALISOL BUSINESS FOOTER COMPONENT
-   Consistent across all pages
-   ============================================ -->
+<!-- GeneralISOL Consistent Footer Component v2.0 -->
 
-<!-- Trust Badges Section (before Footer) -->
-<section class="trust-section" style="padding: 3rem 0; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-top: 1px solid #e5e7eb;">
+<!-- Trust Badges Section -->
+<section class="trust-badges-section">
     <div class="container">
-        <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 2rem;">
-            <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.5rem; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 1px solid #e5e7eb;">
-                <span style="font-size: 2rem;">🇨🇭</span>
-                <div>
-                    <div style="font-weight: 700; color: #1a1a1a;">Swiss Made</div>
-                    <div style="font-size: 0.85rem; color: #6b7280;">100% Schweizer Qualität</div>
+        <div class="trust-badges-grid">
+            <div class="trust-badge">
+                <span class="trust-badge-icon">🇨🇭</span>
+                <div class="trust-badge-content">
+                    <div class="trust-badge-title">Swiss Made</div>
+                    <div class="trust-badge-text">100% Schweizer Qualität</div>
                 </div>
             </div>
-            <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.5rem; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 1px solid #e5e7eb;">
-                <span style="font-size: 2rem;">⭐</span>
-                <div>
-                    <div style="font-weight: 700; color: #1a1a1a;">Top Bewertungen</div>
-                    <div style="font-size: 0.85rem; color: #6b7280;">4.9/5 Kundenzufriedenheit</div>
+            <div class="trust-badge">
+                <span class="trust-badge-icon">✅</span>
+                <div class="trust-badge-content">
+                    <div class="trust-badge-title">Zertifiziert</div>
+                    <div class="trust-badge-text">EnV & Minergie konform</div>
                 </div>
             </div>
-            <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.5rem; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 1px solid #e5e7eb;">
-                <span style="font-size: 2rem;">✅</span>
-                <div>
-                    <div style="font-weight: 700; color: #1a1a1a;">Zertifiziert</div>
-                    <div style="font-size: 0.85rem; color: #6b7280;">EnV & Minergie konform</div>
-                </div>
-            </div>
-            <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.5rem; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 1px solid #e5e7eb;">
-                <span style="font-size: 2rem;">🛡️</span>
-                <div>
-                    <div style="font-weight: 700; color: #1a1a1a;">Garantie</div>
-                    <div style="font-size: 0.85rem; color: #6b7280;">Vollständige Gewährleistung</div>
+            <div class="trust-badge">
+                <span class="trust-badge-icon">🛡️</span>
+                <div class="trust-badge-content">
+                    <div class="trust-badge-title">Garantie</div>
+                    <div class="trust-badge-text">Vollständige Gewährleistung</div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Beautiful Footer -->
-<footer class="footer" style="
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d3748 40%, #1a1a1a 100%);
-    position: relative;
-    overflow: hidden;
-    padding: 0;
-">
-    <!-- Animated Top Accent Line -->
-    <div style="
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, transparent 0%, #f59e0b 15%, #ec4899 35%, #f59e0b 60%, #fbbf24 80%, transparent 100%);
-        background-size: 200% 100%;
-        animation: gradientSlide 5s ease infinite;
-    "></div>
-
-    <style>
-        @keyframes gradientSlide {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-    </style>
-
-    <div class="footer-main" style="position: relative; z-index: 1; padding: 4rem 0 2rem;">
+<!-- Business Footer -->
+<footer class="site-footer">
+    <!-- Accent Line -->
+    <div class="footer-accent-line"></div>
+    
+    <div class="footer-main">
         <div class="container">
-            <div style="
-                background: rgba(255, 255, 255, 0.05);
-                backdrop-filter: blur(20px);
-                border: 1px solid rgba(255, 255, 255, 0.1);
-                border-radius: 24px;
-                padding: 3rem;
-                margin-bottom: 2rem;
-            ">
-                <div class="footer-grid" style="
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-                    gap: 2.5rem;
-                ">
+            <div class="footer-content-wrapper">
+                <div class="footer-grid">
                     <!-- Company Info -->
-                    <div>
-                        <div style="
-                            font-size: 1.5rem;
-                            font-weight: 800;
-                            background: linear-gradient(135deg, #ffffff, #f59e0b);
-                            -webkit-background-clip: text;
-                            -webkit-text-fill-color: transparent;
-                            background-clip: text;
-                            margin-bottom: 1.5rem;
-                        ">
+                    <div class="footer-section footer-company">
+                        <div class="footer-logo">
                             General Isolierungen GmbH
-                            <span style="display: block; font-size: 0.85rem; font-weight: 500; background: none; -webkit-text-fill-color: #9ca3af; margin-top: 0.375rem;">
-                                Ihr Partner für professionelle Isolierungen
-                            </span>
+                            <span class="footer-tagline">Ihr Partner für professionelle Isolierungen</span>
                         </div>
-                        <address style="font-style: normal; color: #d1d5db; line-height: 1.9; font-size: 0.95rem;">
+                        <address class="footer-address">
                             Samstagernstrasse 45<br>
                             8832 Wollerau<br>
                             Schweiz
                         </address>
-
-                        <a href="tel:+41764640190" style="
-                            display: flex;
-                            align-items: center;
-                            gap: 1rem;
-                            margin-top: 1rem;
-                            padding: 0.875rem 1rem;
-                            background: rgba(255, 255, 255, 0.05);
-                            border: 1px solid rgba(255, 255, 255, 0.1);
-                            border-radius: 16px;
-                            color: #f8fafc;
-                            text-decoration: none;
-                            transition: all 0.3s ease;
-                        ">
-                            <div style="
-                                width: 44px;
-                                height: 44px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                background: linear-gradient(135deg, #f59e0b, #fbbf24);
-                                border-radius: 12px;
-                                font-size: 1.25rem;
-                            ">📞</div>
-                            <div>
-                                <span style="font-size: 0.7rem; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.1em; display: block;">Telefon</span>
-                                <span style="font-weight: 600; font-size: 0.95rem;">+41 76 464 01 90</span>
-                            </div>
-                        </a>
-
-                        <a href="mailto:info@generalisol.ch" style="
-                            display: flex;
-                            align-items: center;
-                            gap: 1rem;
-                            margin-top: 0.75rem;
-                            padding: 0.875rem 1rem;
-                            background: rgba(255, 255, 255, 0.05);
-                            border: 1px solid rgba(255, 255, 255, 0.1);
-                            border-radius: 16px;
-                            color: #f8fafc;
-                            text-decoration: none;
-                            transition: all 0.3s ease;
-                        ">
-                            <div style="
-                                width: 44px;
-                                height: 44px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                background: linear-gradient(135deg, #3b82f6, #60a5fa);
-                                border-radius: 12px;
-                                font-size: 1.25rem;
-                            ">✉️</div>
-                            <div>
-                                <span style="font-size: 0.7rem; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.1em; display: block;">E-Mail</span>
-                                <span style="font-weight: 600; font-size: 0.95rem;">info@generalisol.ch</span>
-                            </div>
-                        </a>
+                        <div class="footer-contact-cards">
+                            <a href="tel:+41764640190" class="footer-contact-card">
+                                <div class="contact-card-icon contact-card-icon-phone">📞</div>
+                                <div class="contact-card-content">
+                                    <span class="contact-card-label">Telefon</span>
+                                    <span class="contact-card-value">+41 76 464 01 90</span>
+                                </div>
+                            </a>
+                            <a href="mailto:info@generalisol.ch" class="footer-contact-card">
+                                <div class="contact-card-icon contact-card-icon-email">✉️</div>
+                                <div class="contact-card-content">
+                                    <span class="contact-card-label">E-Mail</span>
+                                    <span class="contact-card-value">info@generalisol.ch</span>
+                                </div>
+                            </a>
+                        </div>
                     </div>
 
                     <!-- Navigation -->
-                    <div>
-                        <h3 style="font-size: 0.85rem; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1.75rem; padding-bottom: 0.875rem; border-bottom: 2px solid transparent; border-image: linear-gradient(90deg, #f59e0b, transparent) 1;">
-                            Navigation
-                        </h3>
-                        <ul style="list-style: none; padding: 0; margin: 0;">
-                            <li style="margin-bottom: 0.625rem;"><a href="index.html" style="color: #d1d5db; text-decoration: none; font-size: 0.95rem; font-weight: 500; padding: 0.5rem 0.75rem; border-radius: 8px; display: inline-block; transition: all 0.3s ease;">🏠 Startseite</a></li>
-                            <li style="margin-bottom: 0.625rem;"><a href="leistungen.html" style="color: #d1d5db; text-decoration: none; font-size: 0.95rem; font-weight: 500; padding: 0.5rem 0.75rem; border-radius: 8px; display: inline-block; transition: all 0.3s ease;">🔧 Leistungen</a></li>
-                            <li style="margin-bottom: 0.625rem;"><a href="ueber-uns.html" style="color: #d1d5db; text-decoration: none; font-size: 0.95rem; font-weight: 500; padding: 0.5rem 0.75rem; border-radius: 8px; display: inline-block; transition: all 0.3s ease;">👥 Über uns</a></li>
-                            <li style="margin-bottom: 0.625rem;"><a href="kontakt.html" style="color: #d1d5db; text-decoration: none; font-size: 0.95rem; font-weight: 500; padding: 0.5rem 0.75rem; border-radius: 8px; display: inline-block; transition: all 0.3s ease;">📞 Kontakt</a></li>
+                    <div class="footer-section">
+                        <h3 class="footer-section-title">Navigation</h3>
+                        <ul class="footer-nav-list">
+                            <li><a href="index.html">🏠 Startseite</a></li>
+                            <li><a href="leistungen.html">🔧 Leistungen</a></li>
+                            <li><a href="ueber-uns.html">👥 Über uns</a></li>
+                            <li><a href="kontakt.html">📞 Kontakt</a></li>
                         </ul>
                     </div>
 
                     <!-- Öffnungszeiten -->
-                    <div>
-                        <h3 style="font-size: 0.85rem; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1.75rem; padding-bottom: 0.875rem; border-bottom: 2px solid transparent; border-image: linear-gradient(90deg, #f59e0b, transparent) 1;">
-                            Öffnungszeiten
-                        </h3>
-                        <div style="margin-bottom: 1.5rem; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
-                            <div style="font-size: 0.9rem; font-weight: 700; color: #f8fafc; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                                <span style="width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);"></span>
-                                Montag - Freitag
+                    <div class="footer-section">
+                        <h3 class="footer-section-title">Öffnungszeiten</h3>
+                        <div class="footer-hours">
+                            <div class="hours-card">
+                                <div class="hours-status hours-open">
+                                    <span class="status-dot"></span>
+                                    Montag - Freitag
+                                </div>
+                                <div class="hours-time">
+                                    08:00 - 12:00 Uhr<br>
+                                    13:30 - 17:00 Uhr
+                                </div>
                             </div>
-                            <div style="font-size: 0.9rem; color: #d1d5db; line-height: 1.7; padding-left: 1rem;">
-                                08:00 - 12:00 Uhr<br>
-                                13:30 - 17:00 Uhr
+                            <div class="hours-closed">
+                                <span class="status-dot"></span>
+                                Samstag & Sonntag geschlossen
                             </div>
-                        </div>
-                        <div style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: #9ca3af; padding: 0.5rem 1rem; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 8px;">
-                            <span style="width: 8px; height: 8px; background: #ef4444; border-radius: 50%;"></span>
-                            Samstag & Sonntag geschlossen
                         </div>
                     </div>
 
                     <!-- Services -->
-                    <div>
-                        <h3 style="font-size: 0.85rem; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1.75rem; padding-bottom: 0.875rem; border-bottom: 2px solid transparent; border-image: linear-gradient(90deg, #f59e0b, transparent) 1;">
-                            Unsere Services
-                        </h3>
-                        <ul style="list-style: none; padding: 0; margin: 0;">
-                            <li style="display: flex; align-items: center; gap: 0.875rem; padding: 0.625rem 0; color: #d1d5db; font-size: 0.9rem; font-weight: 500;">
-                                <span style="width: 10px; height: 10px; background: linear-gradient(135deg, #f59e0b, #fbbf24); border-radius: 50%;"></span>
-                                Sanitäranlagen-Dämmung
-                            </li>
-                            <li style="display: flex; align-items: center; gap: 0.875rem; padding: 0.625rem 0; color: #d1d5db; font-size: 0.9rem; font-weight: 500;">
-                                <span style="width: 10px; height: 10px; background: linear-gradient(135deg, #f59e0b, #fbbf24); border-radius: 50%;"></span>
-                                Lüftungsdämmung
-                            </li>
-                            <li style="display: flex; align-items: center; gap: 0.875rem; padding: 0.625rem 0; color: #d1d5db; font-size: 0.9rem; font-weight: 500;">
-                                <span style="width: 10px; height: 10px; background: linear-gradient(135deg, #f59e0b, #fbbf24); border-radius: 50%;"></span>
-                                Schallschutz
-                            </li>
-                            <li style="display: flex; align-items: center; gap: 0.875rem; padding: 0.625rem 0; color: #d1d5db; font-size: 0.9rem; font-weight: 500;">
-                                <span style="width: 10px; height: 10px; background: linear-gradient(135deg, #f59e0b, #fbbf24); border-radius: 50%;"></span>
-                                Brandschutz
-                            </li>
-                            <li style="display: flex; align-items: center; gap: 0.875rem; padding: 0.625rem 0; color: #d1d5db; font-size: 0.9rem; font-weight: 500;">
-                                <span style="width: 10px; height: 10px; background: linear-gradient(135deg, #f59e0b, #fbbf24); border-radius: 50%;"></span>
-                                Kälteisolierung
-                            </li>
+                    <div class="footer-section">
+                        <h3 class="footer-section-title">Unsere Services</h3>
+                        <ul class="footer-services-list">
+                            <li><span class="service-dot"></span>Sanitäranlagen-Dämmung</li>
+                            <li><span class="service-dot"></span>Lüftungsdämmung</li>
+                            <li><span class="service-dot"></span>Schallschutz</li>
+                            <li><span class="service-dot"></span>Brandschutz</li>
+                            <li><span class="service-dot"></span>Kälteisolierung</li>
                         </ul>
                     </div>
                 </div>
@@ -230,24 +116,433 @@
     </div>
 
     <!-- Footer Bottom -->
-    <div style="position: relative; z-index: 1; background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px); border-top: 1px solid rgba(255,255,255,0.1); padding: 1.5rem 0;">
+    <div class="footer-bottom">
         <div class="container">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
-                <!-- Trust Badges -->
-                <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
-                    <div style="display: inline-flex; align-items: center; gap: 0.625rem; padding: 0.625rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; font-size: 0.8rem; font-weight: 600; color: #d1d5db;">
+            <div class="footer-bottom-content">
+                <div class="footer-badges">
+                    <div class="footer-badge">
                         <span>🇨🇭</span> Swiss Made
                     </div>
-                    <div style="display: inline-flex; align-items: center; gap: 0.625rem; padding: 0.625rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; font-size: 0.8rem; font-weight: 600; color: #d1d5db;">
-                        <span>⭐</span> 4.9/5 Bewertung
-                    </div>
                 </div>
-
-                <!-- Copyright -->
-                <div style="font-size: 0.85rem; color: #9ca3af; text-align: center;">
-                    © 2025 <strong style="color: #d1d5db;">General Isolierungen GmbH</strong> – Alle Rechte vorbehalten
+                <div class="footer-copyright">
+                    © 2025 <strong>General Isolierungen GmbH</strong> – Alle Rechte vorbehalten
                 </div>
             </div>
         </div>
     </div>
 </footer>
+
+<style>
+/* Trust Badges Section */
+.trust-badges-section {
+    padding: 2rem 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-top: 1px solid #e5e7eb;
+}
+
+.trust-badges-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.25rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border: 1px solid #e5e7eb;
+}
+
+.trust-badge-icon {
+    font-size: 1.75rem;
+}
+
+.trust-badge-title {
+    font-weight: 700;
+    color: #1a1a1a;
+    font-size: 0.95rem;
+}
+
+.trust-badge-text {
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+/* Footer Base */
+.site-footer {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d3748 40%, #1a1a1a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-accent-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent 0%, #f59e0b 15%, #ec4899 35%, #f59e0b 60%, #fbbf24 80%, transparent 100%);
+    background-size: 200% 100%;
+    animation: gradientSlide 5s ease infinite;
+}
+
+@keyframes gradientSlide {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.footer-main {
+    position: relative;
+    z-index: 1;
+    padding: 3rem 0 2rem;
+}
+
+.footer-content-wrapper {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    }
+}
+
+/* Footer Company Section */
+.footer-logo {
+    font-size: 1.35rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1.25rem;
+}
+
+.footer-tagline {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background: none;
+    -webkit-text-fill-color: #9ca3af;
+    margin-top: 0.25rem;
+}
+
+.footer-address {
+    font-style: normal;
+    color: #d1d5db;
+    line-height: 1.8;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.footer-contact-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+}
+
+.footer-contact-card {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #f8fafc;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    min-height: 48px;
+}
+
+.footer-contact-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(4px);
+}
+
+.contact-card-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 1.125rem;
+    flex-shrink: 0;
+}
+
+.contact-card-icon-phone {
+    background: linear-gradient(135deg, #f59e0b, #fbbf24);
+}
+
+.contact-card-icon-email {
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+}
+
+.contact-card-label {
+    font-size: 0.65rem;
+    color: #9ca3af;
+    text-transform: uppercase;
+    display: block;
+}
+
+.contact-card-value {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Footer Section Titles */
+.footer-section-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.625rem;
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(90deg, #f59e0b, transparent) 1;
+}
+
+/* Footer Nav List */
+.footer-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-nav-list li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-nav-list a {
+    color: #d1d5db;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.375rem 0.625rem;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.2s ease;
+    min-height: 44px;
+}
+
+.footer-nav-list a:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Footer Hours */
+.hours-card {
+    margin-bottom: 1rem;
+    padding: 0.875rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hours-status {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 0.375rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hours-open .status-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+}
+
+.hours-time {
+    font-size: 0.85rem;
+    color: #d1d5db;
+    line-height: 1.6;
+    padding-left: 1rem;
+}
+
+.hours-closed {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: #9ca3af;
+    padding: 0.5rem 0.875rem;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 6px;
+}
+
+.hours-closed .status-dot {
+    width: 8px;
+    height: 8px;
+    background: #ef4444;
+    border-radius: 50%;
+}
+
+/* Footer Services List */
+.footer-services-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-services-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    color: #d1d5db;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.service-dot {
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, #f59e0b, #fbbf24);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    position: relative;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.25rem 0;
+}
+
+.footer-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-badges {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.footer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.875rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #d1d5db;
+}
+
+.footer-copyright {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    text-align: center;
+}
+
+.footer-copyright strong {
+    color: #d1d5db;
+}
+
+/* Mobile Responsive Footer */
+@media (max-width: 768px) {
+    .trust-badges-grid {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .trust-badge {
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .footer-main {
+        padding: 2rem 0 1.5rem;
+    }
+    
+    .footer-content-wrapper {
+        padding: 1.5rem;
+        border-radius: 16px;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
+    .footer-section {
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .footer-section:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    
+    .footer-section-title {
+        border-image: linear-gradient(90deg, transparent, #f59e0b, transparent) 1;
+    }
+    
+    .footer-contact-cards {
+        align-items: center;
+    }
+    
+    .footer-contact-card {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+    
+    .footer-nav-list a {
+        justify-content: center;
+    }
+    
+    .hours-card {
+        text-align: left;
+        display: inline-block;
+    }
+    
+    .footer-services-list {
+        display: inline-block;
+        text-align: left;
+    }
+    
+    .footer-bottom-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+</style>
