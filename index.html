@@ -17,9 +17,12 @@
     <!-- Performance: DNS Prefetch & Preconnect -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com"/>
     <link rel="dns-prefetch" href="//fonts.gstatic.com"/>
-    <link rel="dns-prefetch" href="//www.google-analytics.com"/>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="src/css/utilities/enhancements.css" as="style"/>
+    <link rel="preload" href="src/js/performance-enhancements.js" as="script"/>
 
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website"/>
@@ -2015,19 +2018,27 @@
         }
     </style>
     
-    <!-- Schema.org LocalBusiness -->
+    <!-- Enhanced Styles -->
+    <link rel="stylesheet" href="src/css/utilities/enhancements.css"/>
+
+    <!-- Schema.org LocalBusiness - Enhanced for SEO -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "General Isolierungen GmbH",
+        "alternateName": "GeneralISOL",
+        "description": "Ihr Spezialist für Isolierungen von Sanitäranlagen, Lüftungs- und Heizungssystemen in Wollerau. Maßgeschneiderte und energieeffiziente Dämmungslösungen.",
         "image": "https://www.generalisol.ch/Logo/Logo.png",
+        "logo": "https://www.generalisol.ch/Logo/Logo.png",
         "url": "https://www.generalisol.ch",
+        "telephone": "+41 44 787 22 50",
         "email": "info@generalisol.ch",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Samstagernstrasse 45",
             "addressLocality": "Wollerau",
+            "addressRegion": "Schwyz",
             "postalCode": "8832",
             "addressCountry": "CH"
         },
@@ -2044,16 +2055,48 @@
                 "closes": "12:00"
             },
             {
-                "@type": "OpeningHoursSpecification",  
+                "@type": "OpeningHoursSpecification",
                 "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
                 "opens": "13:30",
                 "closes": "17:00"
+            }
+        ],
+        "priceRange": "$$",
+        "areaServed": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": 47.1899,
+                "longitude": 8.7156
+            },
+            "geoRadius": "50000"
+        },
+        "sameAs": [
+            "https://www.generalisol.ch"
+        ]
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Startseite",
+                "item": "https://www.generalisol.ch"
             }
         ]
     }
     </script>
 </head>
 <body>
+
+<!-- Skip to Content Link for Accessibility -->
+<a href="#main-content" class="skip-to-content">Zum Hauptinhalt springen</a>
 
 <!-- Navigation -->
 <nav>
@@ -2067,11 +2110,11 @@
             <li><a href="ueber-uns.html" class="nav-link">Über uns</a></li>
             <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
         </ul>
-        <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu">☰</button>
     </div>
     
     <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="navigation" aria-label="Mobile Navigation">
         <ul>
             <li><a href="index.html">🏠 Startseite</a></li>
             <li><a href="leistungen.html">🔧 Leistungen</a></li>
@@ -2081,7 +2124,7 @@
     </div>
 </nav>
 
-<main>
+<main id="main-content">
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -2105,7 +2148,7 @@
             </div>
             
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card animate-on-scroll">
                     <div class="service-icon">
                         <svg fill="currentColor" viewBox="0 0 24 24">
                             <path d="M7.05 8.46a5.94 5.94 0 0 0-2.23 2.42 5.94 5.94 0 0 0 2.23 2.42M16.94 8.46a5.94 5.94 0 0 1 2.23 2.42 5.94 5.94 0 0 1-2.23 2.42M12 6.5a5.94 5.94 0 0 1-4.47 1.96A5.94 5.94 0 0 1 12 10.42a5.94 5.94 0 0 1 4.47-1.96A5.94 5.94 0 0 1 12 6.5m0 11a5.94 5.94 0 0 0 4.47-1.96 5.94 5.94 0 0 0-4.47-1.96 5.94 5.94 0 0 0-4.47 1.96A5.94 5.94 0 0 0 12 17.5"></path>
@@ -2116,7 +2159,7 @@
                     <a href="leistungen.html" class="service-link">Mehr erfahren →</a>
                 </div>
                 
-                <div class="service-card">
+                <div class="service-card animate-on-scroll">
                     <div class="service-icon">
                         <svg fill="currentColor" viewBox="0 0 24 24">
                             <path d="M8 14v-4M12 14v-4M16 14v-4M3 7h18M5 21h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2Z"></path>
@@ -2127,7 +2170,7 @@
                     <a href="leistungen.html" class="service-link">Mehr erfahren →</a>
                 </div>
                 
-                <div class="service-card">
+                <div class="service-card animate-on-scroll">
                     <div class="service-icon">
                         <svg fill="currentColor" viewBox="0 0 24 24">
                             <path d="M4.5 10H2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-7h-2.5 M12 2v8M8 5l4-3 4 3"></path>
@@ -2708,6 +2751,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+
+<!-- Performance & UI Enhancement Script -->
+<script src="src/js/performance-enhancements.js" defer></script>
 
 </body>
 </html>
