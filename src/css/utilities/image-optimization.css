@@ -1,0 +1,126 @@
+/**
+ * Image Optimization Styles
+ * Progressive loading, aspect ratios, error states
+ */
+
+/* ========================================
+   PROGRESSIVE IMAGE LOADING
+   ======================================== */
+
+img.loading-progressive {
+    filter: blur(10px);
+    transform: scale(1.05);
+    transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+img.loaded-progressive {
+    filter: blur(0);
+    transform: scale(1);
+}
+
+/* ========================================
+   LAZY LOADING OPTIMIZATION
+   ======================================== */
+
+img[loading="lazy"] {
+    content-visibility: auto;
+}
+
+/* ========================================
+   ASPECT RATIO PRESERVATION (CLS Prevention)
+   ======================================== */
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+img[width][height] {
+    aspect-ratio: attr(width) / attr(height);
+}
+
+/* ========================================
+   IMAGE ERROR STATES
+   ======================================== */
+
+img.image-error {
+    background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    font-size: 0.875rem;
+    border-radius: 8px;
+}
+
+img.image-error::after {
+    content: '⚠️ ' attr(alt);
+    padding: 1rem;
+    text-align: center;
+}
+
+/* ========================================
+   WEBP SUPPORT
+   ======================================== */
+
+/* Fallback for browsers without WebP support */
+.no-webp img[data-src-webp] {
+    content: '';
+}
+
+/* ========================================
+   RESPONSIVE IMAGES
+   ======================================== */
+
+picture {
+    display: block;
+}
+
+picture img {
+    width: 100%;
+    height: auto;
+}
+
+/* ========================================
+   IMAGE PERFORMANCE HINTS
+   ======================================== */
+
+img[fetchpriority="high"] {
+    /* Critical images above the fold */
+    content-visibility: visible;
+}
+
+img[loading="lazy"] {
+    /* Non-critical images below the fold */
+    content-visibility: auto;
+}
+
+/* ========================================
+   DARK MODE IMAGE ADJUSTMENTS
+   ======================================== */
+
+[data-theme="dark"] img:not([data-no-invert]) {
+    opacity: 0.9;
+}
+
+[data-theme="dark"] img.image-error {
+    background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
+    color: #d1d5db;
+}
+
+/* ========================================
+   PRINT OPTIMIZATION
+   ======================================== */
+
+@media print {
+    img {
+        max-width: 100%;
+        page-break-inside: avoid;
+    }
+
+    img[loading="lazy"] {
+        loading: eager;
+    }
+}

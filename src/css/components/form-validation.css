@@ -1,0 +1,217 @@
+/**
+ * Form Validation Styles
+ * Visual feedback for form inputs
+ */
+
+/* ========================================
+   INPUT VALIDATION STATES
+   ======================================== */
+
+.form-group input.valid,
+.form-group textarea.valid,
+.form-group select.valid {
+    border-color: #10b981;
+    background: #f0fdf4;
+}
+
+.form-group input.invalid,
+.form-group textarea.invalid,
+.form-group select.invalid {
+    border-color: #ef4444;
+    background: #fef2f2;
+}
+
+/* ========================================
+   VALIDATION FEEDBACK
+   ======================================== */
+
+.form-feedback {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    animation: slideIn 0.3s ease-out;
+}
+
+.form-feedback svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.form-feedback.valid {
+    color: #10b981;
+}
+
+.form-feedback.invalid {
+    color: #ef4444;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   FORM MESSAGE (SUCCESS/ERROR)
+   ======================================== */
+
+.form-message {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    animation: slideDown 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: opacity 0.3s ease;
+}
+
+.form-message svg {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.form-message.success {
+    background: #f0fdf4;
+    border: 1px solid #86efac;
+    color: #166534;
+}
+
+.form-message.error {
+    background: #fef2f2;
+    border: 1px solid #fca5a5;
+    color: #991b1b;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   LOADING SPINNER
+   ======================================== */
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ========================================
+   ENHANCED FOCUS STATES
+   ======================================== */
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #1e40af;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(30, 64, 175, 0.1);
+}
+
+.form-group input.valid:focus,
+.form-group textarea.valid:focus {
+    border-color: #10b981;
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+}
+
+.form-group input.invalid:focus,
+.form-group textarea.invalid:focus {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+}
+
+/* ========================================
+   REQUIRED FIELD INDICATOR
+   ======================================== */
+
+.form-group label[required]::after,
+.form-group label:has(+ input[required])::after,
+.form-group label:has(+ textarea[required])::after {
+    content: '*';
+    color: #ef4444;
+    margin-left: 0.25rem;
+    font-weight: 700;
+}
+
+/* ========================================
+   DARK MODE SUPPORT
+   ======================================== */
+
+[data-theme="dark"] .form-group input.valid,
+[data-theme="dark"] .form-group textarea.valid {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: #10b981;
+}
+
+[data-theme="dark"] .form-group input.invalid,
+[data-theme="dark"] .form-group textarea.invalid {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: #ef4444;
+}
+
+[data-theme="dark"] .form-message.success {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: #10b981;
+    color: #86efac;
+}
+
+[data-theme="dark"] .form-message.error {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: #ef4444;
+    color: #fca5a5;
+}
+
+/* ========================================
+   MOBILE OPTIMIZATION
+   ======================================== */
+
+@media (max-width: 768px) {
+    .form-feedback {
+        font-size: 0.8125rem;
+    }
+
+    .form-message {
+        padding: 0.875rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .form-message svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .form-feedback,
+    .form-message,
+    .spinner {
+        animation: none !important;
+    }
+}

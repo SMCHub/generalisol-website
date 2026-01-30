@@ -248,7 +248,73 @@
     };
 
     // ========================================
-    // 7. PERFORMANCE MONITORING
+    // 7. SCROLL PROGRESS INDICATOR
+    // ========================================
+
+    const createScrollProgressBar = () => {
+        const progressBar = document.createElement('div');
+        progressBar.className = 'scroll-progress-bar';
+        progressBar.setAttribute('role', 'progressbar');
+        progressBar.setAttribute('aria-label', 'Lesefortschritt');
+        progressBar.setAttribute('aria-valuemin', '0');
+        progressBar.setAttribute('aria-valuemax', '100');
+
+        document.body.appendChild(progressBar);
+
+        const updateProgress = () => {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            const scrollTop = window.scrollY;
+            const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
+
+            progressBar.style.width = Math.min(scrollPercent, 100) + '%';
+            progressBar.setAttribute('aria-valuenow', Math.round(Math.min(scrollPercent, 100)));
+        };
+
+        window.addEventListener('scroll', updateProgress, { passive: true });
+        updateProgress();
+    };
+
+    // ========================================
+    // 8. DARK MODE TOGGLE
+    // ========================================
+
+    const createDarkModeToggle = () => {
+        const toggleBtn = document.createElement('button');
+        toggleBtn.className = 'theme-toggle';
+        toggleBtn.setAttribute('aria-label', 'Dunkelmodus umschalten');
+        toggleBtn.innerHTML = `
+            <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+            <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+            </svg>
+        `;
+
+        // Check for saved theme preference or system preference
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const currentTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+
+        document.documentElement.setAttribute('data-theme', currentTheme);
+
+        toggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            toggleBtn.setAttribute('aria-label',
+                newTheme === 'dark' ? 'Zum hellen Modus wechseln' : 'Zum dunklen Modus wechseln'
+            );
+        });
+
+        document.body.appendChild(toggleBtn);
+    };
+
+    // ========================================
+    // 9. PERFORMANCE MONITORING
     // ========================================
 
     const logWebVitals = () => {
@@ -295,6 +361,8 @@
 
     function init() {
         createScrollToTopButton();
+        createScrollProgressBar();
+        createDarkModeToggle();
         initSmoothScroll();
         prefetchVisibleLinks();
         enhanceMobileMenu();
