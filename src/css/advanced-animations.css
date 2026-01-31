@@ -1,0 +1,578 @@
+/**
+ * ADVANCED UI/UX ANIMATIONS & INTERACTIONS
+ * GeneralISOL Website - 2026-01-31
+ *
+ * Focus: Smooth, professional micro-interactions that enhance UX
+ */
+
+/* ========================================
+   1. MAGNETIC BUTTONS - Premium Feel
+   ======================================== */
+
+.cta-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.cta-button:hover::before {
+    transform: translateX(100%);
+}
+
+.cta-button:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(30, 64, 175, 0.4);
+}
+
+.cta-button:active {
+    transform: translateY(-1px) scale(0.98);
+    transition-duration: 0.1s;
+}
+
+/* ========================================
+   2. FLOATING ANIMATION - Subtle Motion
+   ======================================== */
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.hero-image,
+.service-icon {
+    animation: float 6s ease-in-out infinite;
+}
+
+.service-card:nth-child(2) .service-icon {
+    animation-delay: 0.5s;
+}
+
+.service-card:nth-child(3) .service-icon {
+    animation-delay: 1s;
+}
+
+/* ========================================
+   3. GRADIENT TEXT ANIMATION
+   ======================================== */
+
+.gradient-text {
+    background: linear-gradient(
+        90deg,
+        #1e40af 0%,
+        #3b82f6 25%,
+        #60a5fa 50%,
+        #3b82f6 75%,
+        #1e40af 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 4s linear infinite;
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+/* ========================================
+   4. CARD TILT EFFECT - 3D Depth
+   ======================================== */
+
+.service-card {
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.service-card:hover {
+    transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateZ(20px);
+}
+
+.service-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(30,64,175,0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+.service-card:hover::after {
+    opacity: 1;
+}
+
+/* ========================================
+   5. STAGGERED FADE-IN ANIMATION
+   ======================================== */
+
+.stagger-animation {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.stagger-animation:nth-child(1) { animation-delay: 0.1s; }
+.stagger-animation:nth-child(2) { animation-delay: 0.2s; }
+.stagger-animation:nth-child(3) { animation-delay: 0.3s; }
+.stagger-animation:nth-child(4) { animation-delay: 0.4s; }
+.stagger-animation:nth-child(5) { animation-delay: 0.5s; }
+.stagger-animation:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   6. GLOWING BORDER EFFECT
+   ======================================== */
+
+.glow-border {
+    position: relative;
+    border: 2px solid transparent;
+}
+
+.glow-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #1e40af, #3b82f6, #60a5fa, #3b82f6, #1e40af);
+    background-size: 300% 300%;
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    animation: gradient-rotate 4s linear infinite;
+}
+
+.glow-border:hover::before {
+    opacity: 1;
+}
+
+@keyframes gradient-rotate {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ========================================
+   7. SMOOTH PAGE TRANSITIONS
+   ======================================== */
+
+.page-transition {
+    animation: pageEnter 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   8. UNDERLINE HOVER ANIMATION
+   ======================================== */
+
+.nav-link,
+.footer-link {
+    position: relative;
+}
+
+.nav-link::after,
+.footer-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #1e40af, #3b82f6);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.nav-link:hover::after,
+.footer-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* ========================================
+   9. PARALLAX SCROLL EFFECT
+   ======================================== */
+
+.parallax-section {
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease-out;
+}
+
+/* Applied via JavaScript for better performance */
+.parallax-slow {
+    will-change: transform;
+}
+
+/* ========================================
+   10. ICON ROTATION ON HOVER
+   ======================================== */
+
+.service-card:hover .service-icon,
+.feature-card:hover .feature-icon {
+    transform: rotate(10deg) scale(1.1);
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.service-icon,
+.feature-icon {
+    transition: transform 0.4s ease;
+}
+
+/* ========================================
+   11. LOADING PULSE ANIMATION
+   ======================================== */
+
+.loading-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(0.95);
+    }
+}
+
+/* ========================================
+   12. TOOLTIP ANIMATIONS
+   ======================================== */
+
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    padding: 0.5rem 1rem;
+    background: rgba(26, 26, 26, 0.95);
+    color: white;
+    font-size: 0.875rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+[data-tooltip]::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: rgba(26, 26, 26, 0.95);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+[data-tooltip]:hover::before,
+[data-tooltip]:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-12px);
+}
+
+[data-tooltip]:hover::after {
+    transform: translateX(-50%);
+}
+
+/* ========================================
+   13. SKELETON SCREEN SHIMMER
+   ======================================== */
+
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 0%,
+        #f8f8f8 20%,
+        #f0f0f0 40%,
+        #f0f0f0 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s linear infinite;
+    border-radius: 8px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* ========================================
+   14. MODAL/OVERLAY ANIMATIONS
+   ======================================== */
+
+.modal {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.modal.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.modal-backdrop {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-backdrop.active {
+    opacity: 1;
+}
+
+/* ========================================
+   15. ELASTIC BOUNCE EFFECT
+   ======================================== */
+
+.bounce-in {
+    animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ========================================
+   16. TYPEWRITER EFFECT
+   ======================================== */
+
+.typewriter {
+    overflow: hidden;
+    border-right: 3px solid #1e40af;
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #1e40af;
+    }
+}
+
+/* ========================================
+   17. SMOOTH COLOR TRANSITIONS
+   ======================================== */
+
+.smooth-color-transition {
+    transition: background-color 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+                color 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+                border-color 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ========================================
+   18. GLASS MORPHISM HOVER
+   ======================================== */
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================
+   19. NUMBER COUNTER ANIMATION
+   ======================================== */
+
+.counter {
+    font-variant-numeric: tabular-nums;
+    transition: transform 0.3s ease;
+}
+
+/* Applied via JavaScript for smooth counting */
+
+/* ========================================
+   20. FOCUS-VISIBLE IMPROVEMENTS
+   ======================================== */
+
+*:focus-visible {
+    outline: 3px solid #1e40af;
+    outline-offset: 3px;
+    border-radius: 4px;
+    animation: focusPulse 1.5s ease infinite;
+}
+
+@keyframes focusPulse {
+    0%, 100% {
+        outline-color: #1e40af;
+    }
+    50% {
+        outline-color: #3b82f6;
+    }
+}
+
+/* ========================================
+   ACCESSIBILITY - REDUCED MOTION
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .float,
+    .gradient-text,
+    .parallax-section,
+    .typewriter {
+        animation: none !important;
+    }
+}
+
+/* ========================================
+   DARK MODE ADAPTATIONS
+   ======================================== */
+
+[data-theme="dark"] .glass-card {
+    background: rgba(31, 41, 55, 0.4);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .glass-card:hover {
+    background: rgba(31, 41, 55, 0.6);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .skeleton {
+    background: linear-gradient(
+        90deg,
+        #374151 0%,
+        #4b5563 20%,
+        #374151 40%,
+        #374151 100%
+    );
+    background-size: 200% 100%;
+}
+
+/* ========================================
+   MOBILE OPTIMIZATIONS
+   ======================================== */
+
+@media (max-width: 768px) {
+    /* Reduce complexity on mobile */
+    .service-card:hover {
+        transform: translateY(-4px) scale(1.02);
+    }
+
+    .parallax-section {
+        background-attachment: scroll;
+    }
+
+    /* Faster animations on mobile */
+    * {
+        animation-duration: 0.3s !important;
+        transition-duration: 0.3s !important;
+    }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+
+@media print {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        filter: none !important;
+    }
+}

@@ -1,0 +1,355 @@
+/**
+ * PERFORMANCE OPTIMIZATIONS - Core Web Vitals Enhancement
+ * GeneralISOL Website - 2026-01-31
+ *
+ * Focus Areas:
+ * - Largest Contentful Paint (LCP) - Target: < 2.5s
+ * - First Input Delay (FID) - Target: < 100ms
+ * - Cumulative Layout Shift (CLS) - Target: < 0.1
+ */
+
+/* ========================================
+   1. CONTAINMENT - Reduce Browser Work
+   ======================================== */
+
+/* Isolate layout/paint calculations for better performance */
+.service-card,
+.feature-card,
+.business-card {
+    contain: layout style paint;
+}
+
+/* Strict containment for independent components */
+.footer-column,
+.nav-menu li {
+    contain: layout;
+}
+
+/* ========================================
+   2. CONTENT-VISIBILITY - Lazy Render
+   ======================================== */
+
+/* Defer rendering of off-screen content */
+.service-section,
+.features-section,
+.business-features-section,
+footer {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px; /* Estimate height to prevent CLS */
+}
+
+/* Footer should render later */
+footer {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 400px;
+}
+
+/* ========================================
+   3. WILL-CHANGE - GPU Acceleration
+   ======================================== */
+
+/* Optimize animated elements - use sparingly! */
+.scroll-to-top,
+.theme-toggle,
+.mobile-menu-btn.active,
+.ripple-effect {
+    will-change: transform;
+}
+
+/* Remove will-change when not needed */
+.scroll-to-top:not(.visible) {
+    will-change: auto;
+}
+
+/* ========================================
+   4. FONT LOADING OPTIMIZATION
+   ======================================== */
+
+/* Prevent invisible text during font load */
+@font-face {
+    font-family: 'Inter-fallback';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap; /* Show fallback immediately */
+    src: local('Arial');
+    ascent-override: 90%;
+    descent-override: 22%;
+    line-gap-override: 0%;
+    size-adjust: 107%;
+}
+
+/* Apply to body for instant text rendering */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter-fallback', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ========================================
+   5. IMAGE LOADING OPTIMIZATION
+   ======================================== */
+
+/* Prevent layout shift from lazy-loaded images */
+img {
+    content-visibility: auto;
+}
+
+/* Hero images get priority */
+.hero img,
+.hero-image {
+    /* fetchpriority attribute should be added in HTML */
+    content-visibility: visible;
+}
+
+/* Below-fold images can wait */
+.service-card img,
+.feature-card img,
+footer img {
+    loading: lazy;
+    decoding: async;
+}
+
+/* Reserve aspect ratio to prevent CLS */
+img[width][height] {
+    aspect-ratio: attr(width) / attr(height);
+    height: auto;
+}
+
+/* ========================================
+   6. ANIMATION PERFORMANCE
+   ======================================== */
+
+/* Use transform/opacity only - no layout thrashing */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 40px, 0); /* 3d triggers GPU */
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* Optimize ripple animation */
+@keyframes ripple-optimized {
+    from {
+        opacity: 1;
+        transform: scale3d(0, 0, 1);
+    }
+    to {
+        opacity: 0;
+        transform: scale3d(20, 20, 1);
+    }
+}
+
+.ripple-effect {
+    animation: ripple-optimized 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(0); /* Force GPU layer */
+    backface-visibility: hidden;
+}
+
+/* ========================================
+   7. CRITICAL CSS PREVENTION
+   ======================================== */
+
+/* Prevent layout shift in navigation */
+nav {
+    min-height: 80px;
+    contain: layout;
+}
+
+/* Prevent hero collapse during load */
+.hero {
+    min-height: 60vh;
+    contain: layout style;
+}
+
+/* ========================================
+   8. REDUCE PAINT AREAS
+   ======================================== */
+
+/* Isolate scrollable areas */
+.mobile-menu,
+.dropdown-menu {
+    contain: layout style paint;
+    transform: translateZ(0);
+}
+
+/* Reduce repaints on hover */
+.service-card:hover,
+.cta-button:hover {
+    contain: layout paint;
+}
+
+/* ========================================
+   9. DEBOUNCE SCROLL LISTENERS
+   ======================================== */
+
+/* Add passive flag for scroll performance
+   Note: This is set in JavaScript */
+
+/* ========================================
+   10. SKELETON SCREENS - Prevent CLS
+   ======================================== */
+
+/* Show skeleton while content loads */
+.lazy-content {
+    min-height: 200px;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 0%,
+        #e0e0e0 20%,
+        #f0f0f0 40%,
+        #f0f0f0 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.5s linear infinite;
+    border-radius: 12px;
+}
+
+@keyframes skeleton-shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* ========================================
+   11. RESOURCE HINTS - Add to HTML
+   ======================================== */
+
+/* These should be added in HTML <head>:
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="dns-prefetch" href="//analytics.google.com">
+   <link rel="preload" href="/critical.css" as="style">
+   <link rel="preload" href="/hero-image.webp" as="image">
+*/
+
+/* ========================================
+   12. REDUCE REFLOWS
+   ======================================== */
+
+/* Group layout-affecting properties */
+.optimized-card {
+    /* Layout properties grouped together */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    padding: 1.5rem;
+    margin: 1rem 0;
+
+    /* Visual properties */
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+    /* Performance properties */
+    contain: layout style paint;
+    content-visibility: auto;
+}
+
+/* ========================================
+   13. COMPRESSION & MINIFICATION
+   ======================================== */
+
+/* Note: Run PostCSS/cssnano in build:
+   - Remove comments
+   - Minify CSS
+   - Combine media queries
+   - Remove duplicate rules
+*/
+
+/* ========================================
+   14. MOBILE PERFORMANCE
+   ======================================== */
+
+@media (max-width: 768px) {
+    /* Reduce animations on mobile */
+    * {
+        animation-duration: 0.3s !important;
+    }
+
+    /* Reduce shadows (expensive on mobile GPU) */
+    .service-card,
+    .cta-button,
+    nav {
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    }
+
+    /* Disable backdrop-filter on older mobile devices */
+    @supports not (backdrop-filter: blur(10px)) {
+        nav {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: none !important;
+        }
+    }
+}
+
+/* ========================================
+   15. PREFERS-REDUCED-MOTION
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    /* Remove will-change */
+    * {
+        will-change: auto !important;
+    }
+}
+
+/* ========================================
+   16. PRINT PERFORMANCE
+   ======================================== */
+
+@media print {
+    /* Remove expensive effects for printing */
+    *,
+    *::before,
+    *::after {
+        background: transparent !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+    }
+
+    /* Hide interactive elements */
+    .scroll-to-top,
+    .theme-toggle,
+    .scroll-progress-bar,
+    .mobile-menu-btn,
+    nav .cta-button {
+        display: none !important;
+    }
+}
+
+/* ========================================
+   PERFORMANCE CHECKLIST:
+   ========================================
+
+   ✓ CSS Containment - Isolate layout calculations
+   ✓ Content-visibility - Defer off-screen rendering
+   ✓ Will-change - GPU acceleration (use sparingly)
+   ✓ Font loading - font-display: swap
+   ✓ Image optimization - lazy loading, decoding
+   ✓ Animation - Transform/opacity only
+   ✓ Critical CSS - Prevent layout shift
+   ✓ Reduce paint - Isolate repaints
+   ✓ Skeleton screens - Prevent CLS
+   ✓ Mobile optimization - Reduce effects
+   ✓ Accessibility - Reduced motion support
+
+   NEXT STEPS:
+   - Add resource hints to HTML <head>
+   - Implement lazy loading in JavaScript
+   - Compress/minify in build process
+   - Add fetchpriority="high" to hero images
+   - Measure with Lighthouse/WebPageTest
+   ======================================== */

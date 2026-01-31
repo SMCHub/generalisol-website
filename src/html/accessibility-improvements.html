@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<!--
+/**
+ * ACCESSIBILITY & CODE QUALITY IMPROVEMENTS
+ * GeneralISOL Website - WCAG 2.1 AA Compliant
+ *
+ * This template demonstrates best practices for:
+ * - Semantic HTML5 structure
+ * - ARIA attributes
+ * - Keyboard navigation
+ * - Screen reader optimization
+ * - Form accessibility
+ * - Color contrast
+ */
+-->
+<html lang="de" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>General Isolierungen GmbH | Professionelle Isolierungen in Wollerau</title>
+    <meta name="description" content="Ihr Spezialist für Isolierungen von Sanitäranlagen, Lüftungs- und Heizungssystemen in Wollerau. Maßgeschneiderte und energieeffiziente Dämmungslösungen für Ihr Gebäude.">
+
+    <!-- ========================================
+         ACCESSIBILITY IMPROVEMENTS
+         ======================================== -->
+
+    <!-- Color scheme preference -->
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#1e40af" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1a1f2e" media="(prefers-color-scheme: dark)">
+
+    <!-- Preload critical resources with proper priorities -->
+    <link rel="preload" href="/src/css/critical-optimized.css" as="style" fetchpriority="high">
+    <link rel="preload" href="/src/js/core-web-vitals.js" as="script" fetchpriority="high">
+    <link rel="preload" href="/logo.svg" as="image" type="image/svg+xml">
+
+    <!-- Stylesheets with media optimization -->
+    <link rel="stylesheet" href="/src/css/critical-optimized.css" media="all">
+    <link rel="stylesheet" href="/src/css/performance-optimizations.css" media="all">
+    <link rel="stylesheet" href="/src/css/advanced-animations.css" media="all">
+
+    <!-- Schema.org Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "General Isolierungen GmbH",
+        "description": "Professionelle Isolierungen von Sanitäranlagen, Lüftungs- und Heizungssystemen",
+        "url": "https://www.generalisol.ch",
+        "telephone": "+41-XX-XXX-XX-XX",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Musterstrasse 123",
+            "addressLocality": "Wollerau",
+            "postalCode": "8832",
+            "addressRegion": "SZ",
+            "addressCountry": "CH"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "47.1928",
+            "longitude": "8.7172"
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "08:00",
+                "closes": "17:00"
+            }
+        ],
+        "sameAs": [
+            "https://www.linkedin.com/company/generalisol",
+            "https://www.facebook.com/generalisol"
+        ]
+    }
+    </script>
+</head>
+
+<body>
+    <!-- ========================================
+         SKIP TO CONTENT LINK
+         For keyboard navigation accessibility
+         ======================================== -->
+    <a href="#main-content" class="skip-to-content">
+        Zum Hauptinhalt springen
+    </a>
+
+    <!-- ========================================
+         HEADER WITH SEMANTIC HTML & ARIA
+         ======================================== -->
+    <header role="banner">
+        <nav role="navigation" aria-label="Hauptnavigation">
+            <div class="nav-container">
+                <!-- Logo with proper alt text -->
+                <a href="/" class="logo-container" aria-label="Zur Startseite">
+                    <img src="/logo.svg" alt="General Isolierungen GmbH Logo" width="200" height="60" loading="eager" fetchpriority="high">
+                </a>
+
+                <!-- Mobile menu button with proper ARIA -->
+                <button
+                    class="mobile-menu-btn"
+                    aria-label="Menü öffnen"
+                    aria-expanded="false"
+                    aria-controls="mobile-menu"
+                    type="button">
+                    <span class="hamburger-line" aria-hidden="true"></span>
+                    <span class="hamburger-line" aria-hidden="true"></span>
+                    <span class="hamburger-line" aria-hidden="true"></span>
+                </button>
+
+                <!-- Desktop navigation with proper structure -->
+                <ul class="nav-menu" role="menubar">
+                    <li role="none">
+                        <a href="/" class="nav-link" role="menuitem" aria-current="page">
+                            Startseite
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="/leistungen.html" class="nav-link" role="menuitem">
+                            Leistungen
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="/ueber-uns.html" class="nav-link" role="menuitem">
+                            Über uns
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="/kontakt.html" class="nav-link" role="menuitem">
+                            Kontakt
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ========================================
+         MAIN CONTENT WITH SEMANTIC SECTIONS
+         ======================================== -->
+    <main id="main-content" role="main">
+
+        <!-- Hero Section with proper heading hierarchy -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="container">
+                <h1 id="hero-title" class="gradient-text">
+                    Professionelle Isolierungen in Wollerau
+                </h1>
+                <p class="hero-subtitle">
+                    Ihr Spezialist für energieeffiziente Dämmungslösungen
+                </p>
+
+                <!-- CTA with descriptive text -->
+                <a href="/kontakt.html" class="cta-button" role="button">
+                    Jetzt Beratung anfragen
+                    <span class="sr-only">(öffnet Kontaktformular)</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Services Section with proper ARIA -->
+        <section class="services-section" aria-labelledby="services-title">
+            <div class="container">
+                <h2 id="services-title">Unsere Leistungen</h2>
+
+                <!-- Service Cards as articles -->
+                <div class="service-grid" role="list">
+                    <article class="service-card stagger-animation" role="listitem">
+                        <div class="service-icon" aria-hidden="true">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <title>Sanitäranlagen Icon</title>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                        </div>
+                        <h3>Sanitäranlagen</h3>
+                        <p>
+                            Professionelle Isolierung von Wasserleitungen,
+                            Abwassersystemen und sanitären Einrichtungen.
+                        </p>
+                        <a href="/leistungen.html#sanitaer" class="learn-more" aria-label="Mehr über Sanitäranlagen erfahren">
+                            Mehr erfahren →
+                        </a>
+                    </article>
+
+                    <article class="service-card stagger-animation" role="listitem">
+                        <div class="service-icon" aria-hidden="true">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <title>Lüftungssysteme Icon</title>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"/>
+                            </svg>
+                        </div>
+                        <h3>Lüftungssysteme</h3>
+                        <p>
+                            Isolierung von Lüftungskanälen und -anlagen
+                            für optimale Luftqualität und Energieeffizienz.
+                        </p>
+                        <a href="/leistungen.html#lueftung" class="learn-more" aria-label="Mehr über Lüftungssysteme erfahren">
+                            Mehr erfahren →
+                        </a>
+                    </article>
+
+                    <article class="service-card stagger-animation" role="listitem">
+                        <div class="service-icon" aria-hidden="true">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <title>Heizungssysteme Icon</title>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <h3>Heizungssysteme</h3>
+                        <p>
+                            Wärmedämmung für Heizungsrohre und -anlagen
+                            zur Minimierung von Energieverlusten.
+                        </p>
+                        <a href="/leistungen.html#heizung" class="learn-more" aria-label="Mehr über Heizungssysteme erfahren">
+                            Mehr erfahren →
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form with Full Accessibility -->
+        <section class="contact-section" aria-labelledby="contact-title">
+            <div class="container">
+                <h2 id="contact-title">Kontaktieren Sie uns</h2>
+
+                <form action="/api/contact" method="POST" class="contact-form" novalidate>
+                    <!-- Name field with proper label association -->
+                    <div class="form-group">
+                        <label for="name" class="form-label">
+                            Name
+                            <abbr title="erforderlich" aria-label="erforderlich">*</abbr>
+                        </label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            class="form-input"
+                            required
+                            aria-required="true"
+                            aria-describedby="name-error"
+                            autocomplete="name">
+                        <span id="name-error" class="error-message" role="alert" aria-live="polite"></span>
+                    </div>
+
+                    <!-- Email field with proper validation -->
+                    <div class="form-group">
+                        <label for="email" class="form-label">
+                            E-Mail
+                            <abbr title="erforderlich" aria-label="erforderlich">*</abbr>
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            class="form-input"
+                            required
+                            aria-required="true"
+                            aria-describedby="email-error email-hint"
+                            autocomplete="email"
+                            inputmode="email">
+                        <span id="email-hint" class="form-hint">Wir verwenden Ihre E-Mail nur zur Kontaktaufnahme</span>
+                        <span id="email-error" class="error-message" role="alert" aria-live="polite"></span>
+                    </div>
+
+                    <!-- Phone field (optional) -->
+                    <div class="form-group">
+                        <label for="phone" class="form-label">
+                            Telefon
+                        </label>
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            class="form-input"
+                            aria-describedby="phone-hint"
+                            autocomplete="tel"
+                            inputmode="tel">
+                        <span id="phone-hint" class="form-hint">Optional - für Rückrufe</span>
+                    </div>
+
+                    <!-- Message field with character counter -->
+                    <div class="form-group">
+                        <label for="message" class="form-label">
+                            Nachricht
+                            <abbr title="erforderlich" aria-label="erforderlich">*</abbr>
+                        </label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            class="form-textarea"
+                            rows="5"
+                            required
+                            aria-required="true"
+                            aria-describedby="message-error message-counter"
+                            minlength="10"
+                            maxlength="500"></textarea>
+                        <div id="message-counter" class="form-hint" aria-live="polite">
+                            <span id="char-count">0</span> / 500 Zeichen
+                        </div>
+                        <span id="message-error" class="error-message" role="alert" aria-live="polite"></span>
+                    </div>
+
+                    <!-- Submit button with loading state -->
+                    <button
+                        type="submit"
+                        class="cta-button submit-button"
+                        aria-live="polite"
+                        aria-busy="false">
+                        Nachricht senden
+                    </button>
+
+                    <!-- Success/Error messages -->
+                    <div id="form-status" role="status" aria-live="polite" class="form-status"></div>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================
+         FOOTER WITH PROPER STRUCTURE
+         ======================================== -->
+    <footer role="contentinfo" aria-labelledby="footer-title">
+        <div class="container">
+            <h2 id="footer-title" class="sr-only">Fußbereich</h2>
+
+            <div class="footer-grid">
+                <!-- Company info -->
+                <section class="footer-column" aria-labelledby="company-title">
+                    <h3 id="company-title">General Isolierungen GmbH</h3>
+                    <address>
+                        Musterstrasse 123<br>
+                        8832 Wollerau<br>
+                        Schweiz
+                    </address>
+                </section>
+
+                <!-- Quick links -->
+                <nav class="footer-column" aria-labelledby="footer-nav-title">
+                    <h3 id="footer-nav-title">Navigation</h3>
+                    <ul role="list">
+                        <li><a href="/" class="footer-link">Startseite</a></li>
+                        <li><a href="/leistungen.html" class="footer-link">Leistungen</a></li>
+                        <li><a href="/ueber-uns.html" class="footer-link">Über uns</a></li>
+                        <li><a href="/kontakt.html" class="footer-link">Kontakt</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Legal links -->
+                <nav class="footer-column" aria-labelledby="legal-title">
+                    <h3 id="legal-title">Rechtliches</h3>
+                    <ul role="list">
+                        <li><a href="/impressum.html" class="footer-link">Impressum</a></li>
+                        <li><a href="/datenschutz.html" class="footer-link">Datenschutz</a></li>
+                        <li><a href="/agb.html" class="footer-link">AGB</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p>
+                    <small>&copy; <time datetime="2026">2026</time> General Isolierungen GmbH. Alle Rechte vorbehalten.</small>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================
+         SCREEN READER ONLY CONTENT
+         ======================================== -->
+    <style>
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        .skip-to-content {
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1e40af;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            z-index: 9999;
+            transition: top 0.3s ease;
+        }
+
+        .skip-to-content:focus {
+            top: 1rem;
+            outline: 2px solid white;
+            outline-offset: 2px;
+        }
+    </style>
+
+    <!-- Scripts with proper defer/async -->
+    <script src="/src/js/core-web-vitals.js" defer></script>
+    <script src="/src/js/advanced-interactions.js" defer></script>
+    <script src="/src/js/form-validation.js" defer></script>
+
+</body>
+</html>
